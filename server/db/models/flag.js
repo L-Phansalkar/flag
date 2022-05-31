@@ -4,20 +4,7 @@ const db = require('../db')
 const Flag = db.define('flag', {
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
-    isIn: [
-      [
-        'Lesbian',
-        'Gay',
-        'Bisexual',
-        'Polyamorous',
-        'Transgender',
-        'Intersex',
-        'Asexual',
-        'Aromantic',
-        'Pride'
-      ]
-    ]
+    allowNull: false
   },
   year: {
     type: Sequelize.INTEGER,
