@@ -14,6 +14,15 @@ export class AllFlags extends React.Component {
     return (
       <div>
         <h1>heresflagssie</h1>
+        {flags.map(flag => (
+          <div key={flag.id}>
+            <h1>
+              <Link to={`/flags/${flag.id}`}>
+                {flag.name} {flag.year}
+              </Link>
+            </h1>
+          </div>
+        ))}
       </div>
     )
   }

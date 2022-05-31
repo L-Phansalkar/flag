@@ -13,7 +13,8 @@ async function seed() {
   ])
 
   const flags = await Promise.all([
-    Flag.create({name: 'Lesbian', year: '1992'})
+    Flag.create({name: 'Lesbian', year: '1992'}),
+    Flag.create({name: 'Transgender', year: '2005'})
   ])
 
   console.log(`seeded ${users.length} users`)

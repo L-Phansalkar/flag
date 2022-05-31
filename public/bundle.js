@@ -168,8 +168,14 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var flags = this.props.flags;
-      console.log("isithere", flags);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "heresflagssie"));
+      console.log('isithere', flags);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "heresflagssie"), flags.map(function (flag) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: flag.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/flags/".concat(flag.id)
+        }, flag.name, " ", flag.year)));
+      }));
     }
   }]);
 
@@ -389,10 +395,10 @@ var Navbar = function Navbar(_ref) {
   }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/login"
   }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/signup"
-  }, "Admin Sign Up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/"
+  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/flags"
-  }, " hehehefled "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+  }, " FLAGS "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
 };
 /**
  * CONTAINER
@@ -688,7 +694,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 var GET_ALL_FLAGS = 'GET_ALL_FLAGS';
-var GET_SINGLE_FLAG = "GET_SINGLE_FLAG";
+var GET_SINGLE_FLAG = 'GET_SINGLE_FLAG';
 
 var setFlags = function setFlags(flags) {
   return {
@@ -718,7 +724,7 @@ var getAllFlags = function getAllFlags() {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/flags");
+                return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/flags');
 
               case 2:
                 _ref2 = _context.sent;
