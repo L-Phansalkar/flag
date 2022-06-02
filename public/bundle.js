@@ -258,7 +258,7 @@ function (_React$Component) {
     value: function render() {
       var flags = this.props.flags;
       var chosenFlag = flags[Math.floor(Math.random() * flags.length)];
-      console.log("chosenFlag", chosenFlag);
+      console.log('chosenFlag', chosenFlag);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "i am flagle here he ror");
     }
   }]);
@@ -401,7 +401,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Home = function Home() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "some things u can do:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "browse all flags by clicking the flags button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "dont know much about pride flags? Play Pride-le (yes, kind of like Wordle) to learn about a new flag everyday "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Flagle__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "just here to hook into the API?"));
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "some things u can do:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "browse all flags by clicking the flags button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "dont know much about pride flags? Play Pride-le (yes, kind of like Wordle) to learn about a new flag everyday", ' '), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Flagle__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "just here to hook into the API?"));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Home);
 
@@ -475,7 +475,13 @@ __webpack_require__.r(__webpack_exports__);
 var Navbar = function Navbar(_ref) {
   var handleClick = _ref.handleClick,
       isLoggedIn = _ref.isLoggedIn;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "PRIDE FLAG API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, isLoggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "navbar"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "titleimage",
+    src: "https://media.them.us/photos/60bfbb9ac8e56606be649a03/16:9/w_1280,c_limit/189533875_2906094233043871_8133455861604650497_n1-e1623080969136.jpg",
+    alt: "progress pride flag"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "PRIDE FLAG API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, isLoggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/home"
   }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/flags"

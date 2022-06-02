@@ -5,7 +5,12 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
+  <div id="navbar">
+    <img
+      id="titleimage"
+      src="https://media.them.us/photos/60bfbb9ac8e56606be649a03/16:9/w_1280,c_limit/189533875_2906094233043871_8133455861604650497_n1-e1623080969136.jpg"
+      alt="progress pride flag"
+    />
     <h1>PRIDE FLAG API</h1>
     <nav>
       {isLoggedIn ? (

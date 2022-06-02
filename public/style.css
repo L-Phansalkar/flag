@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: monospace;
 }
 
 a {
@@ -18,4 +18,13 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: column;
+}
+
+#titleimage {
+  display: inline;
 }
