@@ -1,14 +1,16 @@
 body {
   font-family: monospace;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
   text-decoration: none;
 }
 
-label {
+/* label {
   display: block;
-}
+} */
 
 nav a {
   display: inline-block;
@@ -20,11 +22,21 @@ form div {
   display: inline-block;
 }
 
-#navbar {
+/* #navbar {
   display: flex;
   flex-direction: column;
-}
+} */
 
 #titleimage {
   display: inline;
+  width: 10%;
 }
+#pfapi {
+  display: inline-block;
+  width: 80%;
+  text-align: center;
+}
+
+/* #nav {
+  display:block;
+} */

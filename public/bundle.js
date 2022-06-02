@@ -172,9 +172,11 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "heresflagssie"), flags.map(function (flag) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: flag.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "indiflag"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/flags/".concat(flag.id)
-        }, flag.name, " ", flag.year)));
+        }, flag.name, " ", flag.year))));
       }));
     }
   }]);
@@ -481,7 +483,9 @@ var Navbar = function Navbar(_ref) {
     id: "titleimage",
     src: "https://media.them.us/photos/60bfbb9ac8e56606be649a03/16:9/w_1280,c_limit/189533875_2906094233043871_8133455861604650497_n1-e1623080969136.jpg",
     alt: "progress pride flag"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "PRIDE FLAG API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, isLoggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    id: "pfapi"
+  }, "PRIDE FLAG API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, isLoggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/home"
   }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/flags"
@@ -494,7 +498,7 @@ var Navbar = function Navbar(_ref) {
     to: "/"
   }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/flags"
-  }, " FLAGS "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+  }, " FLAGS "))));
 };
 /**
  * CONTAINER
