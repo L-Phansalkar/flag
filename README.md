@@ -1,11 +1,11 @@
 # PRIDE FLAG API
 
 howdy this is ur captain gender-outlaw speaking buckle up for a fun-ass pride month with plenty of mixed metaphors and ye, u guessed it, a grand ole' database of pride flags mighty and bright.
-
-https://pr1deflags.herokuapp.com/
-
-currently under construction but heres the vision:
 <br></br>
+https://pr1deflags.herokuapp.com/
+<br></br>
+currently under construction but heres the vision:
+
 a searchable database of pride flags containing images, creators, years, titles
 <br></br>
 public API to hook into to use specific pride flag images for your needs
