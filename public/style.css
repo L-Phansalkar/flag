@@ -2,30 +2,27 @@ body {
   font-family: monospace;
   display: flex;
   flex-direction: column;
+  background-color: rgb(90, 134, 185);
 }
 
 a {
   text-decoration: none;
 }
 
-/* label {
-  display: block;
-} */
-
-nav a {
-  display: inline-block;
-  margin: 1em;
+#navbar {
+  display: flex;
+  flex-direction: row-reverse;
+}
+nav {
+  display: inline;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
 }
-
-/* #navbar {
-  display: flex;
-  flex-direction: column;
-} */
 
 #titleimage {
   display: inline;
@@ -36,7 +33,23 @@ form div {
   width: 80%;
   text-align: center;
 }
-
-/* #nav {
-  display:block;
-} */
+#allflags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+#allflagstitle {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+#flagmage {
+  width: 60%;
+}
+#oneflag {
+  display: inline;
+  width: 30%;
+  font-size: x-large;
+  text-align: center;
+  justify-content: center;
+}

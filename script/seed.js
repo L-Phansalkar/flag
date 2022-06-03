@@ -13,8 +13,17 @@ async function seed() {
   ])
 
   const flags = await Promise.all([
-    Flag.create({name: 'Lesbian', year: '2015'}),
-    Flag.create({name: 'Transgender', year: '2005'})
+    Flag.create({
+      name: 'Lesbian',
+      year: '2015',
+      imageurl: 'https://pbs.twimg.com/media/D13s_gCXgAAgmjw.jpg'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '2005',
+      imageurl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Transgender_Pride_flag.svg/1200px-Transgender_Pride_flag.svg.png'
+    })
   ])
 
   console.log(`seeded ${users.length} users`)

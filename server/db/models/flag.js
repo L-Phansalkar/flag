@@ -24,6 +24,10 @@ const Flag = db.define('flag', {
   creator: {
     type: Sequelize.STRING
   },
+  imageurl: {
+    type: Sequelize.STRING,
+    unique: true
+  },
   id: {
     type: Sequelize.STRING,
     primaryKey: true,

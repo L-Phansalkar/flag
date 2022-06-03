@@ -169,14 +169,21 @@ function (_React$Component) {
     value: function render() {
       var flags = this.props.flags;
       console.log('isithere', flags);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "heresflagssie"), flags.map(function (flag) {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "allflags"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        id: "allflagstitle"
+      }, "ALL PRIDE FLAGS"), flags.map(function (flag) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          id: "oneflag",
           key: flag.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          id: "indiflag"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/flags/".concat(flag.id)
-        }, flag.name, " ", flag.year))));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, flag.name, " ", flag.year)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          id: "flagmage",
+          src: flag.imageurl,
+          alt: flag.id
+        }));
       }));
     }
   }]);
@@ -494,9 +501,9 @@ var Navbar = function Navbar(_ref) {
     onClick: handleClick
   }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/login"
-  }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+  }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/"
-  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+  }, "Home"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/flags"
   }, " FLAGS "))));
 };

@@ -12,17 +12,17 @@ export class AllFlags extends React.Component {
     const {flags} = this.props
     console.log('isithere', flags)
     return (
-      <div>
-        <h1>heresflagssie</h1>
+      <div id="allflags">
+        <h1 id="allflagstitle">ALL PRIDE FLAGS</h1>
         {flags.map(flag => (
-          <div key={flag.id}>
-            <div id="indiflag">
-              <h1>
-                <Link to={`/flags/${flag.id}`}>
-                  {flag.name} {flag.year}
-                </Link>
-              </h1>
-            </div>
+          <div id="oneflag" key={flag.id}>
+            <Link to={`/flags/${flag.id}`}>
+              <b>
+                {flag.name} {flag.year}
+              </b>
+            </Link>
+            <br />
+            <img id="flagmage" src={flag.imageurl} alt={flag.id} />
           </div>
         ))}
       </div>
