@@ -54,3 +54,24 @@ form div {
   justify-content: center;
   block-size: fit-content;
 }
+
+#imabox.Muibox {
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  margin: auto;
+}
+
+#loaded {
+  background-size: cover;
+  min-width: 300px;
+  max-width: 800px;
+  min-height: 350px;
+  max-height: 500px;
+  margin: auto;
+}
+
+.card {
+  min-height: 150px;
+  max-height: 400px;
+}
