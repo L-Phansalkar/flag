@@ -52,4 +52,5 @@ form div {
   font-size: x-large;
   text-align: center;
   justify-content: center;
+  block-size: fit-content;
 }

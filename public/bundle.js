@@ -268,7 +268,11 @@ function (_React$Component) {
       var flags = this.props.flags;
       var chosenFlag = flags[Math.floor(Math.random() * flags.length)];
       console.log('chosenFlag', chosenFlag);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "i am flagle here he ror");
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, chosenFlag ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "flagmage",
+        src: chosenFlag.imageurl,
+        alt: chosenFlag.id
+      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "L O A D I N G"));
     }
   }]);
 
