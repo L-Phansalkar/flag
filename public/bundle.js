@@ -419,6 +419,15 @@ var MenuProps = {
   }
 };
 var names = ['Lesbian', 'Gay', 'Bisexual', 'Transgender', 'Queer', 'Intersex', 'Aromantic', 'Asexual', 'NonBinary', 'LGBTQIA+ Pride'];
+var tileSet = [1, 2, 3, 4, 5, 6];
+
+var randomTileFunc = function randomTileFunc(array) {
+  var random = Math.floor(Math.random() * array.length);
+  var randomTileNum = array.splice(random, 1)[0];
+  console.log(randomTileNum);
+  return randomTileNum;
+};
+
 var attempts = 1;
 var solve = false;
 function MultipleNSelect(props) {
@@ -433,8 +442,8 @@ function MultipleNSelect(props) {
     typeof value === 'string' ? value.split(',') : value);
 
     if (event.target.value === props.chosenName) {
-      var tile = document.getElementById("num1");
-      tile.classList.add("hidden");
+      var tile = document.getElementById("num".concat(randomTileFunc(tileSet)));
+      tile.classList.add('hidden');
       solve = true;
       attempts++;
       console.log('u dit', attempts);
@@ -443,6 +452,10 @@ function MultipleNSelect(props) {
       console.log('mannnyyy');
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
     } else {
+      var _tile = document.getElementById("num".concat(attempts));
+
+      _tile.classList.add('hidden');
+
       attempts++; // const tile = document.getElementById(`num${attempts}`);
       // tile.classList.add("hidden")
 
