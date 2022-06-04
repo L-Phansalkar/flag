@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import Box from '@mui/material/Box'
 import {styled} from '@mui/material/styles'
+import FlagleNameDropdown from './FlagleNameDropdown'
 
 const Item = styled(Card)(({theme}) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -59,6 +60,10 @@ export class Flagle extends React.Component {
                 </Grid>
               </Grid>
             </Box>
+            <FlagleNameDropdown
+              chosenName={chosenFlag.name}
+              chosenYear={chosenFlag.year}
+            />
           </div>
         ) : (
           <div>L O A D I N G</div>
