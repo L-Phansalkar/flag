@@ -313,32 +313,38 @@ function (_React$Component) {
         item: true,
         xs: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
-        className: "card"
+        className: "card",
+        id: "num1"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         item: true,
         xs: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
-        className: "card"
+        className: "card",
+        id: "num2"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         item: true,
         xs: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
-        className: "card"
+        className: "card",
+        id: "num3"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         item: true,
         xs: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
-        className: "card"
+        className: "card",
+        id: "num4"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         item: true,
         xs: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
-        className: "card"
+        className: "card",
+        id: "num5"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         item: true,
         xs: 4
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
-        className: "card"
+        className: "card",
+        id: "num6"
       })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FlagleNameDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
         chosenName: chosenFlag.name,
         chosenYear: chosenFlag.year
@@ -413,7 +419,7 @@ var MenuProps = {
   }
 };
 var names = ['Lesbian', 'Gay', 'Bisexual', 'Transgender', 'Queer', 'Intersex', 'Aromantic', 'Asexual', 'NonBinary', 'LGBTQIA+ Pride'];
-var attempts = 0;
+var attempts = 1;
 var solve = false;
 function MultipleNSelect(props) {
   var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__["useState"]([]),
@@ -427,19 +433,23 @@ function MultipleNSelect(props) {
     typeof value === 'string' ? value.split(',') : value);
 
     if (event.target.value === props.chosenName) {
+      var tile = document.getElementById("num1");
+      tile.classList.add("hidden");
       solve = true;
       attempts++;
-      console.log("u dit", attempts);
+      console.log('u dit', attempts);
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
-    } else if (attempts === 5) {
-      console.log("mannnyyy");
+    } else if (attempts === 6) {
+      console.log('mannnyyy');
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
     } else {
-      attempts++;
-      console.log("u NO dit", attempts);
+      attempts++; // const tile = document.getElementById(`num${attempts}`);
+      // tile.classList.add("hidden")
+
+      console.log('u NO dit', attempts);
     }
 
-    console.log("clicked", event.target.value, "real", props.chosenName);
+    console.log('clicked', event.target.value, 'real', props.chosenName);
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_FormControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -537,23 +547,23 @@ function MultipleYSelect(props) {
     typeof value === 'string' ? value.split(',') : value);
 
     if (event.target.value === props.chosenYear) {
-      console.log("u dit");
+      console.log('u dit');
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
     } else if (attempts + props.attempts === 5) {
-      console.log("FAIL");
+      console.log('FAIL');
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
     } else {
       attempts++;
       var hint = props.chosenYear - event.target.value;
 
       if (hint > 0) {
-        console.log("hint", "+");
+        console.log('hint', '+');
       } else if (hint < 0) {
-        console.log("hint", "-");
+        console.log('hint', '-');
       }
     }
 
-    console.log("clicked", event.target.value, "real", props.chosenYear, "attempts", attempts + props.attempts);
+    console.log('clicked', event.target.value, 'real', props.chosenYear, 'attempts', attempts + props.attempts);
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_FormControl__WEBPACK_IMPORTED_MODULE_5__["default"], {

@@ -64,14 +64,29 @@ form div {
 
 #loaded {
   background-size: cover;
-  min-width: 300px;
-  max-width: 800px;
+  width: 80%;
+  height: 30%;
+  max-width: 700px;
+  /* min-width: 300px;
+  
   min-height: 350px;
-  max-height: 500px;
+  max-height: 500px; */
   margin: auto;
 }
 
 .card {
-  min-height: 150px;
-  max-height: 400px;
+  min-height: 200px;
+  max-height: 600px;
+}
+#num1,
+#num2,
+#num3,
+#num4,
+#num5,
+#num6 {
+  background-color: white;
+}
+
+.hidden {
+  display: none;
 }

@@ -31,7 +31,7 @@ const names = [
   'LGBTQIA+ Pride'
 ]
 
-var attempts = 0
+var attempts = 1
 var solve = false
 export default function MultipleNSelect(props) {
   const [personName, setPersonName] = React.useState([])
@@ -42,15 +42,19 @@ export default function MultipleNSelect(props) {
       typeof value === 'string' ? value.split(',') : value
     )
     if (event.target.value === props.chosenName) {
+      const tile = document.getElementById('num1')
+      tile.classList.add('hidden')
       solve = true
       attempts++
       console.log('u dit', attempts)
       return <div>one</div>
-    } else if (attempts === 5) {
+    } else if (attempts === 6) {
       console.log('mannnyyy')
       return <div>one</div>
     } else {
       attempts++
+      // const tile = document.getElementById(`num${attempts}`);
+      // tile.classList.add("hidden")
       console.log('u NO dit', attempts)
     }
 

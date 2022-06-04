@@ -41,22 +41,22 @@ export class Flagle extends React.Component {
             >
               <Grid container spacing={0}>
                 <Grid item xs={4}>
-                  <Item className="card" />
+                  <Item className="card" id="num1" />
                 </Grid>
                 <Grid item xs={4}>
-                  <Item className="card" />
+                  <Item className="card" id="num2" />
                 </Grid>
                 <Grid item xs={4}>
-                  <Item className="card" />
+                  <Item className="card" id="num3" />
                 </Grid>
                 <Grid item xs={4}>
-                  <Item className="card" />
+                  <Item className="card" id="num4" />
                 </Grid>
                 <Grid item xs={4}>
-                  <Item className="card" />
+                  <Item className="card" id="num5" />
                 </Grid>
                 <Grid item xs={4}>
-                  <Item className="card" />
+                  <Item className="card" id="num6" />
                 </Grid>
               </Grid>
             </Box>
