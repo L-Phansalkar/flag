@@ -28,6 +28,9 @@ export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
   }
+  componentDidMount() {
+    this.props.getFlags()
+  }
   render() {
     const {flags} = this.props
     var chosenFlag = flags[Math.floor(Math.random() * flags.length)]

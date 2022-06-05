@@ -18,13 +18,17 @@ const revealRandomTile = array => {
 var attempts = 0
 
 //END//
-var gotName = false
 var end = false
+var gotName = false
 
 //NAME correct, incorrect//
 const onNCorrect = guessName => {
   console.log('corrrect', guessName)
   gotName = true
+  const dropdown = document.getElementById('nameChoice')
+  dropdown.classList.add('hidden')
+  const dropYear = document.getElementById('yearChoice')
+  dropYear.classList.remove('hidden')
 }
 
 const onNIncorrect = guessName => {
@@ -34,7 +38,8 @@ const onNIncorrect = guessName => {
 //YEAR correct, incorrect//
 const onYCorrect = guessYear => {
   console.log('corrrect', guessYear)
-  end = true
+  const dropYear = document.getElementById('yearChoice')
+  dropYear.classList.add('hidden')
 }
 
 const onYIncorrect = guessYear => {
@@ -64,6 +69,7 @@ const onNGuess = (guessName, props) => {
   revealRandomTile(tileSet)
   attempts++
   addGuess(guessName)
+  console.log('guessArr', guesses)
 }
 const onYGuess = (guessYear, props) => {
   const dayString = getDayString()
@@ -71,6 +77,7 @@ const onYGuess = (guessYear, props) => {
   revealRandomTile(tileSet)
   attempts++
   addGuess(props.chosenFlag.name, guessYear)
+  console.log('guessArr', guesses)
 }
 
 //style//
@@ -123,31 +130,34 @@ const CountryGuess = styled.div`
 
 //the actual exported function//
 const FlagleNameDropdown = ({disabled, ...props}) => {
+  var namesList = [
+    {val: 'Lesbian', disabled: true},
+    {val: 'Gay', disabled: true},
+    {val: 'Bisexual', disabled: true},
+    {val: 'Transgender', disabled: true},
+    {val: 'Queer', disabled: true},
+    {val: 'Intersex', disabled: true},
+    {val: 'Aromantic', disabled: true},
+    {val: 'Asexual', disabled: true},
+    {val: 'Nonbinary', disabled: true},
+    {val: 'LGBTQIA+ Pride', disabled: true}
+  ]
   const handleNSubmit = guess => {
     guess.value === props.chosenFlag.name
       ? onNCorrect(guess.value)
       : onNIncorrect(guess.value)
     onNGuess(guess.value, props)
   }
-
-  const namesList = [
-    'Lesbian',
-    'Gay',
-    'Bisexual',
-    'Transgender',
-    'Queer',
-    'Intersex',
-    'Aromantic',
-    'Asexual',
-    'NonBinary',
-    'LGBTQIA+ Pride'
-  ].map(val => ({label: val, value: val}))
   return (
     <StyledSelect
-      options={namesList}
+      id="nameChoice"
+      options={namesList.map(value => ({
+        label: value.val,
+        value: value.val,
+        disabled: value.disabled
+      }))}
       onChange={handleNSubmit}
       placeholder="Guess the flag NAME!"
-      isOptionDisabled={() => disabled}
     />
   )
 }
@@ -159,7 +169,6 @@ const FlagleYearDropdown = ({disabled, ...props}) => {
       : onYIncorrect(guess.value)
     onYGuess(guess.value, props)
   }
-
   const yearList = [
     '2001',
     '2002',
@@ -172,8 +181,11 @@ const FlagleYearDropdown = ({disabled, ...props}) => {
     '2009',
     '2010'
   ].map(val => ({label: val, value: val}))
+
   return (
     <StyledSelect
+      id="yearChoice"
+      className="hidden"
       options={yearList}
       onChange={handleYSubmit}
       placeholder="Guess the flag YEAR!"

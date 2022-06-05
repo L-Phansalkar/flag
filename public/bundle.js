@@ -277,7 +277,7 @@ var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__["styled"])(_
 }); //date n time//
 
 var getDayString = function getDayString() {
-  var date = luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().toFormat("yyyy-MM-dd");
+  var date = luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().toFormat('yyyy-MM-dd');
   return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().weekday);
 };
 
@@ -293,6 +293,11 @@ function (_React$Component) {
   }
 
   _createClass(Flagle, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.getFlags();
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
@@ -409,7 +414,7 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  display:flex; \n  position: relative;\n  background-color: #dddddd;\n  border-radius: 3px;\n  grid-column: 1 / span 6;\n  margin-right: 2px;\n  text-overflow: ellipsis;\n  align-items: center;\n  justify-content: center;\n  @media (prefers-color-scheme: dark) {\n    background-color: #1F2023;\n    color: #DADADA\n}\n"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  position: relative;\n  background-color: #dddddd;\n  border-radius: 3px;\n  grid-column: 1 / span 6;\n  margin-right: 2px;\n  text-overflow: ellipsis;\n  align-items: center;\n  justify-content: center;\n  @media (prefers-color-scheme: dark) {\n    background-color: #1f2023;\n    color: #dadada;\n  }\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -429,7 +434,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  display:flex; \n  padding:0.25rem;\n  position: relative;\n  background-color: #dddddd;\n  border-radius: 3px;\n  grid-column: 9 / span 1;\n  align-items: center;\n  justify-content: center;\n  @media (prefers-color-scheme: dark) {\n    background-color: #1F2023;\n    color: #DADADA\n}"]);
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  padding: 0.25rem;\n  position: relative;\n  background-color: #dddddd;\n  border-radius: 3px;\n  grid-column: 9 / span 1;\n  align-items: center;\n  justify-content: center;\n  @media (prefers-color-scheme: dark) {\n    background-color: #1f2023;\n    color: #dadada;\n  }\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -469,12 +474,16 @@ var revealRandomTile = function revealRandomTile(array) {
 
 var attempts = 0; //END//
 
-var gotName = false;
-var end = false; //NAME correct, incorrect//
+var end = false;
+var gotName = false; //NAME correct, incorrect//
 
 var onNCorrect = function onNCorrect(guessName) {
   console.log('corrrect', guessName);
   gotName = true;
+  var dropdown = document.getElementById('nameChoice');
+  dropdown.classList.add('hidden');
+  var dropYear = document.getElementById('yearChoice');
+  dropYear.classList.remove('hidden');
 };
 
 var onNIncorrect = function onNIncorrect(guessName) {
@@ -484,7 +493,8 @@ var onNIncorrect = function onNIncorrect(guessName) {
 
 var onYCorrect = function onYCorrect(guessYear) {
   console.log('corrrect', guessYear);
-  end = true;
+  var dropYear = document.getElementById('yearChoice');
+  dropYear.classList.add('hidden');
 };
 
 var onYIncorrect = function onYIncorrect(guessYear) {
@@ -493,7 +503,7 @@ var onYIncorrect = function onYIncorrect(guessYear) {
 
 
 var getDayString = function getDayString() {
-  var date = luxon__WEBPACK_IMPORTED_MODULE_3__["DateTime"].now().toFormat("yyyy-MM-dd");
+  var date = luxon__WEBPACK_IMPORTED_MODULE_3__["DateTime"].now().toFormat('yyyy-MM-dd');
   return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_3__["DateTime"].now().weekday);
 }; //each guess//
 
@@ -501,7 +511,7 @@ var getDayString = function getDayString() {
 var guesses = [];
 
 var addGuess = function addGuess(Name) {
-  var Year = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "null";
+  var Year = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'null';
   var newGuess = {
     name: Name,
     year: Year
@@ -516,6 +526,7 @@ var onNGuess = function onNGuess(guessName, props) {
   revealRandomTile(tileSet);
   attempts++;
   addGuess(guessName);
+  console.log("guessArr", guesses);
 };
 
 var onYGuess = function onYGuess(guessYear, props) {
@@ -524,6 +535,7 @@ var onYGuess = function onYGuess(guessYear, props) {
   revealRandomTile(tileSet);
   attempts++;
   addGuess(props.chosenFlag.name, guessYear);
+  console.log("guessArr", guesses);
 }; //style//
 
 
@@ -536,24 +548,54 @@ var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
   var disabled = _ref.disabled,
       props = _objectWithoutProperties(_ref, ["disabled"]);
 
+  var namesList = [{
+    val: 'Lesbian',
+    disabled: true
+  }, {
+    val: 'Gay',
+    disabled: true
+  }, {
+    val: 'Bisexual',
+    disabled: true
+  }, {
+    val: 'Transgender',
+    disabled: true
+  }, {
+    val: 'Queer',
+    disabled: true
+  }, {
+    val: 'Intersex',
+    disabled: true
+  }, {
+    val: 'Aromantic',
+    disabled: true
+  }, {
+    val: 'Asexual',
+    disabled: true
+  }, {
+    val: 'Nonbinary',
+    disabled: true
+  }, {
+    val: 'LGBTQIA+ Pride',
+    disabled: true
+  }];
+
   var handleNSubmit = function handleNSubmit(guess) {
     guess.value === props.chosenFlag.name ? onNCorrect(guess.value) : onNIncorrect(guess.value);
     onNGuess(guess.value, props);
   };
 
-  var namesList = ['Lesbian', 'Gay', 'Bisexual', 'Transgender', 'Queer', 'Intersex', 'Aromantic', 'Asexual', 'NonBinary', 'LGBTQIA+ Pride'].map(function (val) {
-    return {
-      label: val,
-      value: val
-    };
-  });
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](StyledSelect, {
-    options: namesList,
+    id: "nameChoice",
+    options: namesList.map(function (value) {
+      return {
+        label: value.val,
+        value: value.val,
+        disabled: value.disabled
+      };
+    }),
     onChange: handleNSubmit,
-    placeholder: "Guess the flag NAME!",
-    isOptionDisabled: function isOptionDisabled() {
-      return disabled;
-    }
+    placeholder: "Guess the flag NAME!"
   });
 };
 
@@ -573,6 +615,8 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
     };
   });
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](StyledSelect, {
+    id: "yearChoice",
+    className: "hidden",
     options: yearList,
     onChange: handleYSubmit,
     placeholder: "Guess the flag YEAR!",
