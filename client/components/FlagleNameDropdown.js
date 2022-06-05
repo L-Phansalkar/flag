@@ -71,27 +71,26 @@ export default function MultipleNSelect(props) {
 
   return (
     <div>
-      <FormControl sx={{m: 1, width: 300}}>
-        <InputLabel id="demo-multiple-name-label">Name</InputLabel>
-        <Select
-          labelId="demo-multiple-name-label"
-          id="demo-multiple-name"
-          value={personName}
-          onChange={handleChange}
-          input={<OutlinedInput label="Name" />}
-          MenuProps={MenuProps}
-        >
-          {names.map(name => (
-            <MenuItem key={name} value={name}>
-              {name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
       {solve ? (
         <FlagleYearDropdown chosenYear={props.chosenYear} attempts={attempts} />
       ) : (
-        <div />
+        <FormControl sx={{m: 1, width: 300}} id="formcontrol">
+          <InputLabel id="demo-multiple-name-label">Name</InputLabel>
+          <Select
+            labelId="demo-multiple-name-label"
+            id="demo-multiple-name"
+            value={personName}
+            onChange={handleChange}
+            input={<OutlinedInput label="Name" />}
+            MenuProps={MenuProps}
+          >
+            {names.map(name => (
+              <MenuItem key={name} value={name}>
+                {name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       )}
     </div>
   )

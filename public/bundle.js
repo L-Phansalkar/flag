@@ -425,7 +425,7 @@ var tileSet = [1, 2, 3, 4, 5, 6];
 var randomTileFunc = function randomTileFunc(array) {
   var random = Math.floor(Math.random() * array.length);
   var randomTileNum = array.splice(random, 1)[0];
-  console.log("rtn", randomTileNum);
+  console.log('rtn', randomTileNum);
   return randomTileNum;
 };
 
@@ -468,11 +468,15 @@ function MultipleNSelect(props) {
     console.log('clicked', event.target.value, 'real', props.chosenName);
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_FormControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, solve ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleYearDropdown__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    chosenYear: props.chosenYear,
+    attempts: attempts
+  }) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_FormControl__WEBPACK_IMPORTED_MODULE_5__["default"], {
     sx: {
       m: 1,
       width: 300
-    }
+    },
+    id: "formcontrol"
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_InputLabel__WEBPACK_IMPORTED_MODULE_3__["default"], {
     id: "demo-multiple-name-label"
   }, "Name"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_Select__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -489,10 +493,7 @@ function MultipleNSelect(props) {
       key: name,
       value: name
     }, name);
-  }))), solve ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleYearDropdown__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    chosenYear: props.chosenYear,
-    attempts: attempts
-  }) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null));
+  }))));
 }
 
 /***/ }),
