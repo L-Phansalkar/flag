@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Select from 'react-select'
 import styled from 'styled-components'
+import {DateTime} from 'luxon'
 
 //random tile func//
 var tileSet = [1, 2, 3, 4, 5, 6]
@@ -16,9 +17,14 @@ const revealRandomTile = array => {
 //number of guesses//
 var attempts = 0
 
+//END//
+var gotName = false
+var end = false
+
 //NAME correct, incorrect//
 const onNCorrect = guessName => {
   console.log('corrrect', guessName)
+  gotName = true
 }
 
 const onNIncorrect = guessName => {
@@ -28,23 +34,43 @@ const onNIncorrect = guessName => {
 //YEAR correct, incorrect//
 const onYCorrect = guessYear => {
   console.log('corrrect', guessYear)
+  end = true
 }
 
 const onYIncorrect = guessYear => {
   console.log('nahhh', guessYear)
 }
 
+//date n time//
+const getDayString = () => {
+  const date = DateTime.now().toFormat('yyyy-MM-dd')
+  return `${date}-${DateTime.now().weekday}`
+}
+
 //each guess//
-const onGuess = (guessName, props) => {
+const guesses = []
+const addGuess = (Name, Year = 'null') => {
+  const newGuess = {
+    name: Name,
+    year: Year
+  }
+  guesses.push(newGuess)
+  return guesses
+}
+
+const onNGuess = (guessName, props) => {
+  const dayString = getDayString()
   console.log('guess', guessName, 'answer', props.chosenFlag.name)
   revealRandomTile(tileSet)
   attempts++
-  addGuess({
-    name: guess,
-    distance: getDistance(guessGeo, answerGeo),
-    direction: getCompassDirection(guessGeo, answerGeo),
-    tile: tileNum
-  })
+  addGuess(guessName)
+}
+const onYGuess = (guessYear, props) => {
+  const dayString = getDayString()
+  console.log('answer', props.chosenFlag.name)
+  revealRandomTile(tileSet)
+  attempts++
+  addGuess(props.chosenFlag.name, guessYear)
 }
 
 //style//
@@ -59,6 +85,41 @@ const StyledSelect = styled(Select)`
     border-color: #123456;
   }
 `
+const ArrowBox = styled.div`
+  display: flex;
+  padding: 0.25rem;
+  position: relative;
+  background-color: #dddddd;
+  border-radius: 3px;
+  grid-column: 9 / span 1;
+  align-items: center;
+  justify-content: center;
+  @media (prefers-color-scheme: dark) {
+    background-color: #1f2023;
+    color: #dadada;
+  }
+`
+const GuessLine = styled.div`
+  display: grid;
+  grid-template-columns: repeat(9, minmax(30px, 2.5rem));
+  margin: 0px 2px 2px 2px;
+`
+
+const CountryGuess = styled.div`
+  display: flex;
+  position: relative;
+  background-color: #dddddd;
+  border-radius: 3px;
+  grid-column: 1 / span 6;
+  margin-right: 2px;
+  text-overflow: ellipsis;
+  align-items: center;
+  justify-content: center;
+  @media (prefers-color-scheme: dark) {
+    background-color: #1f2023;
+    color: #dadada;
+  }
+`
 
 //the actual exported function//
 const FlagleNameDropdown = ({disabled, ...props}) => {
@@ -66,7 +127,7 @@ const FlagleNameDropdown = ({disabled, ...props}) => {
     guess.value === props.chosenFlag.name
       ? onNCorrect(guess.value)
       : onNIncorrect(guess.value)
-    onGuess(guess.value, props)
+    onNGuess(guess.value, props)
   }
 
   const namesList = [
@@ -90,12 +151,13 @@ const FlagleNameDropdown = ({disabled, ...props}) => {
     />
   )
 }
+
 const FlagleYearDropdown = ({disabled, ...props}) => {
   const handleYSubmit = guess => {
     guess.value === props.chosenFlag.year
       ? onYCorrect(guess.value)
       : onYIncorrect(guess.value)
-    onGuess(guess.value, props)
+    onYGuess(guess.value, props)
   }
 
   const yearList = [
@@ -120,4 +182,13 @@ const FlagleYearDropdown = ({disabled, ...props}) => {
   )
 }
 
-export {FlagleNameDropdown, FlagleYearDropdown}
+const Guesses = () => {
+  return guesses.map(guess => (
+    <GuessLine key={guess.id}>
+      <CountryGuess>{guess.name}</CountryGuess>
+      <ArrowBox>{}</ArrowBox>
+    </GuessLine>
+  ))
+}
+
+export {FlagleNameDropdown, FlagleYearDropdown, Guesses}

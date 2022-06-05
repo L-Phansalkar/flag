@@ -1,11 +1,12 @@
-import React from 'react'
+import * as React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {getAllFlags} from '../store/flags'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import {styled} from '@mui/material/styles'
-import {FlagleNameDropdown, FlagleYearDropdown} from './FlagleDropdown'
+import {FlagleNameDropdown, FlagleYearDropdown, Guesses} from './FlagleDropdown'
+import {DateTime} from 'luxon'
 
 const Item = styled(Card)(({theme}) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,7 +18,11 @@ const Item = styled(Card)(({theme}) => ({
   color: theme.palette.text.secondary
 }))
 
-//grid styling//
+//date n time//
+const getDayString = () => {
+  const date = DateTime.now().toFormat('yyyy-MM-dd')
+  return `${date}-${DateTime.now().weekday}`
+}
 
 export class Flagle extends React.Component {
   componentDidMount() {
@@ -27,6 +32,8 @@ export class Flagle extends React.Component {
     const {flags} = this.props
     var chosenFlag = flags[Math.floor(Math.random() * flags.length)]
     console.log('chosenFlag', chosenFlag)
+    const day = getDayString()
+    console.log('day?', day)
 
     return (
       <div id="flaglegamle">
@@ -69,6 +76,7 @@ export class Flagle extends React.Component {
             </Grid>
             <FlagleNameDropdown chosenFlag={chosenFlag} />
             <FlagleYearDropdown chosenFlag={chosenFlag} />
+            <Guesses chosenFlag={chosenFlag} />
           </div>
         ) : (
           <div>L O A D I N G</div>
