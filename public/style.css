@@ -4,6 +4,8 @@ body {
   flex-direction: column;
   background-image: url('https://img.freepik.com/free-vector/cloudy-sky-blue-background_1284-64637.jpg?w=1380&t=st=1654457389~exp=1654457989~hmac=b0f8668cd6f1c1a9e75fcc84565c1289d6c6ca8263a22fdd830f4e8db52f6977');
   background-image: cover;
+  text-align: center;
+  justify-content: center;
 }
 
 a {
@@ -13,27 +15,29 @@ a {
 #navbar {
   display: flex;
   flex-direction: row-reverse;
+  text-align: center;
+  justify-content: center;
+  justify-content: center;
 }
+
 nav {
   display: inline;
   font-size: 1.5em;
   text-align: center;
+  width: 20%;
 }
 
-form div {
+/* form div {
   margin: 1em;
   display: inline-block;
+} */
+
+#pfapi {
+  display: inline;
+  margin: auto;
+  width: 90%;
 }
 
-#titleimage {
-  display: inline;
-  width: 10%;
-}
-#pfapi {
-  display: inline-block;
-  width: 80%;
-  text-align: center;
-}
 #allflags {
   display: flex;
   flex-direction: row;
@@ -99,4 +103,11 @@ form div {
 
 #nameChoice {
   text-align: center;
+}
+
+#guesses {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
 }

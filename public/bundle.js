@@ -228,8 +228,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material/Card */ "./node_modules/@mui/material/Card/index.js");
 /* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material/styles */ "./node_modules/@mui/material/styles/index.js");
 /* harmony import */ var _FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FlagleDropdown */ "./client/components/FlagleDropdown.js");
-/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
-/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(luxon__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _FlagleGuess__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FlagleGuess */ "./client/components/FlagleGuess.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(luxon__WEBPACK_IMPORTED_MODULE_9__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -263,6 +264,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__["styled"])(_mui_material_Card__WEBPACK_IMPORTED_MODULE_5__["default"])(function (_ref) {
   var theme = _ref.theme;
   return _objectSpread({
@@ -277,8 +279,8 @@ var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__["styled"])(_
 }); //date n time//
 
 var getDayString = function getDayString() {
-  var date = luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().toFormat('yyyy-MM-dd');
-  return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().weekday);
+  var date = luxon__WEBPACK_IMPORTED_MODULE_9__["DateTime"].now().toFormat('yyyy-MM-dd');
+  return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_9__["DateTime"].now().weekday);
 };
 
 var Flagle =
@@ -293,11 +295,6 @@ function (_React$Component) {
   }
 
   _createClass(Flagle, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.getFlags();
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
@@ -364,9 +361,7 @@ function (_React$Component) {
         chosenFlag: chosenFlag
       }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__["FlagleYearDropdown"], {
         chosenFlag: chosenFlag
-      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__["Guesses"], {
-        chosenFlag: chosenFlag
-      })) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "L O A D I N G"));
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleGuess__WEBPACK_IMPORTED_MODULE_8__["FlagleGuess"], null)) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "L O A D I N G"));
     }
   }]);
 
@@ -395,14 +390,13 @@ var mapDispatch = function mapDispatch(dispatch) {
 /*!*********************************************!*\
   !*** ./client/components/FlagleDropdown.js ***!
   \*********************************************/
-/*! exports provided: FlagleNameDropdown, FlagleYearDropdown, Guesses */
+/*! exports provided: FlagleNameDropdown, FlagleYearDropdown */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlagleNameDropdown", function() { return FlagleNameDropdown; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlagleYearDropdown", function() { return FlagleYearDropdown; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Guesses", function() { return Guesses; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_select__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-select */ "./node_modules/react-select/dist/react-select.esm.js");
@@ -412,36 +406,6 @@ __webpack_require__.r(__webpack_exports__);
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  position: relative;\n  background-color: #dddddd;\n  border-radius: 3px;\n  grid-column: 1 / span 6;\n  margin-right: 2px;\n  text-overflow: ellipsis;\n  align-items: center;\n  justify-content: center;\n  @media (prefers-color-scheme: dark) {\n    background-color: #1f2023;\n    color: #dadada;\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n  display: grid;\n  grid-template-columns: repeat(9, minmax(30px, 2.5rem));\n  margin: 0px 2px 2px 2px;\n"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  display: flex;\n  padding: 0.25rem;\n  position: relative;\n  background-color: #dddddd;\n  border-radius: 3px;\n  grid-column: 9 / span 1;\n  align-items: center;\n  justify-content: center;\n  @media (prefers-color-scheme: dark) {\n    background-color: #1f2023;\n    color: #dadada;\n  }\n"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
 
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  font-family: Courier, monospace;\n  width: 200px;\n  text-align: center;\n  align-items: center;\n  margin: auto;\n  color: #000;\n  :hover {\n    border-color: #123456;\n  }\n"]);
@@ -472,14 +436,10 @@ var revealRandomTile = function revealRandomTile(array) {
 }; //number of guesses//
 
 
-var attempts = 0; //END//
-
-var end = false;
-var gotName = false; //NAME correct, incorrect//
+var attempts = 0; //NAME correct, incorrect//
 
 var onNCorrect = function onNCorrect(guessName) {
   console.log('corrrect', guessName);
-  gotName = true;
   var dropdown = document.getElementById('nameChoice');
   dropdown.classList.add('hidden');
   var dropYear = document.getElementById('yearChoice');
@@ -512,13 +472,16 @@ var guesses = [];
 
 var addGuess = function addGuess(Name) {
   var Year = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'null';
+  attempts++;
   var newGuess = {
+    num: attempts,
     name: Name,
     year: Year
   };
   guesses.push(newGuess);
   return guesses;
-};
+}; //add to table//
+
 
 var onNGuess = function onNGuess(guessName, props) {
   var dayString = getDayString();
@@ -526,7 +489,8 @@ var onNGuess = function onNGuess(guessName, props) {
   revealRandomTile(tileSet);
   attempts++;
   addGuess(guessName);
-  console.log("guessArr", guesses);
+  saveGuesses(dayString, guesses);
+  console.log('guessArr', guesses);
 };
 
 var onYGuess = function onYGuess(guessYear, props) {
@@ -535,14 +499,12 @@ var onYGuess = function onYGuess(guessYear, props) {
   revealRandomTile(tileSet);
   attempts++;
   addGuess(props.chosenFlag.name, guessYear);
-  console.log("guessArr", guesses);
+  console.log('guessArr', guesses);
+  saveGuesses(dayString, guesses);
 }; //style//
 
 
-var StyledSelect = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_select__WEBPACK_IMPORTED_MODULE_1__["default"])(_templateObject());
-var ArrowBox = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2());
-var GuessLine = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3());
-var CountryGuess = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject4()); //the actual exported function//
+var StyledSelect = Object(styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_select__WEBPACK_IMPORTED_MODULE_1__["default"])(_templateObject()); //the actual exported function//
 
 var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
   var disabled = _ref.disabled,
@@ -590,8 +552,7 @@ var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
     options: namesList.map(function (value) {
       return {
         label: value.val,
-        value: value.val,
-        disabled: value.disabled
+        value: value.val
       };
     }),
     onChange: handleNSubmit,
@@ -626,15 +587,77 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
   });
 };
 
-var Guesses = function Guesses() {
-  return guesses.map(function (guess) {
-    return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](GuessLine, {
-      key: guess.id
-    }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](CountryGuess, null, guess.name), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](ArrowBox, null));
-  });
-};
 
 
+/***/ }),
+
+/***/ "./client/components/FlagleGuess.js":
+/*!******************************************!*\
+  !*** ./client/components/FlagleGuess.js ***!
+  \******************************************/
+/*! exports provided: FlagleGuess, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FlagleGuess", function() { return FlagleGuess; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+var FlagleGuess =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(FlagleGuess, _React$Component);
+
+  function FlagleGuess() {
+    _classCallCheck(this, FlagleGuess);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(FlagleGuess).apply(this, arguments));
+  }
+
+  _createClass(FlagleGuess, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {}
+  }, {
+    key: "render",
+    value: function render() {
+      var guesses = this.props.guesses;
+      console.log('guesshere', guesses);
+      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
+        id: "guesses"
+      }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
+        id: "attempt"
+      }, "attempt"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
+        id: "name"
+      }, "name"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
+        id: "year"
+      }, "year"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
+        id: "hilo"
+      }, "higher/lower"));
+    }
+  }]);
+
+  return FlagleGuess;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
+/* harmony default export */ __webpack_exports__["default"] = (FlagleGuess);
 
 /***/ }),
 
@@ -765,7 +788,7 @@ var Home = function Home() {
 /*!************************************!*\
   !*** ./client/components/index.js ***!
   \************************************/
-/*! exports provided: Navbar, UserHome, Home, Flagle, FlagleNameDropdown, FlagleYearDropdown, Guesses, AllFlags, Login, Signup */
+/*! exports provided: Navbar, UserHome, Home, Flagle, FlagleGuess, FlagleNameDropdown, FlagleYearDropdown, AllFlags, Login, Signup */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -782,26 +805,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Flagle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Flagle */ "./client/components/Flagle.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Flagle", function() { return _Flagle__WEBPACK_IMPORTED_MODULE_3__["default"]; });
 
-/* harmony import */ var _FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FlagleDropdown */ "./client/components/FlagleDropdown.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FlagleNameDropdown", function() { return _FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__["FlagleNameDropdown"]; });
+/* harmony import */ var _FlagleGuess__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./FlagleGuess */ "./client/components/FlagleGuess.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FlagleGuess", function() { return _FlagleGuess__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FlagleYearDropdown", function() { return _FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__["FlagleYearDropdown"]; });
+/* harmony import */ var _FlagleDropdown__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FlagleDropdown */ "./client/components/FlagleDropdown.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FlagleNameDropdown", function() { return _FlagleDropdown__WEBPACK_IMPORTED_MODULE_5__["FlagleNameDropdown"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Guesses", function() { return _FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__["Guesses"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FlagleYearDropdown", function() { return _FlagleDropdown__WEBPACK_IMPORTED_MODULE_5__["FlagleYearDropdown"]; });
 
-/* harmony import */ var _AllFlags__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./AllFlags */ "./client/components/AllFlags.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AllFlags", function() { return _AllFlags__WEBPACK_IMPORTED_MODULE_5__["default"]; });
+/* harmony import */ var _AllFlags__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./AllFlags */ "./client/components/AllFlags.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AllFlags", function() { return _AllFlags__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
-/* harmony import */ var _auth_form__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth-form */ "./client/components/auth-form.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Login", function() { return _auth_form__WEBPACK_IMPORTED_MODULE_6__["Login"]; });
+/* harmony import */ var _auth_form__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./auth-form */ "./client/components/auth-form.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Login", function() { return _auth_form__WEBPACK_IMPORTED_MODULE_7__["Login"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Signup", function() { return _auth_form__WEBPACK_IMPORTED_MODULE_6__["Signup"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Signup", function() { return _auth_form__WEBPACK_IMPORTED_MODULE_7__["Signup"]; });
 
 /**
  * `components/index.js` exists simply as a 'central export' for our components.
  * This way, we can import all of our components from the same place, rather than
  * having to figure out which file they belong to!
  */
+
 
 
 
@@ -839,11 +864,7 @@ var Navbar = function Navbar(_ref) {
       isLoggedIn = _ref.isLoggedIn;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "navbar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    id: "titleimage",
-    src: "https://media.them.us/photos/60bfbb9ac8e56606be649a03/16:9/w_1280,c_limit/189533875_2906094233043871_8133455861604650497_n1-e1623080969136.jpg",
-    alt: "progress pride flag"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "pfapi"
   }, "PRIDE FLAG API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", null, isLoggedIn ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/home"

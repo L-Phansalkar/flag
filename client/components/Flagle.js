@@ -5,7 +5,8 @@ import {getAllFlags} from '../store/flags'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
 import {styled} from '@mui/material/styles'
-import {FlagleNameDropdown, FlagleYearDropdown, Guesses} from './FlagleDropdown'
+import {FlagleNameDropdown, FlagleYearDropdown} from './FlagleDropdown'
+import {FlagleGuess} from './FlagleGuess'
 import {DateTime} from 'luxon'
 
 const Item = styled(Card)(({theme}) => ({
@@ -28,9 +29,7 @@ export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
   }
-  componentDidMount() {
-    this.props.getFlags()
-  }
+
   render() {
     const {flags} = this.props
     var chosenFlag = flags[Math.floor(Math.random() * flags.length)]
@@ -79,7 +78,7 @@ export class Flagle extends React.Component {
             </Grid>
             <FlagleNameDropdown chosenFlag={chosenFlag} />
             <FlagleYearDropdown chosenFlag={chosenFlag} />
-            <Guesses chosenFlag={chosenFlag} />
+            <FlagleGuess />
           </div>
         ) : (
           <div>L O A D I N G</div>

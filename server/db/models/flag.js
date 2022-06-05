@@ -10,6 +10,10 @@ const Flag = db.define('flag', {
     type: Sequelize.INTEGER,
     allowNull: false
   },
+  altname: {
+    type: Sequelize.STRING,
+    unique: true
+  },
   descripton: {
     type: Sequelize.STRING
   },

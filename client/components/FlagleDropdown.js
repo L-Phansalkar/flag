@@ -17,14 +17,9 @@ const revealRandomTile = array => {
 //number of guesses//
 var attempts = 0
 
-//END//
-var end = false
-var gotName = false
-
 //NAME correct, incorrect//
 const onNCorrect = guessName => {
   console.log('corrrect', guessName)
-  gotName = true
   const dropdown = document.getElementById('nameChoice')
   dropdown.classList.add('hidden')
   const dropYear = document.getElementById('yearChoice')
@@ -55,13 +50,17 @@ const getDayString = () => {
 //each guess//
 const guesses = []
 const addGuess = (Name, Year = 'null') => {
+  attempts++
   const newGuess = {
+    num: attempts,
     name: Name,
     year: Year
   }
   guesses.push(newGuess)
+
   return guesses
 }
+//add to table//
 
 const onNGuess = (guessName, props) => {
   const dayString = getDayString()
@@ -69,6 +68,7 @@ const onNGuess = (guessName, props) => {
   revealRandomTile(tileSet)
   attempts++
   addGuess(guessName)
+  saveGuesses(dayString, guesses)
   console.log('guessArr', guesses)
 }
 const onYGuess = (guessYear, props) => {
@@ -78,6 +78,7 @@ const onYGuess = (guessYear, props) => {
   attempts++
   addGuess(props.chosenFlag.name, guessYear)
   console.log('guessArr', guesses)
+  saveGuesses(dayString, guesses)
 }
 
 //style//
@@ -90,41 +91,6 @@ const StyledSelect = styled(Select)`
   color: #000;
   :hover {
     border-color: #123456;
-  }
-`
-const ArrowBox = styled.div`
-  display: flex;
-  padding: 0.25rem;
-  position: relative;
-  background-color: #dddddd;
-  border-radius: 3px;
-  grid-column: 9 / span 1;
-  align-items: center;
-  justify-content: center;
-  @media (prefers-color-scheme: dark) {
-    background-color: #1f2023;
-    color: #dadada;
-  }
-`
-const GuessLine = styled.div`
-  display: grid;
-  grid-template-columns: repeat(9, minmax(30px, 2.5rem));
-  margin: 0px 2px 2px 2px;
-`
-
-const CountryGuess = styled.div`
-  display: flex;
-  position: relative;
-  background-color: #dddddd;
-  border-radius: 3px;
-  grid-column: 1 / span 6;
-  margin-right: 2px;
-  text-overflow: ellipsis;
-  align-items: center;
-  justify-content: center;
-  @media (prefers-color-scheme: dark) {
-    background-color: #1f2023;
-    color: #dadada;
   }
 `
 
@@ -153,8 +119,7 @@ const FlagleNameDropdown = ({disabled, ...props}) => {
       id="nameChoice"
       options={namesList.map(value => ({
         label: value.val,
-        value: value.val,
-        disabled: value.disabled
+        value: value.val
       }))}
       onChange={handleNSubmit}
       placeholder="Guess the flag NAME!"
@@ -194,13 +159,4 @@ const FlagleYearDropdown = ({disabled, ...props}) => {
   )
 }
 
-const Guesses = () => {
-  return guesses.map(guess => (
-    <GuessLine key={guess.id}>
-      <CountryGuess>{guess.name}</CountryGuess>
-      <ArrowBox>{}</ArrowBox>
-    </GuessLine>
-  ))
-}
-
-export {FlagleNameDropdown, FlagleYearDropdown, Guesses}
+export {FlagleNameDropdown, FlagleYearDropdown}
