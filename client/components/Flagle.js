@@ -4,9 +4,8 @@ import {Link} from 'react-router-dom'
 import {getAllFlags} from '../store/flags'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
-import Box from '@mui/material/Box'
 import {styled} from '@mui/material/styles'
-import FlagleNameDropdown from './FlagleNameDropdown'
+import {FlagleNameDropdown, FlagleYearDropdown} from './FlagleDropdown'
 
 const Item = styled(Card)(({theme}) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -18,15 +17,17 @@ const Item = styled(Card)(({theme}) => ({
   color: theme.palette.text.secondary
 }))
 
+//grid styling//
+
 export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
   }
-
   render() {
     const {flags} = this.props
     var chosenFlag = flags[Math.floor(Math.random() * flags.length)]
     console.log('chosenFlag', chosenFlag)
+
     return (
       <div id="flaglegamle">
         {chosenFlag ? (
@@ -66,11 +67,8 @@ export class Flagle extends React.Component {
                 <Item className="card" id="num6" />
               </Grid>
             </Grid>
-
-            <FlagleNameDropdown
-              chosenName={chosenFlag.name}
-              chosenYear={chosenFlag.year}
-            />
+            <FlagleNameDropdown chosenFlag={chosenFlag} />
+            <FlagleYearDropdown chosenFlag={chosenFlag} />
           </div>
         ) : (
           <div>L O A D I N G</div>

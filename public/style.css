@@ -84,3 +84,14 @@ form div {
 .hidden {
   opacity: 0%;
 }
+
+#thebiggamebox {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
+#table {
+  text-align: center;
+  align-items: center;
+  margin: auto;
+}
