@@ -267,7 +267,9 @@ var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_7__["styled"])(_
   return _objectSpread({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff'
   }, theme.typography.body2, {
-    padding: theme.spacing(1),
+    // padding: theme.spacing(1),
+    width: 200,
+    height: 172.5,
     textAlign: 'center',
     color: theme.palette.text.secondary
   });
@@ -298,17 +300,16 @@ function (_React$Component) {
         id: "flaglegamle"
       }, chosenFlag ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "loaded"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        sx: {
-          flexGrow: 1
-        },
-        style: {
-          backgroundImage: "url(".concat(chosenFlag.imageurl, ")")
-        },
-        id: "imabox"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         container: true,
-        spacing: 0
+        spacing: 0,
+        sx: {
+          flexGrow: 1,
+          width: 600,
+          height: 345,
+          backgroundImage: "url(".concat(chosenFlag.imageurl, ")")
+        },
+        id: "gridcontainer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], {
         item: true,
         xs: 4
@@ -345,7 +346,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Item, {
         className: "card",
         id: "num6"
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FlagleNameDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_FlagleNameDropdown__WEBPACK_IMPORTED_MODULE_8__["default"], {
         chosenName: chosenFlag.name,
         chosenYear: chosenFlag.year
       })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "L O A D I N G"));
@@ -424,7 +425,7 @@ var tileSet = [1, 2, 3, 4, 5, 6];
 var randomTileFunc = function randomTileFunc(array) {
   var random = Math.floor(Math.random() * array.length);
   var randomTileNum = array.splice(random, 1)[0];
-  console.log(randomTileNum);
+  console.log("rtn", randomTileNum);
   return randomTileNum;
 };
 
@@ -449,16 +450,18 @@ function MultipleNSelect(props) {
       console.log('u dit', attempts);
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
     } else if (attempts === 6) {
-      console.log('mannnyyy');
-      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
-    } else {
-      var _tile = document.getElementById("num".concat(attempts));
+      var _tile = document.getElementById("num".concat(randomTileFunc(tileSet)));
 
       _tile.classList.add('hidden');
 
-      attempts++; // const tile = document.getElementById(`num${attempts}`);
-      // tile.classList.add("hidden")
+      console.log('mannnyyy');
+      return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "one");
+    } else {
+      var _tile2 = document.getElementById("num".concat(randomTileFunc(tileSet)));
 
+      _tile2.classList.add('hidden');
+
+      attempts++;
       console.log('u NO dit', attempts);
     }
 

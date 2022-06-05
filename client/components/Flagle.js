@@ -11,7 +11,9 @@ import FlagleNameDropdown from './FlagleNameDropdown'
 const Item = styled(Card)(({theme}) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
-  padding: theme.spacing(1),
+  // padding: theme.spacing(1),
+  width: 200,
+  height: 172.5,
   textAlign: 'center',
   color: theme.palette.text.secondary
 }))
@@ -34,32 +36,37 @@ export class Flagle extends React.Component {
     //will return correct for name + year individually//
     //stats box - import from somewhere?// */}
 
-            <Box
-              sx={{flexGrow: 1}}
-              style={{backgroundImage: `url(${chosenFlag.imageurl})`}}
-              id="imabox"
+            <Grid
+              container
+              spacing={0}
+              sx={{
+                flexGrow: 1,
+                width: 600,
+                height: 345,
+                backgroundImage: `url(${chosenFlag.imageurl})`
+              }}
+              id="gridcontainer"
             >
-              <Grid container spacing={0}>
-                <Grid item xs={4}>
-                  <Item className="card" id="num1" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Item className="card" id="num2" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Item className="card" id="num3" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Item className="card" id="num4" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Item className="card" id="num5" />
-                </Grid>
-                <Grid item xs={4}>
-                  <Item className="card" id="num6" />
-                </Grid>
+              <Grid item xs={4}>
+                <Item className="card" id="num1" />
               </Grid>
-            </Box>
+              <Grid item xs={4}>
+                <Item className="card" id="num2" />
+              </Grid>
+              <Grid item xs={4}>
+                <Item className="card" id="num3" />
+              </Grid>
+              <Grid item xs={4}>
+                <Item className="card" id="num4" />
+              </Grid>
+              <Grid item xs={4}>
+                <Item className="card" id="num5" />
+              </Grid>
+              <Grid item xs={4}>
+                <Item className="card" id="num6" />
+              </Grid>
+            </Grid>
+
             <FlagleNameDropdown
               chosenName={chosenFlag.name}
               chosenYear={chosenFlag.year}

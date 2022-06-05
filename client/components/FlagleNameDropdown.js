@@ -34,7 +34,7 @@ var tileSet = [1, 2, 3, 4, 5, 6]
 const randomTileFunc = array => {
   const random = Math.floor(Math.random() * array.length)
   const randomTileNum = array.splice(random, 1)[0]
-  console.log(randomTileNum)
+  console.log('rtn', randomTileNum)
   return randomTileNum
 }
 var attempts = 1
@@ -55,14 +55,14 @@ export default function MultipleNSelect(props) {
       console.log('u dit', attempts)
       return <div>one</div>
     } else if (attempts === 6) {
+      const tile = document.getElementById(`num${randomTileFunc(tileSet)}`)
+      tile.classList.add('hidden')
       console.log('mannnyyy')
       return <div>one</div>
     } else {
-      const tile = document.getElementById(`num${attempts}`)
+      const tile = document.getElementById(`num${randomTileFunc(tileSet)}`)
       tile.classList.add('hidden')
       attempts++
-      // const tile = document.getElementById(`num${attempts}`);
-      // tile.classList.add("hidden")
       console.log('u NO dit', attempts)
     }
 
