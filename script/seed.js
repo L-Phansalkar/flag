@@ -247,9 +247,9 @@ async function seed() {
       imageurl: 'flags/transgender2012.png'
     }),
     Flag.create({
-      name: 'Jesse DemiDude Bananasaurus',
+      name: 'Transgender',
       year: '2017',
-      creator: 'Monica Helmes',
+      creator: 'Jesse DemiDude Bananasaurus',
       imageurl: 'flags/transgender2017.png'
     })
   ])
