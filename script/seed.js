@@ -223,7 +223,7 @@ async function seed() {
       imageurl: 'flags/transgender2018.png'
     }),
     Flag.create({
-      name: 'Transgender',
+      name: 'Alt Transgender',
       year: '1999',
       creator: 'Captain John Andrew',
       imageurl: 'flags/alttransgender1999.png'
