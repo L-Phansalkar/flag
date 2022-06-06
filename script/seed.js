@@ -208,6 +208,49 @@ async function seed() {
       year: '2021',
       creator: 'Valentino Vecchietti',
       imageurl: 'flags/pride2021.png'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '1999',
+      creator: 'Monica Helmes',
+      imageurl: 'flags/transgender1999.png'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '2018',
+      controversial: true,
+      creator: 'Jennifel Pellinen',
+      imageurl: 'flags/transgender2018.png'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '1999',
+      creator: 'Captain John Andrew',
+      imageurl: 'flags/alttransgender1999.png'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '2014',
+      creator: 'Toronto Trans Alliance',
+      imageurl: 'flags/transgender2014.png'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '1991',
+      creator: 'Dawn Holland/Transgender Nation',
+      imageurl: 'flags/transgender1991.png'
+    }),
+    Flag.create({
+      name: 'Transgender',
+      year: '2012',
+      creator: 'Spokane Trans*',
+      imageurl: 'flags/transgender2012.png'
+    }),
+    Flag.create({
+      name: 'Jesse DemiDude Bananasaurus',
+      year: '2017',
+      creator: 'Monica Helmes',
+      imageurl: 'flags/transgender2017.png'
     })
   ])
 
