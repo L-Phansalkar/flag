@@ -10,6 +10,7 @@ const makeUrl = second => {
 export class AllFlags extends React.Component {
   componentDidMount() {
     this.props.getFlags()
+    console.log(window.location.href)
     if (process.env.NODE_ENV === 'development') {
       intro = 'http://localhost:8080/'
     }

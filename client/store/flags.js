@@ -28,7 +28,6 @@ export const fetchSingleFlag = id => {
 export default function flagsReducer(state = [], action) {
   switch (action.type) {
     case GET_ALL_FLAGS:
-      console.log('processss?', process.env.NODE_ENV)
       return action.flags
     case GET_SINGLE_FLAG:
       return action.flag
