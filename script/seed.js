@@ -28,7 +28,186 @@ async function seed() {
       name: 'Agender Citrus',
       year: '2021',
       creator: 'Mars',
-      imageurl: 'flags/agendercitrus.webp'
+      imageurl: 'flags/agendercitrus.png'
+    }),
+    Flag.create({
+      name: 'Aromantic',
+      year: '2014',
+      creator: '@cameronwhimsy',
+      imageurl: 'flags/aromantic2014.png'
+    }),
+    Flag.create({
+      name: 'Aromantic',
+      year: '2011',
+      creator: 'National Coalition for Aromantic Visibility',
+      controversial: true,
+      imageurl: 'flags/aromantic2011.png'
+    }),
+    Flag.create({
+      name: 'Asexual',
+      year: '2010',
+      creator: 'Asexual Visibility and Education Network (AVEN)',
+      imageurl: 'flags/asexual2010.png'
+    }),
+    Flag.create({
+      name: 'Bigender',
+      year: '2013',
+      controversial: true,
+      creator: '@Jewishkuvira',
+      imageurl: 'flags/bigender2013.png'
+    }),
+    Flag.create({
+      name: 'Bigender',
+      year: '2015',
+      imageurl: 'flags/bigender2015.png'
+    }),
+    Flag.create({
+      name: 'Bigender',
+      year: '2020',
+      creator: '@camp-mlm',
+      imageurl: 'flags/bigender2020.png'
+    }),
+    Flag.create({
+      name: 'Bisexual',
+      year: '1998',
+      creator: 'Michael Page',
+      imageurl: 'flags/bisexual1998.png'
+    }),
+    Flag.create({
+      name: 'Gay',
+      year: '2019',
+      creator: '@gayflagblog',
+      imageurl: 'flags/gay2019.png'
+    }),
+    Flag.create({
+      name: 'Gay',
+      year: '1995',
+      creator: 'Craig Byrnes',
+      imageurl: 'flags/gay1995.png'
+    }),
+    Flag.create({
+      name: 'Genderfluid',
+      year: '2012',
+      creator: 'JJ Poole',
+      imageurl: 'flags/genderfluid2012.png'
+    }),
+    Flag.create({
+      name: 'Genderqueer',
+      year: '2011',
+      creator: 'Marilyn Roxie',
+      imageurl: 'flags/genderqueer2011.png'
+    }),
+    Flag.create({
+      name: 'Intersex',
+      year: '2019',
+      creator: 'Natalie Phox',
+      imageurl: 'flags/intersex2009.png'
+    }),
+    Flag.create({
+      name: 'Intersex',
+      year: '2013',
+      creator: 'Morgan Carpenter',
+      imageurl: 'flags/intersex2013.png'
+    }),
+    Flag.create({
+      name: 'Lesbian',
+      year: '2011',
+      imageurl: 'flags/lesbian2011.png'
+    }),
+    Flag.create({
+      name: 'Lesbian',
+      year: '1999',
+      controversial: true,
+      creator: 'Sean Campbell',
+      imageurl: 'flags/lesbian1999.png'
+    }),
+    Flag.create({
+      name: 'Lesbian',
+      year: '2010',
+      controversial: true,
+      imageurl: 'flags/lesbian2010.png'
+    }),
+    Flag.create({
+      name: 'Lesbian',
+      year: '2018',
+      creator: 'Emily Gwen',
+      imageurl: 'flags/lesbian2018.png'
+    }),
+    Flag.create({
+      name: 'Nonbinary',
+      year: '2014',
+      creator: 'Kyle Rowan',
+      imageurl: 'flags/nonbinary2014.png'
+    }),
+    Flag.create({
+      name: 'Polysexual',
+      year: '2012',
+      creator: '@fuckyeahpolysexuality',
+      imageurl: 'flags/polysexual2012.png'
+    }),
+    Flag.create({
+      name: 'Pansexual',
+      year: '2010',
+      creator: 'Jasper V.',
+      imageurl: 'flags/pansexual2010.png'
+    }),
+    Flag.create({
+      name: 'Pangender',
+      year: '2015',
+      creator: '@pangendering',
+      imageurl: 'flags/pangender2015.png'
+    }),
+    Flag.create({
+      name: 'Pocket Gender',
+      year: '2021',
+      creator: 'Alex Stowe',
+      imageurl: 'flags/pocketgender2021.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '1978',
+      creator: 'Gilbert Baker',
+      imageurl: 'flags/pride1978.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '1979',
+      imageurl: 'flags/pride1979.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '1980',
+      imageurl: 'flags/pride1980.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '2003',
+      creator: 'Gilbert Baker',
+      imageurl: 'flags/pride2003.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '2017',
+      creator: 'Gilbert Baker',
+      imageurl: 'flags/pride2017.png'
+    }),
+    Flag.create({
+      name: 'Philadelphia Pride',
+      year: '2017',
+      creator: 'Tierney',
+      imageurl: 'flags/philadelphiapride2017.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '2018',
+      creator: 'Daniel Quasar',
+      imageurl: 'flags/pride2018.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      year: '2021',
+      creator: 'Valentino Vecchietti',
+      imageurl: 'flags/pride2021.png'
     })
   ])
 
