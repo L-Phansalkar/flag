@@ -1,14 +1,16 @@
 import * as React from 'react'
-import Select from 'react-select'
-import styled from 'styled-components'
+import Box from '@mui/material/Box'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
+import Select from '@mui/material/Select'
 import {DateTime} from 'luxon'
-
 //random tile func//
 var tileSet = [1, 2, 3, 4, 5, 6]
 const revealRandomTile = array => {
   const random = Math.floor(Math.random() * array.length)
   const randomTileNum = array.splice(random, 1)[0]
-  console.log('rtn', randomTileNum)
+
   const tile = document.getElementById(`num${randomTileNum}`)
   tile.classList.add('hidden')
   return randomTileNum
@@ -20,10 +22,6 @@ var attempts = 0
 //NAME correct, incorrect//
 const onNCorrect = guessName => {
   console.log('corrrect', guessName)
-  const dropdown = document.getElementById('nameChoice')
-  dropdown.classList.add('hidden')
-  const dropYear = document.getElementById('yearChoice')
-  dropYear.classList.remove('hidden')
 }
 
 const onNIncorrect = guessName => {
@@ -33,6 +31,7 @@ const onNIncorrect = guessName => {
 //YEAR correct, incorrect//
 const onYCorrect = guessYear => {
   console.log('corrrect', guessYear)
+
   const dropYear = document.getElementById('yearChoice')
   dropYear.classList.add('hidden')
 }
@@ -49,114 +48,101 @@ const getDayString = () => {
 
 //each guess//
 const guesses = []
-const addGuess = (Name, Year = 'null') => {
+const addGuess = (Name, Year = 'n/a', Hint = 'n/a') => {
   attempts++
   const newGuess = {
     num: attempts,
     name: Name,
-    year: Year
+    year: Year,
+    hint: Hint
   }
   guesses.push(newGuess)
-
+  const guessBox = document.getElementById('flgs')
+  var elem = document.createElement('div')
+  elem.innerHTML = `${newGuess.num} ||${newGuess.name} || ${newGuess.year} || ${
+    newGuess.hint
+  }`
+  guessBox.appendChild(elem)
   return guesses
 }
-//add to table//
 
-const onNGuess = (guessName, props) => {
+//disable yr//
+var currentNameGuess = ''
+
+const onNGuess = guessName => {
   const dayString = getDayString()
-  console.log('guess', guessName, 'answer', props.chosenFlag.name)
-  revealRandomTile(tileSet)
-  attempts++
-  addGuess(guessName)
-  saveGuesses(dayString, guesses)
-  console.log('guessArr', guesses)
+  // revealRandomTile(tileSet)
+  // addGuess(guessName)
+  currentNameGuess = guessName
+  return currentNameGuess
 }
 const onYGuess = (guessYear, props) => {
   const dayString = getDayString()
-  console.log('answer', props.chosenFlag.name)
   revealRandomTile(tileSet)
-  attempts++
-  addGuess(props.chosenFlag.name, guessYear)
-  console.log('guessArr', guesses)
-  saveGuesses(dayString, guesses)
+  var hilo = ''
+  if (props.chosenFlag.year - guessYear > 0) {
+    hilo = '+'
+  } else {
+    hilo = '-'
+  }
+
+  addGuess(currentNameGuess, guessYear, hilo)
 }
 
-//style//
-const StyledSelect = styled(Select)`
-  font-family: Courier, monospace;
-  width: 200px;
-  text-align: center;
-  align-items: center;
-  margin: auto;
-  color: #000;
-  :hover {
-    border-color: #123456;
-  }
-`
-
 //the actual exported function//
-const FlagleNameDropdown = ({disabled, ...props}) => {
-  var namesList = [
-    {val: 'Lesbian', disabled: true},
-    {val: 'Gay', disabled: true},
-    {val: 'Bisexual', disabled: true},
-    {val: 'Transgender', disabled: true},
-    {val: 'Queer', disabled: true},
-    {val: 'Intersex', disabled: true},
-    {val: 'Aromantic', disabled: true},
-    {val: 'Asexual', disabled: true},
-    {val: 'Nonbinary', disabled: true},
-    {val: 'LGBTQIA+ Pride', disabled: true}
-  ]
+const FlagleNameDropdown = ({...props}) => {
   const handleNSubmit = guess => {
-    guess.value === props.chosenFlag.name
-      ? onNCorrect(guess.value)
-      : onNIncorrect(guess.value)
-    onNGuess(guess.value, props)
+    guess.target.value === props.chosenFlag.name
+      ? onNCorrect(guess.target.value)
+      : onNIncorrect(guess.target.value)
+    onNGuess(guess.target.value, props)
   }
   return (
-    <StyledSelect
-      id="nameChoice"
-      options={namesList.map(value => ({
-        label: value.val,
-        value: value.val
-      }))}
-      onChange={handleNSubmit}
-      placeholder="Guess the flag NAME!"
-    />
+    <Box id="namebox">
+      <FormControl required fullWidth>
+        <InputLabel id="demo-simple-select-label">NAME</InputLabel>
+        <Select
+          id="nameChoice"
+          onChange={handleNSubmit}
+          placeholder="Guess the flag NAME!"
+        >
+          <MenuItem value="Lesbian">Lesbian</MenuItem>
+          <MenuItem value="Gay">Gay</MenuItem>
+          <MenuItem value="Bisexual">Bisexual</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
   )
 }
 
-const FlagleYearDropdown = ({disabled, ...props}) => {
+const FlagleYearDropdown = ({...props}) => {
   const handleYSubmit = guess => {
     guess.value === props.chosenFlag.year
       ? onYCorrect(guess.value)
       : onYIncorrect(guess.value)
     onYGuess(guess.value, props)
   }
-  const yearList = [
-    '2001',
-    '2002',
-    '2003',
-    '2004',
-    '2005',
-    '2006',
-    '2007',
-    '2008',
-    '2009',
-    '2010'
-  ].map(val => ({label: val, value: val}))
 
   return (
-    <StyledSelect
-      id="yearChoice"
-      className="hidden"
-      options={yearList}
-      onChange={handleYSubmit}
-      placeholder="Guess the flag YEAR!"
-      isOptionDisabled={() => disabled}
-    />
+    <Box id="yearbox">
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">YEAR</InputLabel>
+        <Select id="yearChoice" onChange={handleYSubmit}>
+          <MenuItem value="1990">1990</MenuItem>
+          <MenuItem value="1992">1991</MenuItem>
+          <MenuItem value="1993">1993</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
   )
 }
 
-export {FlagleNameDropdown, FlagleYearDropdown}
+const FlagGuess = () => {
+  return (
+    <div id="flgs">
+      <h1 />
+    </div>
+  )
+}
+
+export {FlagleNameDropdown, FlagleYearDropdown, FlagGuess}

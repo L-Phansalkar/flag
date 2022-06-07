@@ -105,8 +105,19 @@ nav {
   margin: auto;
 }
 
-#nameChoice {
+#nameChoice,
+#yearChoice {
   text-align: center;
+  justify-content: center;
+  margin: auto;
+}
+#namebox,
+#yearbox {
+  text-align: center;
+  justify-content: center;
+  margin: auto;
+  display: inline-block;
+  width: 30%;
 }
 
 #guesses {

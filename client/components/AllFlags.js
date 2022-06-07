@@ -19,7 +19,7 @@ export class AllFlags extends React.Component {
 
   render() {
     const {flags} = this.props
-    console.log('isithere', flags, intro)
+
     return (
       <div id="allflags">
         <h1 id="allflagstitle">ALL PRIDE FLAGS</h1>
