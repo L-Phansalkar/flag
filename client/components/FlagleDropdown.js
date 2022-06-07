@@ -4,6 +4,8 @@ import InputLabel from '@mui/material/InputLabel'
 import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
+import {toast} from 'react-toastify'
+
 import {DateTime} from 'luxon'
 //random tile func//
 var tileSet = [1, 2, 3, 4, 5, 6]
@@ -26,6 +28,15 @@ const onNCorrect = guessName => {
 
 const onNIncorrect = guessName => {
   console.log('nahhh', guessName)
+  toast('🦄 Wow so easy!', {
+    position: 'top-center',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  })
 }
 
 //YEAR correct, incorrect//
@@ -48,7 +59,7 @@ const getDayString = () => {
 
 //each guess//
 const guesses = []
-const addGuess = (Name, Year = 'n/a', Hint = 'n/a') => {
+const addGuess = (Name = 'please select', Year = 'n/a', Hint = 'n/a') => {
   attempts++
   const newGuess = {
     num: attempts,
@@ -85,8 +96,11 @@ const onYGuess = (guessYear, props) => {
   } else {
     hilo = '-'
   }
-
-  addGuess(currentNameGuess, guessYear, hilo)
+  if (currentNameGuess) {
+    addGuess(currentNameGuess, guessYear, hilo)
+  } else {
+    console.log('u cannnoooooottt')
+  }
 }
 
 //the actual exported function//
@@ -118,9 +132,9 @@ const FlagleNameDropdown = ({...props}) => {
 const FlagleYearDropdown = ({...props}) => {
   const handleYSubmit = guess => {
     guess.value === props.chosenFlag.year
-      ? onYCorrect(guess.value)
-      : onYIncorrect(guess.value)
-    onYGuess(guess.value, props)
+      ? onYCorrect(guess.target.value)
+      : onYIncorrect(guess.target.value)
+    onYGuess(guess.target.value, props)
   }
 
   return (
