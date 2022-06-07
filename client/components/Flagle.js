@@ -36,7 +36,6 @@ export class Flagle extends React.Component {
   render() {
     const {flags} = this.props
     var chosenFlag = flags[Math.floor(Math.random() * flags.length)]
-
     const day = getDayString()
 
     return (

@@ -8,12 +8,12 @@ const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
     <h1 id="pfapi">PRIDE FLAG API</h1>
     <br />
-    <nav>
+    <nav id="navy">
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
           <Link to="/home">Home</Link>
-          <Link to="/flags"> hehehefled </Link>
+          <Link to="/allflags"> Edit Flags </Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
@@ -23,9 +23,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           {/* The navbar will show these links before you log in */}
           <Link to="/login">Admin Login</Link>
           <br />
-          <Link to="/">Home</Link>
+          <Link to="/">HOME</Link>
           <br />
-          <Link to="/allflags"> FLAGS </Link>
+          <Link to="/game"> GAME </Link>
         </div>
       )}
     </nav>
