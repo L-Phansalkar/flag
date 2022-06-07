@@ -15,9 +15,7 @@ a {
 #navbar {
   display: flex;
   flex-direction: row-reverse;
-  text-align: center;
-  justify-content: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 nav {
@@ -27,15 +25,9 @@ nav {
   width: 20%;
 }
 
-/* form div {
-  margin: 1em;
-  display: inline-block;
-} */
-
 #pfapi {
   display: inline;
-  margin: auto;
-  width: 90%;
+  width: 60%;
 }
 
 #allflags {
