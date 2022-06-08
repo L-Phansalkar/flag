@@ -43,6 +43,10 @@ const Flag = db.define('flag', {
 Flag.addHook('beforeValidate', (flag, options) => {
   const n = flag.name.toLowerCase()
   const y = flag.year
+  if (flag.altname) {
+    const a = flag.altname.toLowerCase()
+    flag.id = n + a + y
+  }
   flag.id = n + y
 })
 module.exports = Flag

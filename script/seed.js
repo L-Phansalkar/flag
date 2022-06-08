@@ -25,7 +25,8 @@ async function seed() {
       imageurl: 'flags/agender2021.png'
     }),
     Flag.create({
-      name: 'Agender Citrus',
+      name: 'Agender',
+      altname: 'Citrus',
       year: '2021',
       creator: 'Mars',
       imageurl: 'flags/agendercitrus.png'
@@ -81,6 +82,7 @@ async function seed() {
     }),
     Flag.create({
       name: 'Gay',
+      altname: 'Bear',
       year: '1995',
       creator: 'Craig Byrnes',
       imageurl: 'flags/gay1995.png'
@@ -223,7 +225,8 @@ async function seed() {
       imageurl: 'flags/transgender2018.png'
     }),
     Flag.create({
-      name: 'Alt Transgender',
+      name: 'Transgender',
+      altname: 'Alt',
       year: '1999',
       creator: 'Captain John Andrew',
       imageurl: 'flags/alttransgender1999.png'
