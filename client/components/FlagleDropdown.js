@@ -20,17 +20,39 @@ const revealRandomTile = array => {
 
 //number of guesses//
 var attempts = 0
+var updown = ''
+var hilo = ''
+const checkAttempts = props => {
+  if (attempts === 6) {
+    const namedrop = document.getElementById('namebox')
+    const yeardrop = document.getElementById('yearbox')
+    namedrop.classList.add('hidden')
+    yeardrop.classList.add('hidden')
+    toast(
+      `BETTER LUCK NEXT TIME ${props.chosenFlag.name} ${props.chosenFlag.year}`,
+      {
+        position: 'top-center',
+        autoClose: 500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      }
+    )
+  }
+}
+
+//to check for each other//
+var currentNameGuess = ''
+var currentYearGuess = ''
 
 //NAME correct, incorrect//
 const onNCorrect = guessName => {
-  console.log('corrrect', guessName)
-}
-
-const onNIncorrect = guessName => {
-  console.log('nahhh', guessName)
-  toast('🦄 Wow so easy!', {
+  currentNameGuess = guessName
+  toast(`CONGRATS YOU GUESSED IT: THE NAME IS ${guessName}`, {
     position: 'top-center',
-    autoClose: 5000,
+    autoClose: 500,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
@@ -39,16 +61,28 @@ const onNIncorrect = guessName => {
   })
 }
 
+const onNIncorrect = guessName => {
+  console.log('nahhh', guessName)
+}
+
 //YEAR correct, incorrect//
 const onYCorrect = guessYear => {
+  toast(`CONGRATS YOU GUESSED IT: THE YEAR IS ${guessYear}`, {
+    position: 'top-center',
+    autoClose: 500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  })
+  currentYearGuess = guessYear
   console.log('corrrect', guessYear)
-
-  const dropYear = document.getElementById('yearChoice')
-  dropYear.classList.add('hidden')
 }
 
 const onYIncorrect = guessYear => {
-  console.log('nahhh', guessYear)
+  currentYearGuess = guessYear
+  return currentYearGuess
 }
 
 //date n time//
@@ -59,47 +93,67 @@ const getDayString = () => {
 
 //each guess//
 const guesses = []
-const addGuess = (Name = 'please select', Year = 'n/a', Hint = 'n/a') => {
+const addGuess = (Name = '', Year = 'n/a', Hint = '✅', Letter = '✅') => {
   attempts++
   const newGuess = {
     num: attempts,
     name: Name,
+    letter: Letter,
     year: Year,
     hint: Hint
   }
   guesses.push(newGuess)
   const guessBox = document.getElementById('flgs')
   var elem = document.createElement('div')
-  elem.innerHTML = `${newGuess.num} ||${newGuess.name} || ${newGuess.year} || ${
-    newGuess.hint
-  }`
+  elem.innerHTML = `${newGuess.num} ||${newGuess.name} || ${
+    newGuess.letter
+  } || ${newGuess.year} || ${newGuess.hint}`
   guessBox.appendChild(elem)
+  checkAttempts()
   return guesses
 }
 
-//disable yr//
-var currentNameGuess = ''
-
-const onNGuess = guessName => {
-  const dayString = getDayString()
-  // revealRandomTile(tileSet)
-  // addGuess(guessName)
-  currentNameGuess = guessName
+const onNGuess = (guessName, props) => {
+  if (guessName < props.chosenFlag.name) {
+    updown = `⬆️`
+  } else {
+    updown = `⬇️`
+  }
+  if (currentYearGuess) {
+    revealRandomTile(tileSet)
+    addGuess(currentNameGuess, currentYearGuess, hilo, updown)
+  } else {
+    toast('🦄 Please Pick a Name First!', {
+      position: 'top-center',
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
+  }
   return currentNameGuess
 }
 const onYGuess = (guessYear, props) => {
-  const dayString = getDayString()
-  revealRandomTile(tileSet)
-  var hilo = ''
   if (props.chosenFlag.year - guessYear > 0) {
-    hilo = '+'
+    hilo = '➕'
   } else {
-    hilo = '-'
+    hilo = '➖'
   }
   if (currentNameGuess) {
-    addGuess(currentNameGuess, guessYear, hilo)
+    revealRandomTile(tileSet)
+    addGuess(currentNameGuess, guessYear, hilo, updown)
   } else {
-    console.log('u cannnoooooottt')
+    toast('🦄 Please Pick a Name First!', {
+      position: 'top-center',
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
   }
 }
 
@@ -135,6 +189,7 @@ const FlagleYearDropdown = ({...props}) => {
       ? onYCorrect(guess.target.value)
       : onYIncorrect(guess.target.value)
     onYGuess(guess.target.value, props)
+    guess.target.value = ''
   }
 
   return (
@@ -143,8 +198,8 @@ const FlagleYearDropdown = ({...props}) => {
         <InputLabel id="demo-simple-select-label">YEAR</InputLabel>
         <Select id="yearChoice" onChange={handleYSubmit}>
           <MenuItem value="1990">1990</MenuItem>
-          <MenuItem value="1992">1991</MenuItem>
-          <MenuItem value="1993">1993</MenuItem>
+          <MenuItem value="1991">1991</MenuItem>
+          <MenuItem value="1992">1993</MenuItem>
         </Select>
       </FormControl>
     </Box>

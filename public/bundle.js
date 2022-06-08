@@ -112,7 +112,6 @@ var App = function App() {
   Object(react_toastify_dist_inject_style__WEBPACK_IMPORTED_MODULE_2__["injectStyle"])();
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_toastify__WEBPACK_IMPORTED_MODULE_1__["ToastContainer"], {
     position: "top-center",
-    autoClose: 5000,
     hideProgressBar: false,
     newestOnTop: false,
     closeOnClick: true,
@@ -253,10 +252,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _store_flags__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/flags */ "./client/store/flags.js");
 /* harmony import */ var _mui_material_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/Grid */ "./node_modules/@mui/material/Grid/index.js");
 /* harmony import */ var _mui_material_Card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material/Card */ "./node_modules/@mui/material/Card/index.js");
-/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material/styles */ "./node_modules/@mui/material/styles/index.js");
-/* harmony import */ var _FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./FlagleDropdown */ "./client/components/FlagleDropdown.js");
-/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
-/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(luxon__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var react_toastify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-toastify */ "./node_modules/react-toastify/dist/react-toastify.esm.js");
+/* harmony import */ var _mui_material_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material/styles */ "./node_modules/@mui/material/styles/index.js");
+/* harmony import */ var _FlagleDropdown__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./FlagleDropdown */ "./client/components/FlagleDropdown.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! luxon */ "./node_modules/luxon/build/cjs-browser/luxon.js");
+/* harmony import */ var luxon__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(luxon__WEBPACK_IMPORTED_MODULE_9__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -290,7 +290,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__["styled"])(_mui_material_Card__WEBPACK_IMPORTED_MODULE_5__["default"])(function (_ref) {
+
+var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_7__["styled"])(_mui_material_Card__WEBPACK_IMPORTED_MODULE_5__["default"])(function (_ref) {
   var theme = _ref.theme;
   return _objectSpread({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff'
@@ -304,8 +305,24 @@ var Item = Object(_mui_material_styles__WEBPACK_IMPORTED_MODULE_6__["styled"])(_
 }); //date n time//
 
 var getDayString = function getDayString() {
-  var date = luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().toFormat('yyyy-MM-dd');
-  return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_8__["DateTime"].now().weekday);
+  var date = luxon__WEBPACK_IMPORTED_MODULE_9__["DateTime"].now().toFormat('yyyy-MM-dd');
+  console.log("".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_9__["DateTime"].now().weekday));
+  return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_9__["DateTime"].now().weekday);
+}; //random//
+
+
+var chooseRandom = function chooseRandom(flagobj, dayString) {
+  if (flagobj.length > 0) {
+    if (!localStorage.getItem("".concat(dayString))) {
+      console.log('flagobj', flagobj);
+      var chosenFlag = flagobj[Math.floor(Math.random() * flagobj.length)];
+      console.log('here?', chosenFlag);
+      localStorage.setItem("".concat(dayString), JSON.stringify(chosenFlag));
+    }
+
+    var retrieveChosen = localStorage.getItem("".concat(dayString));
+    return JSON.parse(retrieveChosen);
+  }
 };
 
 var Flagle =
@@ -323,13 +340,24 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
+      Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Instros go here', {
+        position: 'top-center',
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
     }
   }, {
     key: "render",
     value: function render() {
       var flags = this.props.flags;
-      var chosenFlag = flags[Math.floor(Math.random() * flags.length)];
-      var day = getDayString();
+      console.log('flaglist', flags);
+      var currDay = getDayString();
+      var chosenFlag = chooseRandom(flags, currDay);
+      console.log('chosen', chosenFlag);
       return react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
         id: "flaglegamle"
       }, chosenFlag ? react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", {
@@ -380,11 +408,11 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Item, {
         className: "card",
         id: "num6"
-      }))), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__["FlagleNameDropdown"], {
+      }))), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_8__["FlagleNameDropdown"], {
         chosenFlag: chosenFlag
-      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__["FlagleYearDropdown"], {
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_8__["FlagleYearDropdown"], {
         chosenFlag: chosenFlag
-      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_7__["FlagGuess"], null)) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "L O A D I N G"));
+      }), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_FlagleDropdown__WEBPACK_IMPORTED_MODULE_8__["FlagGuess"], null)) : react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, "L O A D I N G"));
     }
   }]);
 
@@ -453,34 +481,67 @@ var revealRandomTile = function revealRandomTile(array) {
 }; //number of guesses//
 
 
-var attempts = 0; //NAME correct, incorrect//
+var attempts = 0;
+var updown = '';
+var hilo = '';
+
+var checkAttempts = function checkAttempts(props) {
+  if (attempts === 6) {
+    var namedrop = document.getElementById('namebox');
+    var yeardrop = document.getElementById('yearbox');
+    namedrop.classList.add('hidden');
+    yeardrop.classList.add('hidden');
+    Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])("BETTER LUCK NEXT TIME ".concat(props.chosenFlag.name, " ").concat(props.chosenFlag.year), {
+      position: 'top-center',
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+  }
+}; //to check for each other//
+
+
+var currentNameGuess = '';
+var currentYearGuess = ''; //NAME correct, incorrect//
 
 var onNCorrect = function onNCorrect(guessName) {
-  console.log('corrrect', guessName);
-};
-
-var onNIncorrect = function onNIncorrect(guessName) {
-  console.log('nahhh', guessName);
-  Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Wow so easy!', {
+  currentNameGuess = guessName;
+  Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])("CONGRATS YOU GUESSED IT: THE NAME IS ".concat(guessName), {
     position: 'top-center',
-    autoClose: 5000,
+    autoClose: 500,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
     progress: undefined
   });
+};
+
+var onNIncorrect = function onNIncorrect(guessName) {
+  console.log('nahhh', guessName);
 }; //YEAR correct, incorrect//
 
 
 var onYCorrect = function onYCorrect(guessYear) {
+  Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])("CONGRATS YOU GUESSED IT: THE YEAR IS ".concat(guessYear), {
+    position: 'top-center',
+    autoClose: 500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  });
+  currentYearGuess = guessYear;
   console.log('corrrect', guessYear);
-  var dropYear = document.getElementById('yearChoice');
-  dropYear.classList.add('hidden');
 };
 
 var onYIncorrect = function onYIncorrect(guessYear) {
-  console.log('nahhh', guessYear);
+  currentYearGuess = guessYear;
+  return currentYearGuess;
 }; //date n time//
 
 
@@ -493,50 +554,72 @@ var getDayString = function getDayString() {
 var guesses = [];
 
 var addGuess = function addGuess() {
-  var Name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'please select';
+  var Name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
   var Year = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'n/a';
-  var Hint = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'n/a';
+  var Hint = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '✅';
+  var Letter = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : '✅';
   attempts++;
   var newGuess = {
     num: attempts,
     name: Name,
+    letter: Letter,
     year: Year,
     hint: Hint
   };
   guesses.push(newGuess);
   var guessBox = document.getElementById('flgs');
   var elem = document.createElement('div');
-  elem.innerHTML = "".concat(newGuess.num, " ||").concat(newGuess.name, " || ").concat(newGuess.year, " || ").concat(newGuess.hint);
+  elem.innerHTML = "".concat(newGuess.num, " ||").concat(newGuess.name, " || ").concat(newGuess.letter, " || ").concat(newGuess.year, " || ").concat(newGuess.hint);
   guessBox.appendChild(elem);
+  checkAttempts();
   return guesses;
-}; //disable yr//
+};
 
+var onNGuess = function onNGuess(guessName, props) {
+  if (guessName < props.chosenFlag.name) {
+    updown = "\u2B06\uFE0F";
+  } else {
+    updown = "\u2B07\uFE0F";
+  }
 
-var currentNameGuess = '';
+  if (currentYearGuess) {
+    revealRandomTile(tileSet);
+    addGuess(currentNameGuess, currentYearGuess, hilo, updown);
+  } else {
+    Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Please Pick a Name First!', {
+      position: 'top-center',
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
+  }
 
-var onNGuess = function onNGuess(guessName) {
-  var dayString = getDayString(); // revealRandomTile(tileSet)
-  // addGuess(guessName)
-
-  currentNameGuess = guessName;
   return currentNameGuess;
 };
 
 var onYGuess = function onYGuess(guessYear, props) {
-  var dayString = getDayString();
-  revealRandomTile(tileSet);
-  var hilo = '';
-
   if (props.chosenFlag.year - guessYear > 0) {
-    hilo = '+';
+    hilo = '➕';
   } else {
-    hilo = '-';
+    hilo = '➖';
   }
 
   if (currentNameGuess) {
-    addGuess(currentNameGuess, guessYear, hilo);
+    revealRandomTile(tileSet);
+    addGuess(currentNameGuess, guessYear, hilo, updown);
   } else {
-    console.log('u cannnoooooottt');
+    Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Please Pick a Name First!', {
+      position: 'top-center',
+      autoClose: 500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    });
   }
 }; //the actual exported function//
 
@@ -575,6 +658,7 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
   var handleYSubmit = function handleYSubmit(guess) {
     guess.value === props.chosenFlag.year ? onYCorrect(guess.target.value) : onYIncorrect(guess.target.value);
     onYGuess(guess.target.value, props);
+    guess.target.value = '';
   };
 
   return react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_Box__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -589,9 +673,9 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: "1990"
   }, "1990"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    value: "1992"
+    value: "1991"
   }, "1991"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    value: "1993"
+    value: "1992"
   }, "1993"))));
 };
 

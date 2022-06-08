@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {getAllFlags} from '../store/flags'
 import Grid from '@mui/material/Grid'
 import Card from '@mui/material/Card'
-
+import {toast} from 'react-toastify'
 import {styled} from '@mui/material/styles'
 import {
   FlagleNameDropdown,
@@ -26,19 +26,43 @@ const Item = styled(Card)(({theme}) => ({
 //date n time//
 const getDayString = () => {
   const date = DateTime.now().toFormat('yyyy-MM-dd')
+  console.log(`${date}-${DateTime.now().weekday}`)
   return `${date}-${DateTime.now().weekday}`
+}
+//random//
+var chooseRandom = (flagobj, dayString) => {
+  if (flagobj.length > 0) {
+    if (!localStorage.getItem(`${dayString}`)) {
+      console.log('flagobj', flagobj)
+      var chosenFlag = flagobj[Math.floor(Math.random() * flagobj.length)]
+      console.log('here?', chosenFlag)
+      localStorage.setItem(`${dayString}`, JSON.stringify(chosenFlag))
+    }
+    var retrieveChosen = localStorage.getItem(`${dayString}`)
+    return JSON.parse(retrieveChosen)
+  }
 }
 
 export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
+    toast('🦄 Instros go here', {
+      position: 'top-center',
+      autoClose: false,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    })
   }
 
   render() {
     const {flags} = this.props
-    var chosenFlag = flags[Math.floor(Math.random() * flags.length)]
-    const day = getDayString()
-
+    console.log('flaglist', flags)
+    const currDay = getDayString()
+    var chosenFlag = chooseRandom(flags, currDay)
+    console.log('chosen', chosenFlag)
     return (
       <div id="flaglegamle">
         {chosenFlag ? (
