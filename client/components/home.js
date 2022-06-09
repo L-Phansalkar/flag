@@ -27,6 +27,7 @@ export const Home = () => {
           this API allows developers to easily access and use the most specific,
           widely accepted, and/or current flag for thier needs{' '}
         </h3>
+
         <h2>
           <u>HOW-TO</u>
         </h2>
@@ -37,16 +38,14 @@ export const Home = () => {
           flags of the same type created in the same year
         </h3>
         <h3>the API name is all lowercase and the structure is as follows: </h3>
-        <h2>
+        <h1>
           https://pr1deflags/flags/{' '}
           <b>flag name (+ flag altname) + flag year</b>
-        </h2>
-        <br />
+        </h1>
         <h2>
           <u>EXAMPLE</u>
         </h2>
         <h3>Let's say you wanted to use the </h3>
-
         <h2>
           <u>USE-CASE EXAMPLE</u>
         </h2>
