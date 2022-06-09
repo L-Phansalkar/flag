@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 export const Home = () => {
   return (
     <div id="home">
+      <meta httpEquiv="Cache-control" content="no-cache" />
       <h1 id="welcome">Welcome to the Pride Flag Database and API</h1>
       <img
         id="famtree"
@@ -13,6 +14,7 @@ export const Home = () => {
       <div id="words">
         <h2>
           <u>INTRODUCTION</u>
+          <h2>ammmm</h2>
         </h2>
         <h3>This site is intended for both developers and users alike!</h3>
         <h3>
@@ -25,7 +27,7 @@ export const Home = () => {
         </h1>
         <h3>
           this API allows developers to easily access and use the most specific,
-          widely accepted, and/or current flag for thier needs{' '}
+          widely accepted, and/or current flag for thier needs
         </h3>
 
         <h2>
@@ -45,7 +47,11 @@ export const Home = () => {
         <h2>
           <u>EXAMPLE</u>
         </h2>
-        <h3>Let's say you wanted to use the </h3>
+        <img
+          src="https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg"
+          alt="Map"
+        />
+        <h3>Let's say you wanted to use the lesbian flag </h3>
         <h2>
           <u>USE-CASE EXAMPLE</u>
         </h2>
