@@ -14,7 +14,7 @@ export const Home = () => {
         <h2>
           <u>INTRODUCTION</u>
         </h2>
-        <h3>This API is intended for both developers and users alike!</h3>
+        <h3>This site is intended for both developers and users alike!</h3>
         <h3>
           Currently, this site contains the images of 40 pride flag variations
           (and counting!)
@@ -23,12 +23,6 @@ export const Home = () => {
         <h1>
           <Link to="/allflags"> FLAGS </Link>
         </h1>
-        <h2>
-          <u>The Database</u>
-        </h2>
-        <h2>
-          <u>The API</u>
-        </h2>
         <h3>
           this API allows developers to easily access and use the most specific,
           widely accepted, and/or current flag for thier needs{' '}
