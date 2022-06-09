@@ -118,3 +118,27 @@ nav {
   text-align: center;
   justify-content: center;
 }
+
+/* 
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+}
+#welcome{
+  display: block;
+  width: 100%;
+}
+
+} */
+#home {
+  display: flex;
+  flex-direction: column;
+}
+#famtree {
+  width: 10%;
+  display: inline;
+}
+#words {
+  width: 10%;
+  display: inline;
+}

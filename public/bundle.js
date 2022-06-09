@@ -203,9 +203,7 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           id: "oneflag",
           key: flag.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-          to: "/flags/".concat(flag.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, flag.name, " ", flag.year)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, flag.name, " ", flag.alt, " ", flag.year), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           id: "flagmage",
           src: makeUrl(flag.imageurl),
           alt: flag.id
@@ -340,7 +338,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
-      Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Instros go here', {
+      Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])(react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("div", null, react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "you will have six chances to guess what pride flag is hidden below the black power tiles"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "please select a NAME and then a YEAR from the respective dropdowns"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "you must select the name first, and then the year in order to submit your guess"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "each guess will show up below the hidden image box "), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "1) up if the real name is later in the alphabet, or down if its earlier  "), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past "), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("p", null, "good luck and have fun!")), {
         position: 'top-center',
         autoClose: false,
         hideProgressBar: false,
@@ -576,26 +574,13 @@ var addGuess = function addGuess() {
 };
 
 var onNGuess = function onNGuess(guessName, props) {
-  if (guessName < props.chosenFlag.name) {
-    updown = "\u2B06\uFE0F";
-  } else {
-    updown = "\u2B07\uFE0F";
-  }
+  currentNameGuess = guessName;
 
-  if (currentYearGuess) {
-    revealRandomTile(tileSet);
-    addGuess(currentNameGuess, currentYearGuess, hilo, updown);
-  } else {
-    Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Please Pick a Name First!', {
-      position: 'top-center',
-      autoClose: 500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    });
-  }
+  if (guessName === props.chosenFlag.name) {
+    updown = "\u2705";
+  } else if (guessName < props.chosenFlag.name) {
+    updown = "\u2B06\uFE0F";
+  } else updown = "\u2B07\uFE0F";
 
   return currentNameGuess;
 };
@@ -603,6 +588,8 @@ var onNGuess = function onNGuess(guessName, props) {
 var onYGuess = function onYGuess(guessYear, props) {
   if (props.chosenFlag.year - guessYear > 0) {
     hilo = '➕';
+  } else if (guessYear === props.chosenFlag.name) {
+    hilo = "\u2705";
   } else {
     hilo = '➖';
   }
@@ -611,7 +598,7 @@ var onYGuess = function onYGuess(guessYear, props) {
     revealRandomTile(tileSet);
     addGuess(currentNameGuess, guessYear, hilo, updown);
   } else {
-    Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🦄 Please Pick a Name First!', {
+    Object(react_toastify__WEBPACK_IMPORTED_MODULE_6__["toast"])('🌈 Please Pick a Name First!', {
       position: 'top-center',
       autoClose: 500,
       hideProgressBar: false,
@@ -648,8 +635,36 @@ var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
   }, "Lesbian"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: "Gay"
   }, "Gay"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Genderfluid"
+  }, "Genderfluid"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Genderqueer"
+  }, "Genderqueer"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: "Bisexual"
-  }, "Bisexual"))));
+  }, "Bisexual"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Bigender"
+  }, "Bisexual"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Transgender"
+  }, "Transgender"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Instersex"
+  }, "Intersex"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Agender"
+  }, "Agender"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Aromantic"
+  }, "Aromantic"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Asexual"
+  }, "Asexual"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Nonbinary"
+  }, "Nonbinary"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Polysexual"
+  }, "Polysexual"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Pansexual"
+  }, "Pansexual"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Pangender"
+  }, "Pangender"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Pocket Gender"
+  }, "Pocket Gender"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "Pride"
+  }, "Pride"))));
 };
 
 var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
@@ -672,11 +687,75 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
     onChange: handleYSubmit
   }, react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: "1990"
+  }, "1978"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1979"
+  }, "1979"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1980"
+  }, "1980"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1990"
   }, "1990"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: "1991"
   }, "1991"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
     value: "1992"
-  }, "1993"))));
+  }, "1992"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1993"
+  }, "1993"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1994"
+  }, "1994"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1995"
+  }, "1995"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1996"
+  }, "1996"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1997"
+  }, "1997"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1998"
+  }, "1998"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "1999"
+  }, "1999"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2000"
+  }, "2000"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2001"
+  }, "2001"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2002"
+  }, "2002"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2003"
+  }, "2003"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2004"
+  }, "2004"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2005"
+  }, "2005"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2006"
+  }, "2006"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2007"
+  }, "2007"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2008"
+  }, "2008"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2009"
+  }, "2009"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2010"
+  }, "2010"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2011"
+  }, "2011"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2012"
+  }, "2012"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2013"
+  }, "2013"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2014"
+  }, "2014"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2015"
+  }, "2015"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2016"
+  }, "2016"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2017"
+  }, "2017"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2018"
+  }, "2018"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2019"
+  }, "2019"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2020"
+  }, "2020"), react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    value: "2021"
+  }, "2021"))));
 };
 
 var FlagGuess = function FlagGuess() {
@@ -806,9 +885,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Home = function Home() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "some things u can do:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "browse all flags by clicking the flags button"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "home"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+    id: "welcome"
+  }, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "famtree",
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Gay_man_flag_chart.jpg/800px-Gay_man_flag_chart.jpg",
+    alt: "Map"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "words"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "This API is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Currently, this site contains the images of 40 pride flag variations (and counting!)"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/allflags"
-  }, " FLAGS "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "dont know much about pride flags? Play Pride-le (yes, kind of like Wordle) to learn about a new flag everyday", ' '), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "just here to hook into the API?"));
+  }, " FLAGS ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "The Database")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "The API")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "this API allows developers to easily access and use the most specific, widely accepted, and/or current flag for thier needs "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "HOW-TO")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, " to hook into the API, find the flag name, year, and alternate name (altname) if it has one. Alternate names are used to differentiate flags of the same type created in the same year"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "the API name is all lowercase and the structure is as follows: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "https://pr1deflags/flags/ ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "flag name (+ flag altname)  + flag year")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Let's say you wanted to use the "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("u", null, "USE-CASE EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Click on GAME in the navbar to")));
 };
 /* harmony default export */ __webpack_exports__["default"] = (Home);
 
@@ -904,8 +993,6 @@ var Navbar = function Navbar(_ref) {
     href: "#",
     onClick: handleClick
   }, "Logout")) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
-    to: "/login"
-  }, "Admin Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/"
   }, "HOME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
     to: "/game"
