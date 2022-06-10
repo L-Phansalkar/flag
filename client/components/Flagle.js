@@ -96,6 +96,7 @@ export class Flagle extends React.Component {
     console.log('chosen', chosenFlag)
     return (
       <div id="flaglegamle">
+        <h3>djdjdjdjdjd</h3>
         {chosenFlag ? (
           <div id="loaded">
             {/* // want to use chosenFlag.image as the background image that is covered up//

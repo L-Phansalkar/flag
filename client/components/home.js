@@ -1,10 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 export const Home = () => {
   return (
     <div id="home">
-      <meta httpEquiv="Cache-control" content="no-cache" />
       <h1 id="welcome">Welcome to the Pride Flag Database and API</h1>
       <img
         id="famtree"
