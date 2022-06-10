@@ -46,15 +46,46 @@ var chooseRandom = (flagobj, dayString) => {
 export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
-    toast('🦄 Instros go here', {
-      position: 'top-center',
-      autoClose: false,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    })
+    toast(
+      <div>
+        <p>GAME INSTRUCTIONS</p>
+        <p>
+          you will have six chances to guess what pride flag is hidden below the
+          black power tiles
+        </p>
+        <p>
+          please select a NAME and then a YEAR from the respective dropdowns
+        </p>
+        <p>
+          you must select the name first, and then the year in order to submit
+          your guess
+        </p>
+        <p>each guess will show up below the hidden image box </p>
+        <p>you will also receive two hints: </p>
+        <p>
+          1) up if the real name is later in the alphabet, or down if its
+          earlier{' '}
+        </p>
+        <p>
+          2) + if the real year is later/more current, or - if the real year is
+          earlier/further in the past{' '}
+        </p>
+        <p>
+          the hidden flag is randomized from the pride flag database, and
+          changes every 24 hours
+        </p>
+        <p>good luck and have fun!</p>
+      </div>,
+      {
+        position: 'top-center',
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      }
+    )
   }
 
   render() {
@@ -65,6 +96,7 @@ export class Flagle extends React.Component {
     console.log('chosen', chosenFlag)
     return (
       <div id="flaglegamle">
+        <h3>djdjdjdjdjd</h3>
         {chosenFlag ? (
           <div id="loaded">
             {/* // want to use chosenFlag.image as the background image that is covered up//
