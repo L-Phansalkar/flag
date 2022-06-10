@@ -21486,7 +21486,7 @@ function (_React$Component) {
       console.log('chosen', chosenFlag);
       return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "flaglegamle"
-      }, react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "djdjdjdjdjd"), chosenFlag ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, chosenFlag ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "loaded"
       }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_8__["default"], {
         container: true,

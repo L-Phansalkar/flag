@@ -6,7 +6,7 @@ body {
   background-size: cover;
   /* 
   justify-content: space-around; */
-  align-items: flex-start;
+  align-items: center;
   text-align: center;
 }
 
@@ -130,6 +130,7 @@ nav {
   width: 80%;
   display: inline-block;
   text-align: start;
+  align-self: flex-start;
 }
 
 #lesample,
@@ -154,7 +155,8 @@ h1#gm {
 }
 
 #flaglegamle {
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: block; */
+  align-self: center;
 }
