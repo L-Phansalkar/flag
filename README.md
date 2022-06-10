@@ -4,19 +4,23 @@ howdy this is ur captain gender-outlaw speaking buckle up for a fun-ass pride mo
 <br></br>
 https://pr1deflags.herokuapp.com/
 <br></br>
-currently under construction but heres 
+
 # the vision:
 
-a searchable database of pride flags containing images, creators, years, titles
+a comprehensive database of pride flags, years, and variations
 
 public API to hook into to use specific pride flag images for your needs
 
-Pride-le minigame using pride flag db as backend - a wordle like game where users guess which pride flag (Name and Year) is hidden behind the black tiles
-  (tier 2 to include stats, etc and a seperarate client-facing page for the game only)
+guess the flag minigame using pride flag db as backend 
 
-Admin Login for editing and updating capabilities right in the app
+**site is currently live and well***
 
-email form for Admin request/ suggestions/ interaction w community 
+# tier 2 updates to come:
+
+universal flag randomization for minigame
+
+definition of LGBTQUIA+ labels (flag names) 
+
 <br></br>
 <br></br>
 <br></br>
