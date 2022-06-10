@@ -30,9 +30,8 @@ export class AllFlags extends React.Component {
             </b>
             <br />
             <img id="flagmage" src={makeUrl(flag.imageurl)} alt={flag.id} />
-            <h6 id="cretor">
-              {flag.creator} {flag.controversial}
-            </h6>
+            <h6 id="cretor">{flag.creator}</h6>
+            <h6 id="contr">{flag.controversial}</h6>
           </div>
         ))}
       </div>

@@ -41,7 +41,7 @@ async function seed() {
       name: 'Aromantic',
       year: '2011',
       creator: 'National Coalition for Aromantic Visibility',
-      controversial: true,
+      controversial: 'CONTROVERSIAL',
       imageurl: 'flags/aromantic2011.png'
     }),
     Flag.create({
@@ -53,7 +53,7 @@ async function seed() {
     Flag.create({
       name: 'Bigender',
       year: '2013',
-      controversial: true,
+      controversial: 'CONTROVERSIAL',
       creator: '@Jewishkuvira',
       imageurl: 'flags/bigender2013.png'
     }),
@@ -119,14 +119,14 @@ async function seed() {
     Flag.create({
       name: 'Lesbian',
       year: '1999',
-      controversial: true,
+      controversial: 'CONTROVERSIAL',
       creator: 'Sean Campbell',
       imageurl: 'flags/lesbian1999.png'
     }),
     Flag.create({
       name: 'Lesbian',
       year: '2010',
-      controversial: true,
+      controversial: 'CONTROVERSIAL',
       imageurl: 'flags/lesbian2010.png'
     }),
     Flag.create({
@@ -220,7 +220,7 @@ async function seed() {
     Flag.create({
       name: 'Transgender',
       year: '2018',
-      controversial: true,
+      controversial: 'CONTROVERSIAL',
       creator: 'Jennifel Pellinen',
       imageurl: 'flags/transgender2018.png'
     }),

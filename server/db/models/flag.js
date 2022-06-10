@@ -18,8 +18,7 @@ const Flag = db.define('flag', {
     type: Sequelize.STRING
   },
   controversial: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false
+    type: Sequelize.STRING
   },
   tags: {
     type: Sequelize.STRING,

@@ -12,7 +12,8 @@ export const Home = () => {
         <h3>This site is intended for both developers and users alike!</h3>
         <h3>
           Currently, this site contains the images of 40 pride flag variations
-          (and counting!)
+          (and counting!), as well as their names, years, creators, and
+          controversial status
         </h3>
         <h3> You can browse all flags by clicking the flags button below:</h3>
         <h1 id="allofem">

@@ -21334,7 +21334,9 @@ function (_React$Component) {
           alt: flag.id
         }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h6", {
           id: "cretor"
-        }, flag.creator, " ", flag.controversial));
+        }, flag.creator), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h6", {
+          id: "contr"
+        }, flag.controversial));
       }));
     }
   }]);
@@ -22021,7 +22023,7 @@ var Home = function Home() {
     id: "welcome"
   }, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "words"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This site is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Currently, this site contains the images of 40 pride flag variations (and counting!)"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This site is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Currently, this site contains the images of 40 pride flag variations (and counting!), as well as their names, years, creators, and controversial status"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     id: "allofem"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/allflags"
