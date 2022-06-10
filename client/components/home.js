@@ -41,16 +41,13 @@ export const Home = () => {
         </h3>
         <h3>the API name is all lowercase and the structure is as follows: </h3>
         <h1>
-          https://pr1deflags/flags/{' '}
+          http://pr1deflags.herokuapp.com//flags/{' '}
           <b>flag name (+ flag altname) + flag year</b>
         </h1>
         <h2>
           <u>EXAMPLE</u>
         </h2>
-        <img
-          src="https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg"
-          alt="Map"
-        />
+        <img src="https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg" />
         <h3>Let's say you wanted to use the lesbian flag </h3>
         <h2>
           <u>USE-CASE EXAMPLE</u>
