@@ -11,7 +11,7 @@ export const Home = () => {
         </h2>
         <h3>This site is intended for both developers and users alike!</h3>
         <h3>
-          Currently, this site contains the images of 40 pride flag variations
+          Currently, this site contains the images of 59 pride flag variations
           (and counting!), as well as their names, years, creators, and
           controversial status
         </h3>

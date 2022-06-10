@@ -14,6 +14,12 @@ async function seed() {
 
   const flags = await Promise.all([
     Flag.create({
+      name: 'Abrosexual',
+      year: '2013',
+      creator: '@modchad',
+      imageurl: 'flags/abrosexual2013.png'
+    }),
+    Flag.create({
       name: 'Agender',
       year: '2014',
       imageurl: 'flags/agender2014.png'
@@ -30,6 +36,12 @@ async function seed() {
       year: '2021',
       creator: 'Mars',
       imageurl: 'flags/agendercitrus.png'
+    }),
+    Flag.create({
+      name: 'Ally Pride',
+      year: '2000',
+      creator: '@cameronwhimsy',
+      imageurl: 'flags/allypride2000.png'
     }),
     Flag.create({
       name: 'Aromantic',
@@ -75,6 +87,35 @@ async function seed() {
       imageurl: 'flags/bisexual1998.png'
     }),
     Flag.create({
+      name: 'Butch',
+      year: '2017',
+      creator: '@butchspace',
+      imageurl: 'flags/butch2017.png'
+    }),
+    Flag.create({
+      name: 'Demiromantic',
+      year: '2011',
+      imageurl: 'flags/demiromantic2011.png'
+    }),
+    Flag.create({
+      name: 'Demisexual',
+      year: '2010',
+
+      imageurl: 'flags/demisexual2010.png'
+    }),
+    Flag.create({
+      name: 'Drag Pride',
+      year: '1999',
+      creator: 'Sean Campbell',
+      imageurl: 'flags/dragpride1999.png'
+    }),
+    Flag.create({
+      name: 'Drag Pride',
+      year: '2016',
+      creator: 'Veranda L’Ni',
+      imageurl: 'flags/dragpride2016.png'
+    }),
+    Flag.create({
       name: 'Gay',
       year: '2019',
       creator: '@gayflagblog',
@@ -100,6 +141,12 @@ async function seed() {
       imageurl: 'flags/genderqueer2011.png'
     }),
     Flag.create({
+      name: 'Gender Questioning',
+      year: '2017',
+      creator: 'Roswelll',
+      imageurl: 'flags/genderquestioning2017.png'
+    }),
+    Flag.create({
       name: 'Intersex',
       year: '2019',
       creator: 'Natalie Phox',
@@ -110,6 +157,12 @@ async function seed() {
       year: '2013',
       creator: 'Morgan Carpenter',
       imageurl: 'flags/intersex2013.png'
+    }),
+    Flag.create({
+      name: 'Leather Pride',
+      year: '1989',
+      creator: 'Tony DeBlase',
+      imageurl: 'flags/leatherpride1989.png'
     }),
     Flag.create({
       name: 'Lesbian',
@@ -142,6 +195,12 @@ async function seed() {
       imageurl: 'flags/nonbinary2014.png'
     }),
     Flag.create({
+      name: 'Nonbinary',
+      atlname: 'Trans',
+      year: '2022',
+      imageurl: 'flags/nonbinarytrans2022.png'
+    }),
+    Flag.create({
       name: 'Polysexual',
       year: '2012',
       creator: '@fuckyeahpolysexuality',
@@ -166,6 +225,12 @@ async function seed() {
       imageurl: 'flags/pocketgender2021.png'
     }),
     Flag.create({
+      name: 'Polyamory',
+      year: '1995',
+      creator: 'Jim Evans',
+      imageurl: 'flags/polyamory1995.png'
+    }),
+    Flag.create({
       name: 'Pride',
       year: '1978',
       creator: 'Gilbert Baker',
@@ -183,9 +248,22 @@ async function seed() {
     }),
     Flag.create({
       name: 'Pride',
+      altname: 'US Canton',
+      year: '1999',
+      imageurl: 'flags/prideuscanton1999.png'
+    }),
+    Flag.create({
+      name: 'Pride',
       year: '2003',
       creator: 'Gilbert Baker',
       imageurl: 'flags/pride2003.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      altname: 'Two Spirit',
+      year: '2016',
+      creator: '@2Sanon',
+      imageurl: 'flags/pridetwospirit2016.png'
     }),
     Flag.create({
       name: 'Pride',
@@ -207,9 +285,41 @@ async function seed() {
     }),
     Flag.create({
       name: 'Pride',
+      altname: 'Brazil',
+      year: '2018',
+      creator: 'Estêvão Romane',
+      imageurl: 'flags/pridebrazil2018.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      altname: 'Chennai',
+      year: '2018',
+      creator: 'Moulee',
+      imageurl: 'flags/pridechennai2018.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      altname: 'QPOC',
+      year: '2019',
+      imageurl: 'flags/prideqpoc2019.png'
+    }),
+    Flag.create({
+      name: 'Pride',
+      altname: 'Africa',
+      year: '2019',
+      imageurl: 'flags/prideafrica2019.png'
+    }),
+    Flag.create({
+      name: 'Pride',
       year: '2021',
       creator: 'Valentino Vecchietti',
       imageurl: 'flags/pride2021.png'
+    }),
+    Flag.create({
+      name: 'Rubber Pride',
+      year: '1995',
+      creator: 'Peter Tolos & Scott Moats',
+      imageurl: 'flags/rubberpride1995.png'
     }),
     Flag.create({
       name: 'Transgender',
@@ -254,6 +364,11 @@ async function seed() {
       year: '2017',
       creator: 'Jesse DemiDude Bananasaurus',
       imageurl: 'flags/transgender2017.png'
+    }),
+    Flag.create({
+      name: 'Twink',
+      year: '2017',
+      imageurl: 'flags/twink2017.png'
     })
   ])
 
