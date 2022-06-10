@@ -22020,17 +22020,39 @@ var Home = function Home() {
     id: "home"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     id: "welcome"
-  }, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    id: "famtree",
-    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Gay_man_flag_chart.jpg/800px-Gay_man_flag_chart.jpg",
-    alt: "Map"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     id: "words"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This site is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Currently, this site contains the images of 40 pride flag variations (and counting!)"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This site is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Currently, this site contains the images of 40 pride flag variations (and counting!)"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    id: "allofem"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/allflags"
-  }, " FLAGS ")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "this API allows developers to easily access and use the most specific, widely accepted, and/or current flag for thier needs"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "HOW-TO")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, ' ', "to hook into the API, find the flag name, year, and alternate name (altname) if it has one. Alternate names are used to differentiate flags of the same type created in the same year"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "the API name is all lowercase and the structure is as follows: "), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "http://pr1deflags.herokuapp.com/flags/", ' ', react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "flag name (+ flag altname) + flag year")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Let's say you wanted to use the lesbian flag "), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "USE-CASE EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+  }, " FLAGS ")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "this API allows developers to easily access and use the most specific, widely accepted, and/or current flag for thier needs"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "HOW-TO")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, ' ', "to hook into the API, find the flag name, year, and alternate name (altname) if it has one. Alternate names are used to differentiate flags of the same type created in the same year"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "the API name is all lowercase and the structure is as follows: "), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    id: "thestructure"
+  }, "http://pr1deflags.herokuapp.com/flags/", ' ', react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "flag name (+ flag altname) + flag year + .png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    id: "lesample",
+    src: "/lestest.png",
+    width: "150",
+    heigth: "150"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    id: "leswords"
+  }, "http://pr1deflags.herokuapp.com/flags/lesbian2011.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    id: "altnametest",
+    src: "/altnametest.png",
+    width: "350",
+    heigth: "250"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    id: "agwords1"
+  }, "LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+    id: "agwords2"
+  }, "RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "USE-CASE EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    id: "gm"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/game"
-  }, " GAME "))));
+  }, " GAME "))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("footer", {
+    id: "foot"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+    href: "https://forms.gle/Q8YzHxzgjuN4g1xD9"
+  }, "Feedback Form"))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
 
