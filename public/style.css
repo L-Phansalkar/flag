@@ -118,3 +118,15 @@ nav {
   text-align: center;
   justify-content: center;
 }
+
+#famtree {
+  width: 20%;
+  margin-right: 5%;
+  margin-bottom: 15%;
+  align-self: stretch;
+}
+#words {
+  width: 70%;
+  display: inline-block;
+  text-align: start;
+}

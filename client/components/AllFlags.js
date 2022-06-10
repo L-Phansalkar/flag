@@ -27,7 +27,7 @@ export class AllFlags extends React.Component {
           <div id="oneflag" key={flag.id}>
             <Link to={`/flags/${flag.id}`}>
               <b>
-                {flag.name} {flag.year}
+                {flag.name} {flag.altname} {flag.year}
               </b>
             </Link>
             <br />
