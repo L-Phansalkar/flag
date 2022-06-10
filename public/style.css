@@ -50,6 +50,7 @@ nav {
   width: 25%;
   font-size: x-large;
   text-align: center;
+  overflow-wrap: wrap;
   justify-content: center;
   align-items: center;
   block-size: fit-content;
@@ -159,4 +160,5 @@ h1#gm {
 #cretor {
   line-height: 1.25;
   margin: auto;
+  width: 70%;
 }
