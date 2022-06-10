@@ -51,7 +51,9 @@ nav {
   font-size: x-large;
   text-align: center;
   justify-content: center;
+  align-items: center;
   block-size: fit-content;
+  margin-bottom: 3%;
 }
 
 #imabox.Muibox {
@@ -154,9 +156,7 @@ h1#gm {
   text-align: center;
 }
 
-#flaglegamle {
-  /* margin-left: auto;
-  margin-right: auto;
-  display: block; */
-  align-self: center;
+#cretor {
+  line-height: 1.25;
+  margin: auto;
 }

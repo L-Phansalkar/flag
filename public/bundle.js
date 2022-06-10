@@ -21265,7 +21265,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _store_flags__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store/flags */ "./client/store/flags.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -21329,13 +21328,13 @@ function (_React$Component) {
         return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
           id: "oneflag",
           key: flag.id
-        }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-          to: "/flags/".concat(flag.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, flag.name, " ", flag.altname, " ", flag.year)), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, flag.name, " ", flag.altname, " ", flag.year), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
           id: "flagmage",
           src: makeUrl(flag.imageurl),
           alt: flag.id
-        }));
+        }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h6", {
+          id: "cretor"
+        }, flag.creator, " ", flag.controversial));
       }));
     }
   }]);

@@ -25,13 +25,14 @@ export class AllFlags extends React.Component {
         <h1 id="allflagstitle">ALL PRIDE FLAGS</h1>
         {flags.map(flag => (
           <div id="oneflag" key={flag.id}>
-            <Link to={`/flags/${flag.id}`}>
-              <b>
-                {flag.name} {flag.altname} {flag.year}
-              </b>
-            </Link>
+            <b>
+              {flag.name} {flag.altname} {flag.year}
+            </b>
             <br />
             <img id="flagmage" src={makeUrl(flag.imageurl)} alt={flag.id} />
+            <h6 id="cretor">
+              {flag.creator} {flag.controversial}
+            </h6>
           </div>
         ))}
       </div>
