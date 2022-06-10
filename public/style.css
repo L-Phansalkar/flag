@@ -3,7 +3,8 @@ body {
   display: flex;
   flex-direction: column;
   background-image: url('https://img.freepik.com/free-vector/cloudy-sky-blue-background_1284-64637.jpg?w=1380&t=st=1654457389~exp=1654457989~hmac=b0f8668cd6f1c1a9e75fcc84565c1289d6c6ca8263a22fdd830f4e8db52f6977');
-  background-size: cover;
+  background-size: center;
+  background-position: center;
   /* 
   justify-content: space-around; */
   align-items: center;
