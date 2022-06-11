@@ -25,6 +25,7 @@ guess the flag minigame using pride flag db as backend
         <h1 id="thestructure">
           http://pr1deflags.herokuapp.com/flags/flag name (+ flag altname) + flag year + .png</b>
         </h1>
+
 # tier 2 updates to come:
 
 universal flag randomization for minigame
