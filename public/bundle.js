@@ -21438,6 +21438,8 @@ var getDayString = function getDayString() {
 }; //random//
 
 
+var tileSet = [1, 2, 3, 4, 5, 6];
+
 var chooseRandom = function chooseRandom(flagobj, dayString) {
   if (flagobj.length > 0) {
     if (!localStorage.getItem("".concat(dayString))) {
@@ -21467,7 +21469,8 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
-      (0,react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast)(react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will have six chances to guess what pride flag is hidden behind the tiles"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "please select a NAME and then a YEAR from the respective dropdowns to make a guess"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "after each guess, a tile will be removed"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you can see your p "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1) up if the real name is later in the alphabet, or down if its earlier", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "good luck and have fun!")), {
+      var attemtps = 0;
+      (0,react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast)(react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will have 6 chances to guess what pride flag is hidden behind the tiles"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "please select a NAME and then a YEAR from the respective dropdowns to make a guess"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "after each guess, a tile will be removed"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you can see your p "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1) up if the real name is later in the alphabet, or down if its earlier", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "good luck and have fun!")), {
         position: 'top-center',
         autoClose: false,
         hideProgressBar: false,
@@ -21477,6 +21480,19 @@ function (_React$Component) {
         progress: undefined,
         width: '500'
       });
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var alreadyFlipped = localStorage.getItem("flipped");
+      var alreadyFlippedArr = JSON.parse(alreadyFlipped);
+
+      if (alreadyFlippedArr) {
+        alreadyFlippedArr.map(function (eachnum) {
+          var tile = document.getElementById("num".concat(eachnum));
+          tile.classList.toggle('hidden');
+        });
+      }
     }
   }, {
     key: "render",
@@ -21537,9 +21553,11 @@ function (_React$Component) {
         className: "card",
         id: "num6"
       }))), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagleNameDropdown, {
-        chosenFlag: chosenFlag
+        chosenFlag: chosenFlag,
+        tileSet: tileSet
       }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagleYearDropdown, {
-        chosenFlag: chosenFlag
+        chosenFlag: chosenFlag,
+        tileSet: tileSet
       }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagGuess, null)) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "L O A D I N G"));
     }
   }]);
@@ -21598,11 +21616,14 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
  //random tile func//
 
-var tileSet = [1, 2, 3, 4, 5, 6];
+var flippedArr = [];
 
 var revealRandomTile = function revealRandomTile(array) {
   var random = Math.floor(Math.random() * array.length);
   var randomTileNum = array.splice(random, 1)[0];
+  flippedArr.push(randomTileNum);
+  localStorage.removeItem('flipped');
+  localStorage.setItem("flipped", JSON.stringify(flippedArr));
   var tile = document.getElementById("num".concat(randomTileNum));
   tile.classList.add('hidden');
   return randomTileNum;
@@ -21610,15 +21631,26 @@ var revealRandomTile = function revealRandomTile(array) {
 
 
 var attempts = 0;
+var alreadyFlipped = localStorage.getItem("flipped");
+
+if (alreadyFlipped) {
+  attempts = JSON.parse(alreadyFlipped).length;
+} else attempts = 0;
+
 var updown = '';
 var hilo = '';
 
-var checkAttempts = function checkAttempts(props) {
+var checkAttempts = function checkAttempts() {
   if (attempts === 6) {
     var namedrop = document.getElementById('namebox');
     var yeardrop = document.getElementById('yearbox');
     namedrop.classList.add('hidden');
     yeardrop.classList.add('hidden');
+
+    for (var _len = arguments.length, props = new Array(_len), _key = 0; _key < _len; _key++) {
+      props[_key] = arguments[_key];
+    }
+
     (0,react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast)("BETTER LUCK NEXT TIME ".concat(props.chosenFlag.name, " ").concat(props.chosenFlag.year), {
       position: 'top-center',
       autoClose: 500,
@@ -21646,6 +21678,13 @@ var onNCorrect = function onNCorrect(guessName) {
     draggable: true,
     progress: undefined
   });
+  var namebox = document.getElementById("namebox");
+  namebox.classList.add("hidden");
+  var guessBox = document.getElementById('flgs');
+  var elem = document.createElement("h1");
+  elem.innerHTML = "".concat(guessName);
+  elem.id = "nm";
+  guessBox.insertBefore(elem, guessBox.firstChild);
 };
 
 var onNIncorrect = function onNIncorrect(guessName) {
@@ -21665,6 +21704,13 @@ var onYCorrect = function onYCorrect(guessYear) {
   });
   currentYearGuess = guessYear;
   console.log('corrrect', guessYear);
+  var yearbox = document.getElementById("yearbox");
+  yearbox.classList.add("hidden");
+  var guessBox = document.getElementById('flgs');
+  var elem = document.createElement("h1");
+  elem.innerHTML = "".concat(guessYear);
+  elem.id = "yr";
+  guessBox.appendChild(elem, guessBox.firstChild);
 };
 
 var onYIncorrect = function onYIncorrect(guessYear) {
@@ -21716,16 +21762,17 @@ var onNGuess = function onNGuess(guessName, props) {
 };
 
 var onYGuess = function onYGuess(guessYear, props) {
-  if (props.chosenFlag.year - guessYear > 0) {
-    hilo = '➕';
-  } else if (guessYear === props.chosenFlag.name) {
+  if (guessYear == props.chosenFlag.year) {
     hilo = "\u2705";
+    onYCorrect(guessYear);
+  } else if (props.chosenFlag.year - guessYear > 0) {
+    hilo = '➕';
   } else {
     hilo = '➖';
   }
 
   if (currentNameGuess) {
-    revealRandomTile(tileSet);
+    revealRandomTile(props.tileSet);
     addGuess(currentNameGuess, guessYear, hilo, updown);
   } else {
     (0,react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast)('🌈 Please Pick a Name First!', {
@@ -21772,7 +21819,7 @@ var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
     value: "Bisexual"
   }, "Bisexual"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: "Bigender"
-  }, "Bisexual"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, "Bigender"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: "Transgender"
   }, "Transgender"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: "Instersex"
@@ -21816,7 +21863,7 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
     id: "yearChoice",
     onChange: handleYSubmit
   }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
-    value: "1990"
+    value: "1978"
   }, "1978"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {
     value: "1979"
   }, "1979"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_7__["default"], {

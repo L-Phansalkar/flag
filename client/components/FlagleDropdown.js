@@ -8,11 +8,14 @@ import {toast} from 'react-toastify'
 
 import {DateTime} from 'luxon'
 //random tile func//
-var tileSet = [1, 2, 3, 4, 5, 6]
+
+var flippedArr = []
 const revealRandomTile = array => {
   const random = Math.floor(Math.random() * array.length)
   const randomTileNum = array.splice(random, 1)[0]
-
+  flippedArr.push(randomTileNum)
+  localStorage.removeItem('flipped')
+  localStorage.setItem(`flipped`, JSON.stringify(flippedArr))
   const tile = document.getElementById(`num${randomTileNum}`)
   tile.classList.add('hidden')
   return randomTileNum
@@ -20,9 +23,13 @@ const revealRandomTile = array => {
 
 //number of guesses//
 var attempts = 0
+var alreadyFlipped = localStorage.getItem(`flipped`)
+if (alreadyFlipped) {
+  attempts = JSON.parse(alreadyFlipped).length
+} else attempts = 0
 var updown = ''
 var hilo = ''
-const checkAttempts = props => {
+const checkAttempts = (...props) => {
   if (attempts === 6) {
     const namedrop = document.getElementById('namebox')
     const yeardrop = document.getElementById('yearbox')
@@ -59,6 +66,13 @@ const onNCorrect = guessName => {
     draggable: true,
     progress: undefined
   })
+  const namebox = document.getElementById('namebox')
+  namebox.classList.add('hidden')
+  const guessBox = document.getElementById('flgs')
+  var elem = document.createElement('h1')
+  elem.innerHTML = `${guessName}`
+  elem.id = 'nm'
+  guessBox.insertBefore(elem, guessBox.firstChild)
 }
 
 const onNIncorrect = guessName => {
@@ -78,6 +92,13 @@ const onYCorrect = guessYear => {
   })
   currentYearGuess = guessYear
   console.log('corrrect', guessYear)
+  const yearbox = document.getElementById('yearbox')
+  yearbox.classList.add('hidden')
+  const guessBox = document.getElementById('flgs')
+  var elem = document.createElement('h1')
+  elem.innerHTML = `${guessYear}`
+  elem.id = 'yr'
+  guessBox.appendChild(elem, guessBox.firstChild)
 }
 
 const onYIncorrect = guessYear => {
@@ -123,15 +144,16 @@ const onNGuess = (guessName, props) => {
   return currentNameGuess
 }
 const onYGuess = (guessYear, props) => {
-  if (props.chosenFlag.year - guessYear > 0) {
-    hilo = '➕'
-  } else if (guessYear === props.chosenFlag.name) {
+  if (guessYear == props.chosenFlag.year) {
     hilo = `✅`
+    onYCorrect(guessYear)
+  } else if (props.chosenFlag.year - guessYear > 0) {
+    hilo = '➕'
   } else {
     hilo = '➖'
   }
   if (currentNameGuess) {
-    revealRandomTile(tileSet)
+    revealRandomTile(props.tileSet)
     addGuess(currentNameGuess, guessYear, hilo, updown)
   } else {
     toast('🌈 Please Pick a Name First!', {
@@ -168,7 +190,7 @@ const FlagleNameDropdown = ({...props}) => {
           <MenuItem value="Genderfluid">Genderfluid</MenuItem>
           <MenuItem value="Genderqueer">Genderqueer</MenuItem>
           <MenuItem value="Bisexual">Bisexual</MenuItem>
-          <MenuItem value="Bigender">Bisexual</MenuItem>
+          <MenuItem value="Bigender">Bigender</MenuItem>
           <MenuItem value="Transgender">Transgender</MenuItem>
           <MenuItem value="Instersex">Intersex</MenuItem>
           <MenuItem value="Agender">Agender</MenuItem>
@@ -200,7 +222,7 @@ const FlagleYearDropdown = ({...props}) => {
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">YEAR</InputLabel>
         <Select id="yearChoice" onChange={handleYSubmit}>
-          <MenuItem value="1990">1978</MenuItem>
+          <MenuItem value="1978">1978</MenuItem>
           <MenuItem value="1979">1979</MenuItem>
           <MenuItem value="1980">1980</MenuItem>
           <MenuItem value="1990">1990</MenuItem>

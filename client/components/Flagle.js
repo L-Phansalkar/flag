@@ -30,6 +30,7 @@ const getDayString = () => {
   return `${date}-${DateTime.now().weekday}`
 }
 //random//
+var tileSet = [1, 2, 3, 4, 5, 6]
 var chooseRandom = (flagobj, dayString) => {
   if (flagobj.length > 0) {
     if (!localStorage.getItem(`${dayString}`)) {
@@ -46,12 +47,13 @@ var chooseRandom = (flagobj, dayString) => {
 export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
+    var attemtps = 0
     toast(
       <div>
         <p>GAME INSTRUCTIONS</p>
         <p>
-          you will have six chances to guess what pride flag is hidden behind
-          the tiles
+          you will have 6 chances to guess what pride flag is hidden behind the
+          tiles
         </p>
         <p>
           please select a NAME and then a YEAR from the respective dropdowns to
@@ -86,13 +88,24 @@ export class Flagle extends React.Component {
       }
     )
   }
-
+  componentDidUpdate() {
+    var alreadyFlipped = localStorage.getItem(`flipped`)
+    var alreadyFlippedArr = JSON.parse(alreadyFlipped)
+    if (alreadyFlippedArr) {
+      alreadyFlippedArr.map(eachnum => {
+        const tile = document.getElementById(`num${eachnum}`)
+        tile.classList.toggle('hidden')
+      })
+    }
+  }
   render() {
     const {flags} = this.props
     console.log('flaglist', flags)
     const currDay = getDayString()
+
     var chosenFlag = chooseRandom(flags, currDay)
     console.log('chosen', chosenFlag)
+
     return (
       <div id="flaglegamle">
         {chosenFlag ? (
@@ -132,8 +145,8 @@ export class Flagle extends React.Component {
                 <Item className="card" id="num6" />
               </Grid>
             </Grid>
-            <FlagleNameDropdown chosenFlag={chosenFlag} />
-            <FlagleYearDropdown chosenFlag={chosenFlag} />
+            <FlagleNameDropdown chosenFlag={chosenFlag} tileSet={tileSet} />
+            <FlagleYearDropdown chosenFlag={chosenFlag} tileSet={tileSet} />
             <FlagGuess />
           </div>
         ) : (

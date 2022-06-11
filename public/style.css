@@ -172,3 +172,10 @@ h1#gm {
   margin: auto;
   width: 70%;
 }
+
+#nm,
+#yr {
+  width: 40%;
+  display: block;
+  margin: auto;
+}
