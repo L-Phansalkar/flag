@@ -50,17 +50,15 @@ export class Flagle extends React.Component {
       <div>
         <p>GAME INSTRUCTIONS</p>
         <p>
-          you will have six chances to guess what pride flag is hidden below the
-          black power tiles
+          you will have six chances to guess what pride flag is hidden behind
+          the tiles
         </p>
         <p>
-          please select a NAME and then a YEAR from the respective dropdowns
+          please select a NAME and then a YEAR from the respective dropdowns to
+          make a guess
         </p>
-        <p>
-          you must select the name first, and then the year in order to submit
-          your guess
-        </p>
-        <p>each guess will show up below the hidden image box </p>
+        <p>after each guess, a tile will be removed</p>
+        <p>you can see your p </p>
         <p>you will also receive two hints: </p>
         <p>
           1) up if the real name is later in the alphabet, or down if its
@@ -83,7 +81,8 @@ export class Flagle extends React.Component {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: undefined
+        progress: undefined,
+        width: '500'
       }
     )
   }

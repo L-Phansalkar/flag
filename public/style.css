@@ -1,9 +1,9 @@
 body {
-  font-family: monospace;
+  font-family: 'Lucida Console', 'Courier New', monospace;
   display: flex;
   flex-direction: column;
   background-image: url('https://images.pexels.com/photos/1571730/pexels-photo-1571730.jpeg?cs=srgb&dl=pexels-engin-akyurt-1571730.jpg&fm=jpg');
-  /* background-size: auto; */
+  opacity: 1;
   background-position: center;
   /* 
   justify-content: space-around; */
@@ -135,6 +135,7 @@ nav {
   display: inline-block;
   text-align: start;
   align-self: flex-start;
+  text-overflow: wrap;
 }
 
 #lesample,
@@ -145,11 +146,18 @@ nav {
   border: 5px solid black;
 }
 
-h2#leswords,
-h2#agwords1,
-h2#agwords2,
+h3#leswords,
+h3#agwords1,
+h3#agwords2,
 h1#thestructure {
   text-align: center;
+  text-overflow: wrap;
+  font-weight: bold;
+}
+h3#leswords,
+h3#agwords1,
+h3#agwords2 {
+  background-color: white;
 }
 
 h1#allofem,

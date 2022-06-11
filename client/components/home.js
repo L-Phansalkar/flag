@@ -42,18 +42,20 @@ export const Home = () => {
         </h2>
         <img id="lesample" src="/lestest.png" width="150" heigth="150" />
         <b>
-          <h2 id="leswords">
-            http://pr1deflags.herokuapp.com/flags/lesbian2011.png
-          </h2>
+          <h3 id="leswords">
+            <b>http://pr1deflags.herokuapp.com/flags/lesbian2011.png</b>
+          </h3>
         </b>
         <br />
         <img id="altnametest" src="/altnametest.png" width="350" heigth="250" />
-        <h2 id="agwords1">
-          LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png
-        </h2>
-        <h2 id="agwords2">
-          RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png
-        </h2>
+        <h3 id="agwords1">
+          <b>LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png</b>
+        </h3>
+        <h3 id="agwords2">
+          <b>
+            RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png
+          </b>
+        </h3>
         <h2>
           <u>USE-CASE EXAMPLE</u>
         </h2>

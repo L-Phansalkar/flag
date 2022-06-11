@@ -21467,14 +21467,15 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
-      (0,react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast)(react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will have six chances to guess what pride flag is hidden below the black power tiles"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "please select a NAME and then a YEAR from the respective dropdowns"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you must select the name first, and then the year in order to submit your guess"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "each guess will show up below the hidden image box "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1) up if the real name is later in the alphabet, or down if its earlier", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "good luck and have fun!")), {
+      (0,react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast)(react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will have six chances to guess what pride flag is hidden behind the tiles"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "please select a NAME and then a YEAR from the respective dropdowns to make a guess"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "after each guess, a tile will be removed"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you can see your p "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1) up if the real name is later in the alphabet, or down if its earlier", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "good luck and have fun!")), {
         position: 'top-center',
         autoClose: false,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: undefined
+        progress: undefined,
+        width: '500'
       });
     }
   }, {
@@ -22034,18 +22035,18 @@ var Home = function Home() {
     src: "/lestest.png",
     width: "150",
     heigth: "150"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     id: "leswords"
-  }, "http://pr1deflags.herokuapp.com/flags/lesbian2011.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "http://pr1deflags.herokuapp.com/flags/lesbian2011.png"))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     id: "altnametest",
     src: "/altnametest.png",
     width: "350",
     heigth: "250"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     id: "agwords1"
-  }, "LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
     id: "agwords2"
-  }, "RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "USE-CASE EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "USE-CASE EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
     id: "gm"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/game"
