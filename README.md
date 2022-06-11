@@ -18,15 +18,11 @@ guess the flag minigame using pride flag db as backend
 # hooking into the api:
 
 <h3>
-          {' '}
-          to hook into the API, find the flag name, year, and alternate name
-          (altname) if it has one. Alternate names are used to differentiate
-          flags of the same type created in the same year
+          to hook into the API, go tohttp://pr1deflags.herokuapp.com/allflags find the flag name, year, and alternate name (altname) if it has one. Alternate names are used to differentiate flags of the same type created in the same year
         </h3>
         <h3>the API name is all lowercase and the structure is as follows: </h3>
         <h1 id="thestructure">
-          http://pr1deflags.herokuapp.com/flags/{' '}
-          <b>flag name (+ flag altname) + flag year + .png</b>
+          http://pr1deflags.herokuapp.com/flags/flag name (+ flag altname) + flag year + .png</b>
         </h1>
 # tier 2 updates to come:
 
