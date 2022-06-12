@@ -26,7 +26,7 @@ const Item = styled(Card)(({theme}) => ({
 //date n time//
 const getDayString = () => {
   const date = DateTime.now().toFormat('yyyy-MM-dd')
-  console.log(`${date}-${DateTime.now().weekday}`)
+
   return `${date}-${DateTime.now().weekday}`
 }
 //random//
@@ -100,10 +100,9 @@ export class Flagle extends React.Component {
   }
   render() {
     const {flags} = this.props
-    console.log('flaglist', flags)
+
     const currDay = getDayString()
     var chosenFlag = chooseRandom(flags, currDay)
-    console.log('chosen', chosenFlag)
 
     return (
       <div id="flaglegamle">
