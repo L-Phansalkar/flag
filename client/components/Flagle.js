@@ -31,12 +31,12 @@ const getDayString = () => {
 }
 //random//
 var tileSet = [1, 2, 3, 4, 5, 6]
+
 var chooseRandom = (flagobj, dayString) => {
   if (flagobj.length > 0) {
     if (!localStorage.getItem(`${dayString}`)) {
-      console.log('flagobj', flagobj)
+      localStorage.removeItem('flipped')
       var chosenFlag = flagobj[Math.floor(Math.random() * flagobj.length)]
-      console.log('here?', chosenFlag)
       localStorage.setItem(`${dayString}`, JSON.stringify(chosenFlag))
     }
     var retrieveChosen = localStorage.getItem(`${dayString}`)
@@ -102,7 +102,6 @@ export class Flagle extends React.Component {
     const {flags} = this.props
     console.log('flaglist', flags)
     const currDay = getDayString()
-
     var chosenFlag = chooseRandom(flags, currDay)
     console.log('chosen', chosenFlag)
 

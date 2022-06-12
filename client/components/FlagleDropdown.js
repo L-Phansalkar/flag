@@ -26,11 +26,11 @@ var attempts = 0
 var alreadyFlipped = localStorage.getItem(`flipped`)
 if (alreadyFlipped) {
   attempts = JSON.parse(alreadyFlipped).length
-} else attempts = 0
+}
 var updown = ''
 var hilo = ''
 const checkAttempts = (...props) => {
-  if (attempts === 6) {
+  if (attempts == 6) {
     const namedrop = document.getElementById('namebox')
     const yeardrop = document.getElementById('yearbox')
     namedrop.classList.add('hidden')
@@ -76,7 +76,7 @@ const onNCorrect = guessName => {
 }
 
 const onNIncorrect = guessName => {
-  console.log('nahhh', guessName)
+  console.log('nahhh')
 }
 
 //YEAR correct, incorrect//
@@ -91,7 +91,6 @@ const onYCorrect = guessYear => {
     progress: undefined
   })
   currentYearGuess = guessYear
-  console.log('corrrect', guessYear)
   const yearbox = document.getElementById('yearbox')
   yearbox.classList.add('hidden')
   const guessBox = document.getElementById('flgs')
@@ -104,12 +103,6 @@ const onYCorrect = guessYear => {
 const onYIncorrect = guessYear => {
   currentYearGuess = guessYear
   return currentYearGuess
-}
-
-//date n time//
-const getDayString = () => {
-  const date = DateTime.now().toFormat('yyyy-MM-dd')
-  return `${date}-${DateTime.now().weekday}`
 }
 
 //each guess//
@@ -185,23 +178,24 @@ const FlagleNameDropdown = ({...props}) => {
           onChange={handleNSubmit}
           placeholder="Guess the flag NAME!"
         >
-          <MenuItem value="Lesbian">Lesbian</MenuItem>
-          <MenuItem value="Gay">Gay</MenuItem>
-          <MenuItem value="Genderfluid">Genderfluid</MenuItem>
-          <MenuItem value="Genderqueer">Genderqueer</MenuItem>
-          <MenuItem value="Bisexual">Bisexual</MenuItem>
-          <MenuItem value="Bigender">Bigender</MenuItem>
-          <MenuItem value="Transgender">Transgender</MenuItem>
-          <MenuItem value="Instersex">Intersex</MenuItem>
           <MenuItem value="Agender">Agender</MenuItem>
           <MenuItem value="Aromantic">Aromantic</MenuItem>
           <MenuItem value="Asexual">Asexual</MenuItem>
+          <MenuItem value="Bisexual">Bisexual</MenuItem>
+          <MenuItem value="Bigender">Bigender</MenuItem>
+          <MenuItem value="Gay">Gay</MenuItem>
+          <MenuItem value="Genderfluid">Genderfluid</MenuItem>
+          <MenuItem value="Genderqueer">Genderqueer</MenuItem>
+          <MenuItem value="Gender Questioning">Gender Questioning</MenuItem>
+          <MenuItem value="Instersex">Intersex</MenuItem>
+          <MenuItem value="Lesbian">Lesbian</MenuItem>
           <MenuItem value="Nonbinary">Nonbinary</MenuItem>
           <MenuItem value="Polysexual">Polysexual</MenuItem>
           <MenuItem value="Pansexual">Pansexual</MenuItem>
           <MenuItem value="Pangender">Pangender</MenuItem>
           <MenuItem value="Pocket Gender">Pocket Gender</MenuItem>
           <MenuItem value="Pride">Pride</MenuItem>
+          <MenuItem value="Transgender">Transgender</MenuItem>
         </Select>
       </FormControl>
     </Box>
