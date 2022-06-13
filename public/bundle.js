@@ -21433,12 +21433,12 @@ var Item = (0,_mui_material_styles__WEBPACK_IMPORTED_MODULE_5__["default"])(_mui
 
 var getDayString = function getDayString() {
   var date = luxon__WEBPACK_IMPORTED_MODULE_7__.DateTime.now().toFormat('yyyy-MM-dd');
-  console.log("".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_7__.DateTime.now().weekday));
   return "".concat(date, "-").concat(luxon__WEBPACK_IMPORTED_MODULE_7__.DateTime.now().weekday);
 }; //random//
 
 
 var tileSet = [1, 2, 3, 4, 5, 6];
+var alreadyFlippedArr = [];
 
 var chooseRandom = function chooseRandom(flagobj, dayString) {
   if (flagobj.length > 0) {
@@ -21468,8 +21468,7 @@ function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.getFlags();
-      var attemtps = 0;
-      (0,react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast)(react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will have 6 chances to guess what pride flag is hidden behind the tiles"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "please select a NAME and then a YEAR from the respective dropdowns to make a guess"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "after each guess, a tile will be removed"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you can see your p "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1) up if the real name is later in the alphabet, or down if its earlier", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "good luck and have fun!")), {
+      (0,react_toastify__WEBPACK_IMPORTED_MODULE_3__.toast)(react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "GAME INSTRUCTIONS"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will have 6 chances to guess what pride flag is hidden behind the tiles"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "please select a NAME and then a YEAR from the respective dropdowns to make a guess"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "after each guess, a tile will be removed"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "your guesses will display below the box, along with helpful information", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "you will also receive two hints: "), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "1) up if the real name is later in the alphabet, or down if its earlier", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "2) + if the real year is later/more current, or - if the real year is earlier/further in the past", ' '), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "the hidden flag is randomized from the pride flag database, and changes every 24 hours"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "if you guess the name or year correctly, you will be notified immediatley via a popup like this one"), react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "good luck and have fun!")), {
         position: 'top-center',
         autoClose: false,
         hideProgressBar: false,
@@ -21484,7 +21483,7 @@ function (_React$Component) {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
       var alreadyFlipped = localStorage.getItem("flipped");
-      var alreadyFlippedArr = JSON.parse(alreadyFlipped);
+      alreadyFlippedArr = JSON.parse(alreadyFlipped);
 
       if (alreadyFlippedArr) {
         alreadyFlippedArr.map(function (eachnum) {
@@ -21497,10 +21496,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var flags = this.props.flags;
-      console.log('flaglist', flags);
       var currDay = getDayString();
       var chosenFlag = chooseRandom(flags, currDay);
-      console.log('chosen', chosenFlag);
       return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         id: "flaglegamle"
       }, chosenFlag ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -21551,13 +21548,13 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(Item, {
         className: "card",
         id: "num6"
-      }))), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagleNameDropdown, {
+      }))), alreadyFlippedArr.length === 6 ? react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagleNameDropdown, {
         chosenFlag: chosenFlag,
         tileSet: tileSet
       }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagleYearDropdown, {
         chosenFlag: chosenFlag,
         tileSet: tileSet
-      }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagGuess, null)) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "L O A D I N G"));
+      }), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FlagleDropdown__WEBPACK_IMPORTED_MODULE_4__.FlagGuess, null)) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, chosenFlag.name, " ", chosenFlag.year)) : react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "L O A D I N G"));
     }
   }]);
 
@@ -21611,7 +21608,6 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
-
  //random tile func//
 
 var flippedArr = [];
@@ -21636,34 +21632,37 @@ if (alreadyFlipped) {
 }
 
 var updown = '';
-var hilo = '';
+var hilo = ''; //to check for each other//
 
-var checkAttempts = function checkAttempts() {
-  if (attempts == 6) {
+var currentNameGuess = '';
+var currentYearGuess = 0;
+
+var checkAttempts = function checkAttempts(_ref) {
+  var props = _extends({}, _ref);
+
+  if (attempts === 6 || currentNameGuess === props.chosenFlag.name && currentYearGuess === props.chosenFlag.year) {
     var namedrop = document.getElementById('namebox');
     var yeardrop = document.getElementById('yearbox');
     namedrop.classList.add('hidden');
     yeardrop.classList.add('hidden');
+    var guessBox = document.getElementById('flgs');
+    var elem = document.createElement('h1');
+    elem.innerHTML = "".concat(currentNameGuess).concat(currentYearGuess);
+    elem.id = 'nm';
+    guessBox.insertBefore(elem, guessBox.firstChild);
+    var remainingGuess = 6 - attempts;
 
-    for (var _len = arguments.length, props = new Array(_len), _key = 0; _key < _len; _key++) {
-      props[_key] = arguments[_key];
+    for (var i = remainingGuess; i === 0; i--) {
+      revealRandomTile(props.tileSet);
     }
 
-    (0,react_toastify__WEBPACK_IMPORTED_MODULE_1__.toast)("BETTER LUCK NEXT TIME ".concat(props.chosenFlag.name, " ").concat(props.chosenFlag.year), {
-      position: 'top-center',
-      autoClose: 500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    });
+    attempts = 6;
+    flippedArr = [1, 2, 3, 4, 5, 6];
+    localStorage.removeItem('flipped');
+    localStorage.setItem("flipped", JSON.stringify(flippedArr));
   }
-}; //to check for each other//
+}; //NAME correct, incorrect//
 
-
-var currentNameGuess = '';
-var currentYearGuess = ''; //NAME correct, incorrect//
 
 var onNCorrect = function onNCorrect(guessName) {
   currentNameGuess = guessName;
@@ -21686,7 +21685,7 @@ var onNCorrect = function onNCorrect(guessName) {
 };
 
 var onNIncorrect = function onNIncorrect(guessName) {
-  console.log('nahhh');
+  console.log('nah');
 }; //YEAR correct, incorrect//
 
 
@@ -21736,7 +21735,6 @@ var addGuess = function addGuess() {
   var elem = document.createElement('div');
   elem.innerHTML = "".concat(newGuess.num, " ||").concat(newGuess.name, " || ").concat(newGuess.letter, " || ").concat(newGuess.year, " || ").concat(newGuess.hint);
   guessBox.appendChild(elem);
-  checkAttempts();
   return guesses;
 };
 
@@ -21749,11 +21747,17 @@ var onNGuess = function onNGuess(guessName, props) {
     updown = "\u2B06\uFE0F";
   } else updown = "\u2B07\uFE0F";
 
+  if (currentYearGuess === props.chosenFlag.year) {
+    revealRandomTile(props.tileSet);
+    addGuess(currentNameGuess, currentYearGuess, hilo, updown);
+  }
+
+  checkAttempts(props);
   return currentNameGuess;
 };
 
 var onYGuess = function onYGuess(guessYear, props) {
-  if (guessYear == props.chosenFlag.year) {
+  if (guessYear === props.chosenFlag.year) {
     hilo = "\u2705";
     onYCorrect(guessYear);
   } else if (props.chosenFlag.year - guessYear > 0) {
@@ -21761,6 +21765,8 @@ var onYGuess = function onYGuess(guessYear, props) {
   } else {
     hilo = '➖';
   }
+
+  console.log('guessyear', guessYear, 'real year', props.chosenFlag.year);
 
   if (currentNameGuess) {
     revealRandomTile(props.tileSet);
@@ -21776,11 +21782,13 @@ var onYGuess = function onYGuess(guessYear, props) {
       progress: undefined
     });
   }
+
+  checkAttempts(props);
 }; //the actual exported function//
 
 
-var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
-  var props = _extends({}, _ref);
+var FlagleNameDropdown = function FlagleNameDropdown(_ref2) {
+  var props = _extends({}, _ref2);
 
   var handleNSubmit = function handleNSubmit(guess) {
     guess.target.value === props.chosenFlag.name ? onNCorrect(guess.target.value) : onNIncorrect(guess.target.value);
@@ -21805,6 +21813,8 @@ var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
   }, "Aromantic"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: "Asexual"
   }, "Asexual"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    value: "Ally"
+  }, "Ally"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: "Bisexual"
   }, "Bisexual"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: "Bigender"
@@ -21834,11 +21844,13 @@ var FlagleNameDropdown = function FlagleNameDropdown(_ref) {
     value: "Pride"
   }, "Pride"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
     value: "Transgender"
-  }, "Transgender"))));
+  }, "Transgender"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    value: "Twink"
+  }, "Twink"))));
 };
 
-var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
-  var props = _extends({}, _ref2);
+var FlagleYearDropdown = function FlagleYearDropdown(_ref3) {
+  var props = _extends({}, _ref3);
 
   var handleYSubmit = function handleYSubmit(guess) {
     guess.value === props.chosenFlag.year ? onYCorrect(guess.target.value) : onYIncorrect(guess.target.value);
@@ -21856,75 +21868,75 @@ var FlagleYearDropdown = function FlagleYearDropdown(_ref2) {
     id: "yearChoice",
     onChange: handleYSubmit
   }, react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1978"
+    value: 1978
   }, "1978"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1979"
+    value: 1979
   }, "1979"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1980"
+    value: 1980
   }, "1980"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1990"
+    value: 1990
   }, "1990"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1991"
+    value: 1991
   }, "1991"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1992"
+    value: 1992
   }, "1992"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1993"
+    value: 1993
   }, "1993"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1994"
+    value: 1994
   }, "1994"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1995"
+    value: 1995
   }, "1995"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1996"
+    value: 1996
   }, "1996"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1997"
+    value: 1997
   }, "1997"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1998"
+    value: 1998
   }, "1998"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "1999"
+    value: 1999
   }, "1999"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2000"
+    value: 2000
   }, "2000"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2001"
+    value: 2001
   }, "2001"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2002"
+    value: 2002
   }, "2002"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2003"
+    value: 2003
   }, "2003"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2004"
+    value: 2004
   }, "2004"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2005"
+    value: 2005
   }, "2005"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2006"
+    value: 2006
   }, "2006"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2007"
+    value: 2007
   }, "2007"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2008"
+    value: 2008
   }, "2008"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2009"
+    value: 2009
   }, "2009"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2010"
+    value: 2010
   }, "2010"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2011"
+    value: 2011
   }, "2011"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2012"
+    value: 2012
   }, "2012"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2013"
+    value: 2013
   }, "2013"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2014"
+    value: 2014
   }, "2014"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2015"
+    value: 2015
   }, "2015"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2016"
+    value: 2016
   }, "2016"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2017"
+    value: 2017
   }, "2017"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2018"
+    value: 2018
   }, "2018"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2019"
+    value: 2019
   }, "2019"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2020"
+    value: 2020
   }, "2020"), react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_MenuItem__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    value: "2021"
+    value: 2021
   }, "2021"))));
 };
 

@@ -31,7 +31,7 @@ const getDayString = () => {
 }
 //random//
 var tileSet = [1, 2, 3, 4, 5, 6]
-
+var alreadyFlippedArr = []
 var chooseRandom = (flagobj, dayString) => {
   if (flagobj.length > 0) {
     if (!localStorage.getItem(`${dayString}`)) {
@@ -47,7 +47,6 @@ var chooseRandom = (flagobj, dayString) => {
 export class Flagle extends React.Component {
   componentDidMount() {
     this.props.getFlags()
-    var attemtps = 0
     toast(
       <div>
         <p>GAME INSTRUCTIONS</p>
@@ -60,7 +59,10 @@ export class Flagle extends React.Component {
           make a guess
         </p>
         <p>after each guess, a tile will be removed</p>
-        <p>you can see your p </p>
+        <p>
+          your guesses will display below the box, along with helpful
+          information{' '}
+        </p>
         <p>you will also receive two hints: </p>
         <p>
           1) up if the real name is later in the alphabet, or down if its
@@ -73,6 +75,10 @@ export class Flagle extends React.Component {
         <p>
           the hidden flag is randomized from the pride flag database, and
           changes every 24 hours
+        </p>
+        <p>
+          if you guess the name or year correctly, you will be notified
+          immediatley via a popup like this one
         </p>
         <p>good luck and have fun!</p>
       </div>,
@@ -90,7 +96,7 @@ export class Flagle extends React.Component {
   }
   componentDidUpdate() {
     var alreadyFlipped = localStorage.getItem(`flipped`)
-    var alreadyFlippedArr = JSON.parse(alreadyFlipped)
+    alreadyFlippedArr = JSON.parse(alreadyFlipped)
     if (alreadyFlippedArr) {
       alreadyFlippedArr.map(eachnum => {
         const tile = document.getElementById(`num${eachnum}`)
@@ -98,9 +104,9 @@ export class Flagle extends React.Component {
       })
     }
   }
+
   render() {
     const {flags} = this.props
-
     const currDay = getDayString()
     var chosenFlag = chooseRandom(flags, currDay)
 
@@ -143,9 +149,17 @@ export class Flagle extends React.Component {
                 <Item className="card" id="num6" />
               </Grid>
             </Grid>
-            <FlagleNameDropdown chosenFlag={chosenFlag} tileSet={tileSet} />
-            <FlagleYearDropdown chosenFlag={chosenFlag} tileSet={tileSet} />
-            <FlagGuess />
+            {alreadyFlippedArr.length === 6 ? (
+              <div>
+                <FlagleNameDropdown chosenFlag={chosenFlag} tileSet={tileSet} />
+                <FlagleYearDropdown chosenFlag={chosenFlag} tileSet={tileSet} />
+                <FlagGuess />
+              </div>
+            ) : (
+              <h1>
+                {chosenFlag.name} {chosenFlag.year}
+              </h1>
+            )}
           </div>
         ) : (
           <div>L O A D I N G</div>
