@@ -14,15 +14,8 @@ const Flag = db.define('flag', {
     type: Sequelize.STRING,
     unique: true
   },
-  descripton: {
-    type: Sequelize.STRING
-  },
   controversial: {
     type: Sequelize.STRING
-  },
-  tags: {
-    type: Sequelize.STRING,
-    isIn: [['inclusion', 'POC', 'historic']]
   },
   creator: {
     type: Sequelize.STRING
@@ -39,7 +32,7 @@ const Flag = db.define('flag', {
   }
 })
 
-Flag.addHook('beforeValidate', (flag, options) => {
+Flag.addHook('beforeValidate', flag => {
   const n = flag.name.toLowerCase()
   const y = flag.year
   if (flag.altname) {

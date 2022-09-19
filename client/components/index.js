@@ -4,7 +4,6 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
-export {default as UserHome} from './user-home'
 export {default as Home} from './home'
 export {default as Flagle} from './Flagle'
 
@@ -14,4 +13,3 @@ export {
   FlagGuess
 } from './FlagleDropdown'
 export {default as AllFlags} from './AllFlags'
-export {Login, Signup} from './auth-form'

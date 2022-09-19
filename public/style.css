@@ -42,20 +42,7 @@ nav {
   display: block;
   width: 100%;
   text-align: center;
-}
-#flagmage {
-  width: 60%;
-}
-#oneflag {
-  display: inline;
-  width: 25%;
-  font-size: x-large;
-  text-align: center;
-  overflow-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  block-size: fit-content;
-  margin-bottom: 3%;
+  color: rgb(255, 0, 195);
 }
 
 #imabox.Muibox {
@@ -166,7 +153,6 @@ h1#gm {
   text-align: center;
 }
 
-#cretor,
 #contr {
   line-height: 1.25;
   margin: auto;
@@ -178,4 +164,166 @@ h1#gm {
   width: 40%;
   display: block;
   margin: auto;
+}
+
+:root {
+  --primary-color: #000000;
+  --background-color: rgb(0, 0, 0);
+  --font: sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--background-color);
+  font-family: var(--font);
+  display: flex;
+  justify-content: center;
+}
+
+/* Timeline Container */
+.timeline {
+  background: var(--primary-color);
+  margin: 20px auto;
+  padding: 20px;
+  width: 60%;
+}
+
+/* Card container */
+.card {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+/* setting padding based on even or odd */
+.card:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+.card:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+/* Global ::before */
+.card::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  border: solid rgb(251, 0, 255);
+}
+
+/* Setting the border of top, bottom, left */
+.card:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+  border-top-color: gold;
+  border-left-color: coral;
+}
+
+/* Setting the border of top, bottom, right */
+.card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+  border-top-color: aqua;
+  border-right-color: chartreuse;
+}
+
+/* Removing the border if it is the first card */
+.card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.info {
+  display: flex;
+  flex-direction: column;
+  color: gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Title of the card */
+.title {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  background: rgb(10, 9, 33);
+  border-radius: 1000px;
+  border: 3px solid orangered;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 25px;
+  color: rgb(251, 0, 255);
+}
+
+/* text right if the card is even  */
+.card:nth-child(even) > .info > .year {
+  text-align: right;
+}
+.card:nth-child(odd) > .info > .year {
+  text-align: left;
+  margin-left: 200px;
+}
+.card:nth-child(even) > .info {
+  margin-right: 50px;
+}
+.card:nth-child(odd) > .info {
+  margin-left: 50px;
+}
+
+/* setting dot to the left if the card is odd */
+.card:nth-child(odd) > .info > .title {
+  left: -45px;
+}
+
+/* setting dot to the right if the card is odd */
+.card:nth-child(even) > .info > .title {
+  right: -45px;
+}
+
+#flagmage {
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+}
+
+#dropdown {
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 20%;
+}
+
+.card:nth-child(odd) {
+  text-align: start;
+  box-sizing: border-box;
+}
+
+.card:nth-child(even) {
+  text-align: end;
+  box-sizing: border-box;
 }

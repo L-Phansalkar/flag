@@ -3,9 +3,9 @@ const GET_ALL_FLAGS = 'GET_ALL_FLAGS'
 const GET_SINGLE_FLAG = 'GET_SINGLE_FLAG'
 
 const setFlags = flags => ({type: GET_ALL_FLAGS, flags})
-const gotAFlag = flag => ({
+const gotAFlag = flags => ({
   type: GET_SINGLE_FLAG,
-  flag
+  flags
 })
 
 export const getAllFlags = () => {
@@ -14,7 +14,7 @@ export const getAllFlags = () => {
     dispatch(setFlags(data))
   }
 }
-export const fetchSingleFlag = id => {
+export const fetchGroupFlag = id => {
   return async dispatch => {
     try {
       const {data} = await axios.get(`/api/flags/${id}`)
@@ -30,7 +30,7 @@ export default function flagsReducer(state = [], action) {
     case GET_ALL_FLAGS:
       return action.flags
     case GET_SINGLE_FLAG:
-      return action.flag
+      return action.flags
     default:
       return state
   }
