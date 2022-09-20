@@ -9,6 +9,11 @@ body {
   justify-content: space-around; */
   align-items: center;
   text-align: center;
+  color: rgb(251, 0, 255);
+}
+
+#words {
+  color: aqua;
 }
 
 a {
@@ -144,7 +149,8 @@ h1#thestructure {
 h3#leswords,
 h3#agwords1,
 h3#agwords2 {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.142);
+  color: darkorange;
 }
 
 h1#allofem,

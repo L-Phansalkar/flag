@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 
 import {withRouter, Route} from 'react-router-dom'
 
-import {Home, AllFlags, Flagle} from './components'
+import {ApInfo, AllFlags, Flagle} from './components'
 
 /**
  * COMPONENT
@@ -12,6 +12,7 @@ class Routes extends Component {
     return (
       <div>
         <Route exact path="/" component={AllFlags} />
+        <Route exact path="/api-info" component={ApInfo} />
         <Route path="/game" component={Flagle} />
       </div>
     )

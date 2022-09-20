@@ -1,10 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-export const Home = () => {
+export const ApInfo = () => {
   return (
     <div id="home">
-      <h1 id="welcome">Welcome to the Pride Flag Database and API</h1>
       <div id="words">
         <h2>
           <u>INTRODUCTION</u>
@@ -17,7 +16,7 @@ export const Home = () => {
         </h3>
         <h3> You can browse all flags by clicking the flags button below:</h3>
         <h1 id="allofem">
-          <Link to="/allflags"> FLAGS </Link>
+          <Link to="/"> FLAGS </Link>
         </h1>
         <h3>
           this API allows developers to easily access and use the most specific,
@@ -56,19 +55,8 @@ export const Home = () => {
             RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png
           </b>
         </h3>
-        <h2>
-          <u>USE-CASE EXAMPLE</u>
-        </h2>
-        <h1 id="gm">
-          <Link to="/game"> GAME </Link>
-        </h1>
       </div>
-      <footer id="foot">
-        <p>
-          <a href="https://forms.gle/Q8YzHxzgjuN4g1xD9">Feedback Form</a>
-        </p>
-      </footer>
     </div>
   )
 }
-export default Home
+export default ApInfo

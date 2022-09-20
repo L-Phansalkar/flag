@@ -22043,27 +22043,17 @@ var aquaticCreatures = [{
 }, {
   label: 'Bisexual'
 }, {
-  label: 'Bigender'
-}, {
   label: 'Transgender'
 }, {
   label: 'Intersex'
 }, {
   label: 'All'
 }, {
-  label: 'Abrosexual'
-}, {
   label: 'Agender'
 }, {
   label: 'Aromantic'
 }, {
-  label: 'Asexual'
-}, {
   label: 'Nonbinary'
-}, {
-  label: 'Polysexual'
-}, {
-  label: 'Pansexual'
 }, {
   label: 'Pride'
 }];
@@ -22099,7 +22089,7 @@ function (_React$Component) {
         "class": event.label
       });
 
-      if (event.label === "All") {
+      if (event.label === 'All') {
         this.props.getFlags();
       } else {
         this.props.filterFlag(event.label);
@@ -22125,7 +22115,7 @@ function (_React$Component) {
       var _this2 = this;
 
       var flags = this.props.flags;
-      console.log("statre", this.state, "props", this.props);
+      console.log('statre', this.state, 'props', this.props);
       return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
         id: "allflags"
       }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
@@ -22190,6 +22180,56 @@ var mapDispatch = function mapDispatch(dispatch) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,react_redux__WEBPACK_IMPORTED_MODULE_1__.connect)(mapState, mapDispatch)(AllFlags));
+
+/***/ }),
+
+/***/ "./client/components/ApInfo.js":
+/*!*************************************!*\
+  !*** ./client/components/ApInfo.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ApInfo": () => (/* binding */ ApInfo),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+var ApInfo = function ApInfo() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "home"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    id: "words"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This site is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Currently, this site contains the images of 59 pride flag variations (and counting!), as well as their names, years, creators, and controversial status"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    id: "allofem"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/"
+  }, " FLAGS ")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "this API allows developers to easily access and use the most specific, widely accepted, and/or current flag for thier needs"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "HOW-TO")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, ' ', "to hook into the API, find the flag name, year, and alternate name (altname) if it has one. Alternate names are used to differentiate flags of the same type created in the same year"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "the API name is all lowercase and the structure is as follows: "), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
+    id: "thestructure"
+  }, "http://pr1deflags.herokuapp.com/flags/", ' ', react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "flag name (+ flag altname) + flag year + .png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    id: "lesample",
+    src: "/lestest.png",
+    width: "150",
+    heigth: "150"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    id: "leswords"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "http://pr1deflags.herokuapp.com/flags/lesbian2011.png"))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    id: "altnametest",
+    src: "/altnametest.png",
+    width: "350",
+    heigth: "250"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    id: "agwords1"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
+    id: "agwords2"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png"))));
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ApInfo);
 
 /***/ }),
 
@@ -22781,66 +22821,6 @@ var FlagGuess = function FlagGuess() {
 
 /***/ }),
 
-/***/ "./client/components/home.js":
-/*!***********************************!*\
-  !*** ./client/components/home.js ***!
-  \***********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Home": () => (/* binding */ Home),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
-
-var Home = function Home() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    id: "home"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    id: "welcome"
-  }, "Welcome to the Pride Flag Database and API"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    id: "words"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "INTRODUCTION")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "This site is intended for both developers and users alike!"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Currently, this site contains the images of 59 pride flag variations (and counting!), as well as their names, years, creators, and controversial status"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, " You can browse all flags by clicking the flags button below:"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    id: "allofem"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/allflags"
-  }, " FLAGS ")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "this API allows developers to easily access and use the most specific, widely accepted, and/or current flag for thier needs"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "HOW-TO")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, ' ', "to hook into the API, find the flag name, year, and alternate name (altname) if it has one. Alternate names are used to differentiate flags of the same type created in the same year"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "the API name is all lowercase and the structure is as follows: "), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    id: "thestructure"
-  }, "http://pr1deflags.herokuapp.com/flags/", ' ', react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "flag name (+ flag altname) + flag year + .png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    id: "lesample",
-    src: "/lestest.png",
-    width: "150",
-    heigth: "150"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    id: "leswords"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "http://pr1deflags.herokuapp.com/flags/lesbian2011.png"))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
-    id: "altnametest",
-    src: "/altnametest.png",
-    width: "350",
-    heigth: "250"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    id: "agwords1"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", {
-    id: "agwords2"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("b", null, "RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("u", null, "USE-CASE EXAMPLE")), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", {
-    id: "gm"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/game"
-  }, " GAME "))), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("footer", {
-    id: "foot"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
-    href: "https://forms.gle/Q8YzHxzgjuN4g1xD9"
-  }, "Feedback Form"))));
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Home);
-
-/***/ }),
-
 /***/ "./client/components/index.js":
 /*!************************************!*\
   !*** ./client/components/index.js ***!
@@ -22851,15 +22831,15 @@ var Home = function Home() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "AllFlags": () => (/* reexport safe */ _AllFlags__WEBPACK_IMPORTED_MODULE_4__["default"]),
+/* harmony export */   "ApInfo": () => (/* reexport safe */ _ApInfo__WEBPACK_IMPORTED_MODULE_1__["default"]),
 /* harmony export */   "FlagGuess": () => (/* reexport safe */ _FlagleDropdown__WEBPACK_IMPORTED_MODULE_3__.FlagGuess),
 /* harmony export */   "Flagle": () => (/* reexport safe */ _Flagle__WEBPACK_IMPORTED_MODULE_2__["default"]),
 /* harmony export */   "FlagleNameDropdown": () => (/* reexport safe */ _FlagleDropdown__WEBPACK_IMPORTED_MODULE_3__.FlagleNameDropdown),
 /* harmony export */   "FlagleYearDropdown": () => (/* reexport safe */ _FlagleDropdown__WEBPACK_IMPORTED_MODULE_3__.FlagleYearDropdown),
-/* harmony export */   "Home": () => (/* reexport safe */ _home__WEBPACK_IMPORTED_MODULE_1__["default"]),
 /* harmony export */   "Navbar": () => (/* reexport safe */ _navbar__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./navbar */ "./client/components/navbar.js");
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ "./client/components/home.js");
+/* harmony import */ var _ApInfo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ApInfo */ "./client/components/ApInfo.js");
 /* harmony import */ var _Flagle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Flagle */ "./client/components/Flagle.js");
 /* harmony import */ var _FlagleDropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./FlagleDropdown */ "./client/components/FlagleDropdown.js");
 /* harmony import */ var _AllFlags__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AllFlags */ "./client/components/AllFlags.js");
@@ -22904,10 +22884,10 @@ var Navbar = function Navbar() {
   }, "PRIDE FLAG API"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
     id: "navy"
   }, react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/api-info"
+  }, "API DOCS"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "/"
-  }, "HOME"), react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    to: "/game"
-  }, " GAME "))));
+  }, " TIMELINE "))));
 };
 /**
  * CONTAINER
@@ -22997,6 +22977,10 @@ function (_Component) {
         exact: true,
         path: "/",
         component: _components__WEBPACK_IMPORTED_MODULE_1__.AllFlags
+      }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
+        exact: true,
+        path: "/api-info",
+        component: _components__WEBPACK_IMPORTED_MODULE_1__.ApInfo
       }), react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
         path: "/game",
         component: _components__WEBPACK_IMPORTED_MODULE_1__.Flagle

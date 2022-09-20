@@ -4,7 +4,7 @@
  * having to figure out which file they belong to!
  */
 export {default as Navbar} from './navbar'
-export {default as Home} from './home'
+export {default as ApInfo} from './ApInfo'
 export {default as Flagle} from './Flagle'
 
 export {

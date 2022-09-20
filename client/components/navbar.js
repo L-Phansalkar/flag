@@ -9,9 +9,9 @@ const Navbar = () => (
     <br />
     <nav id="navy">
       <div>
-        <Link to="/">HOME</Link>
+        <Link to="/api-info">API DOCS</Link>
         <br />
-        <Link to="/game"> GAME </Link>
+        <Link to="/"> TIMELINE </Link>
       </div>
     </nav>
   </div>

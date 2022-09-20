@@ -11,17 +11,12 @@ const aquaticCreatures = [
   {label: 'Lesbian'},
   {label: 'Gay'},
   {label: 'Bisexual'},
-  {label: 'Bigender'},
   {label: 'Transgender'},
   {label: 'Intersex'},
   {label: 'All'},
-  {label: 'Abrosexual'},
   {label: 'Agender'},
   {label: 'Aromantic'},
-  {label: 'Asexual'},
   {label: 'Nonbinary'},
-  {label: 'Polysexual'},
-  {label: 'Pansexual'},
   {label: 'Pride'}
 ]
 
