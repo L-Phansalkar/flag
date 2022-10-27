@@ -2,10 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {getAllFlags, fetchGroupFlag} from '../store/flags'
 import Select from 'react-select'
-import {
-  VerticalTimeline,
-  VerticalTimelineElement
-} from 'react-vertical-timeline-component'
 
 const aquaticCreatures = [
   {label: 'Lesbian'},
@@ -68,7 +64,6 @@ export class AllFlags extends React.Component {
             options={aquaticCreatures}
             defaultLabel="All"
             onChange={opt => {
-              console.log(opt.label, opt.value)
               this.handleChange(opt)
             }}
           />

@@ -333,3 +333,8 @@ body {
   text-align: end;
   box-sizing: border-box;
 }
+
+::selection {
+  color: none;
+  background: none;
+}
