@@ -49,7 +49,7 @@ export class AllFlags extends React.Component {
     if (window.location.href === 'http://localhost:8080/allflags') {
       intro = 'http://localhost:8080/'
     } else {
-      intro = 'https://pr1deflags.herokuapp.com/'
+      intro = 'https://pride-flags.onrender.com/'
     }
   }
 

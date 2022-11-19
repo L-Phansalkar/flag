@@ -33,7 +33,7 @@ export const ApInfo = () => {
         </h3>
         <h3>the API name is all lowercase and the structure is as follows: </h3>
         <h1 id="thestructure">
-          http://pr1deflags.herokuapp.com/flags/{' '}
+          https://pride-flags.onrender.com/flags/{' '}
           <b>flag name (+ flag altname) + flag year + .png</b>
         </h1>
         <h2>
@@ -42,17 +42,17 @@ export const ApInfo = () => {
         <img id="lesample" src="/lestest.png" width="150" heigth="150" />
         <b>
           <h3 id="leswords">
-            <b>http://pr1deflags.herokuapp.com/flags/lesbian2011.png</b>
+            <b>https://pride-flags.onrender.com/flags/lesbian2011.png</b>
           </h3>
         </b>
         <br />
         <img id="altnametest" src="/altnametest.png" width="350" heigth="250" />
         <h3 id="agwords1">
-          <b>LEFT: http://pr1deflags.herokuapp.com/flags/agender2021.png</b>
+          <b>LEFT: https://pride-flags.onrender.com/flags/agender2021.png</b>
         </h3>
         <h3 id="agwords2">
           <b>
-            RIGHT: http://pr1deflags.herokuapp.com/flags/agendercitrus2021.png
+            RIGHT: https://pride-flags.onrender.com/flags/agendercitrus2021.png
           </b>
         </h3>
       </div>
