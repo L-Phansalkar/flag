@@ -202,7 +202,7 @@ async function seed() {
       imageurl: 'flags/polysexual2012.png'
     }),
     Flag.create({
-      name: e,
+      name: 'Pansexual',
       year: '2010',
       creator: 'Jasper V.',
       imageurl: 'flags/pansexual2010.png'
