@@ -5,6 +5,8 @@ howdy this is ur captain gender-outlaw speaking buckle up for a fun-ass pride mo
 _https://pr1deflags.herokuapp.com/_
 <br></br>
 
+<img src="/public/readme.gif" width="600" height="400"/> 
+
 # the vision:
 
 a comprehensive database of pride flags, years, and variations
