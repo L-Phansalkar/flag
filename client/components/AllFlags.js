@@ -16,10 +16,10 @@ const aquaticCreatures = [
   {label: 'Pride'}
 ]
 
-// var intro = ''
-// const makeUrl = second => {
-//   return 'localhost:8080/' + second
-// }
+var intro = ''
+const makeUrl = second => {
+  return 'localhost:8080/' + second
+}
 
 export class AllFlags extends React.Component {
   constructor() {
@@ -46,11 +46,11 @@ export class AllFlags extends React.Component {
 
   componentDidMount() {
     this.props.getFlags()
-    // if (window.location.href === 'localhost:8080') {
-    //   intro = 'localhost:8080/'
-    // } else {
-    //   intro = 'localhost:8080/'
-    // }
+    if (window.location.href === 'localhost:8080') {
+      intro = 'localhost:8080/'
+    } else {
+      intro = 'localhost:8080/'
+    }
   }
 
   render() {
@@ -81,7 +81,7 @@ export class AllFlags extends React.Component {
                     </h2>
                     <img
                       id="flagmage"
-                      src="localhost:8080/flags/agender2010.png"
+                      src={makeUrl(flag.imageurl)}
                       alt={flag.id}
                     />
                     <h6 id="cretor">{flag.creator}</h6>

@@ -45,6 +45,7 @@
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.8.2",
     "axios": "^0.27.2",
+    "caniuse-lite": "^1.0.30001651",
     "compression": "^1.7.3",
     "connect-session-sequelize": "^6.0.0",
     "express": "^4.16.4",
