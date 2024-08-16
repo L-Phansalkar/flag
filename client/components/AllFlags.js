@@ -68,29 +68,22 @@ export class AllFlags extends React.Component {
             }}
           />
         </div>
-        <div className="timeline">
-          <div className="outer">
-            {flags.map(flag => (
-              <div className="card" key={flag.id}>
-                <div className="info">
-                  <h2 className="title">{flag.year}</h2>
-                  {/* <h1 className="year">{flag.year}</h1> */}
-                  <div className="insidecontainer">
-                    <h2 className="flagtiti">
-                      {flag.name} {flag.altname}
-                    </h2>
-                    <img
-                      id="flagmage"
-                      src={makeUrl(flag.imageurl)}
-                      alt={flag.id}
-                    />
-                    <h6 id="cretor">{flag.creator}</h6>
-                    <h6 id="contr">{flag.controversial}</h6>
-                  </div>
-                </div>
+        <div className="outer">
+          {flags.map(flag => (
+            <div className="card" key={flag.id}>
+              <div className="info">
+                <h1 className="year">{flag.year}</h1>
+                <h2 className="flagtiti">
+                  {flag.name} {flag.altname}
+                </h2>
+                <a href={flag.imageurl}>
+                  <img id="flagmage" src={flag.imageurl} alt={flag.id} />
+                </a>
+                <h6 id="cretor">{flag.creator}</h6>
+                <h6 id="contr">{flag.controversial}</h6>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     )

@@ -1,340 +1,50 @@
-body {
-  font-family: 'Lucida Console', 'Courier New', monospace;
-  display: flex;
-  flex-direction: column;
-  background-image: url('https://images.pexels.com/photos/1571730/pexels-photo-1571730.jpeg?cs=srgb&dl=pexels-engin-akyurt-1571730.jpg&fm=jpg');
-  opacity: 1;
-  background-position: center;
-  /* 
-  justify-content: space-around; */
-  align-items: center;
-  text-align: center;
-  color: rgb(251, 0, 255);
+/* backround, font, etc */
+
+* body {
+  background-color: powderblue;
+  font-size: medium;
+  font-family: Impact, fantasy;
 }
 
-#words {
-  color: aqua;
-}
-
-a {
-  text-decoration: none;
-}
-
-#navbar {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-}
-
-nav {
-  display: inline;
-  font-size: 1.5em;
-  text-align: center;
-  width: 20%;
-}
-
-#pfapi {
-  display: inline;
-  width: 60%;
-}
+/* entire page box - making it one big flex box */
 
 #allflags {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
+
+/* the title of the page/ site, making it block */
+
 #allflagstitle {
-  display: block;
   width: 100%;
-  text-align: center;
-  color: rgb(255, 0, 195);
-}
-
-#imabox.Muibox {
-  justify-content: center;
-  justify-self: center;
-  align-items: center;
-  margin: auto;
-  background-image: fit;
-}
-
-#gridcontainer {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  text-align: center;
-  align-items: center;
-  margin: auto;
-}
-
-#num1,
-#num2,
-#num3,
-#num4,
-#num5,
-#num6 {
-  background-color: white;
-  background-image: url(./blm.jpeg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.hidden {
-  opacity: 0%;
-}
-
-#thebiggamebox {
-  text-align: center;
-  align-items: center;
-  margin: auto;
-}
-#table {
-  text-align: center;
-  align-items: center;
-  margin: auto;
-}
-
-#nameChoice,
-#yearChoice {
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-}
-#namebox,
-#yearbox {
-  text-align: center;
-  justify-content: center;
-  margin: auto;
-  display: inline-block;
-  width: 30%;
-}
-
-#guesses {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-}
-
-#famtree {
-  width: 20%;
-  margin-right: 5%;
-  margin-bottom: 15%;
-}
-#words {
-  width: 80%;
-  display: inline-block;
-  text-align: start;
-  align-self: flex-start;
-  text-overflow: wrap;
-}
-
-#lesample,
-#altnametest {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  border: 5px solid black;
-}
-
-h3#leswords,
-h3#agwords1,
-h3#agwords2,
-h1#thestructure {
-  text-align: center;
-  text-overflow: wrap;
-  font-weight: bold;
-}
-h3#leswords,
-h3#agwords1,
-h3#agwords2 {
-  background-color: rgba(255, 255, 255, 0.142);
-  color: darkorange;
-}
-
-h1#allofem,
-h1#gm {
-  border: 3px solid black;
-  text-align: center;
-}
-
-#contr {
-  line-height: 1.25;
-  margin: auto;
-  width: 70%;
-}
-
-#nm,
-#yr {
-  width: 40%;
-  display: block;
-  margin: auto;
-}
-
-:root {
-  --primary-color: #000000;
-  --background-color: rgb(0, 0, 0);
-  --font: sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: var(--background-color);
-  font-family: var(--font);
-  display: flex;
-  justify-content: center;
-}
-
-/* Timeline Container */
-.timeline {
-  background: var(--primary-color);
-  margin: 20px auto;
-  padding: 20px;
-  width: 60%;
-}
-
-/* Card container */
-.card {
-  position: relative;
-  align-items: center;
-  justify-content: center;
-}
-
-/* setting padding based on even or odd */
-.card:nth-child(odd) {
-  padding: 30px 0 30px 30px;
-}
-.card:nth-child(even) {
-  padding: 30px 30px 30px 0;
-}
-/* Global ::before */
-.card::before {
-  content: '';
-  position: absolute;
-  width: 50%;
-  border: solid rgb(251, 0, 255);
-}
-
-/* Setting the border of top, bottom, left */
-.card:nth-child(odd)::before {
-  left: 0px;
-  top: -4.5px;
-  bottom: -4.5px;
-  border-width: 5px 0 5px 5px;
-  border-radius: 50px 0 0 50px;
-  border-top-color: gold;
-  border-left-color: coral;
-}
-
-/* Setting the border of top, bottom, right */
-.card:nth-child(even)::before {
-  right: 0;
-  top: 0;
-  bottom: 0;
-  border-width: 5px 5px 5px 0;
-  border-radius: 0 50px 50px 0;
-  border-top-color: aqua;
-  border-right-color: chartreuse;
-}
-
-/* Removing the border if it is the first card */
-.card:first-child::before {
-  border-top: 0;
-  border-top-left-radius: 0;
-}
-
-/* Removing the border if it is the last card  and it's odd */
-.card:last-child:nth-child(odd)::before {
-  border-bottom: 0;
-  border-bottom-left-radius: 0;
-}
-
-/* Removing the border if it is the last card  and it's even */
-.card:last-child:nth-child(even)::before {
-  border-bottom: 0;
-  border-bottom-right-radius: 0;
-}
-
-/* Information about the timeline */
-.info {
-  display: flex;
-  flex-direction: column;
-  color: gray;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-/* Title of the card */
-.title {
-  position: absolute;
-  width: 85px;
-  height: 85px;
-  background: rgb(10, 9, 33);
-  border-radius: 1000px;
-  border: 3px solid orangered;
-  align-items: center;
   justify-content: center;
   text-align: center;
-  box-sizing: border-box;
-  padding-top: 25px;
-  color: rgb(251, 0, 255);
 }
 
-/* text right if the card is even  */
-.card:nth-child(even) > .info > .year {
-  text-align: right;
-}
-.card:nth-child(odd) > .info > .year {
-  text-align: left;
-  margin-left: 200px;
-}
-.card:nth-child(even) > .info {
-  margin-right: 50px;
-}
-.card:nth-child(odd) > .info {
-  margin-left: 50px;
-}
-
-/* setting dot to the left if the card is odd */
-.card:nth-child(odd) > .info > .title {
-  left: -45px;
-}
-
-/* setting dot to the right if the card is odd */
-.card:nth-child(even) > .info > .title {
-  right: -45px;
-}
-
-#flagmage {
-  width: 60%;
-  align-items: center;
-  justify-content: center;
-}
+/* dropdown settings */
 
 #dropdown {
-  position: fixed;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   width: 20%;
 }
 
-.card:nth-child(odd) {
-  text-align: start;
-  box-sizing: border-box;
+/* the outer box that contains all the flag cards */
+
+.outer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 75%;
 }
 
-.card:nth-child(even) {
-  text-align: end;
-  box-sizing: border-box;
+/* each individual flag card  */
+.card {
+  width: 20%;
 }
 
-::selection {
-  color: none;
-  background: none;
+/* just the image part of the flag */
+#flagmage {
+  width: 50%;
+  align-items: center;
 }
