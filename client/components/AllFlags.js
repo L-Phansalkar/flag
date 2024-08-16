@@ -18,7 +18,7 @@ const aquaticCreatures = [
 
 var intro = ''
 const makeUrl = second => {
-  return intro + second
+  return 'localhost:8080/' + second
 }
 
 export class AllFlags extends React.Component {
@@ -46,16 +46,16 @@ export class AllFlags extends React.Component {
 
   componentDidMount() {
     this.props.getFlags()
-    if (window.location.href === 'http://localhost:8080/allflags') {
-      intro = 'http://localhost:8080/'
+    if (window.location.href === 'localhost:8080') {
+      intro = 'localhost:8080/'
     } else {
-      intro = 'https://pride-flags.onrender.com/'
+      intro = 'localhost:8080/'
     }
   }
 
   render() {
     const {flags} = this.props
-    console.log('statre', this.state, 'props', this.props)
+    console.log('statre', this.state, 'props', this.props, 'url')
     return (
       <div id="allflags">
         <h1 id="allflagstitle">PRIDE FLAGS TIMELINE</h1>
