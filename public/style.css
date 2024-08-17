@@ -39,12 +39,49 @@
 }
 
 /* each individual flag card  */
-.card {
+/* .card {
   width: 20%;
-}
+} */
 
 /* just the image part of the flag */
 #flagmage {
-  width: 50%;
+  width: 80%;
   align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* relevant styles */
+.img__wrap {
+  position: relative;
+}
+
+/* stuff for image hover */
+
+.img__description {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+
+  /* transition effect. not necessary */
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.img__wrap:hover .img__description {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__wrap:hover #flagmage {
+  opacity: 0.65;
 }

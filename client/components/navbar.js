@@ -5,7 +5,6 @@ import {Link} from 'react-router-dom'
 
 const Navbar = () => (
   <div id="navbar">
-    <h1 id="pfapi">PRIDE FLAG API</h1>
     <br />
     <nav id="navy">
       <div>

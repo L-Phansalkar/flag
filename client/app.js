@@ -8,16 +8,6 @@ const App = () => {
   injectStyle()
   return (
     <div>
-      <ToastContainer
-        position="top-center"
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <Navbar />
       <Routes />
     </div>
