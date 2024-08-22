@@ -41,7 +41,7 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
-    "@mui/material": "^5.16.7",
+    "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.4",
     "caniuse-lite": "^1.0.30001651",
     "compression": "^1.7.4",

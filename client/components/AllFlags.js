@@ -82,6 +82,7 @@ export class AllFlags extends React.Component {
                     <p className="img__description">{flag.description}</p>
                   </a>
                   <h6 id="cretor">{flag.creator}</h6>
+                  <h6>hello here is a change</h6>
                   <h6 id="contr">{flag.controversial}</h6>
                 </div>
               </div>

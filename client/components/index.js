@@ -5,11 +5,4 @@
  */
 export {default as Navbar} from './navbar'
 export {default as ApInfo} from './ApInfo'
-export {default as Flagle} from './Flagle'
-
-export {
-  FlagleNameDropdown,
-  FlagleYearDropdown,
-  FlagGuess
-} from './FlagleDropdown'
 export {default as AllFlags} from './AllFlags'
