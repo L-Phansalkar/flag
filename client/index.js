@@ -9,12 +9,11 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import {ApInfo, AllFlags} from './components';
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <div>Hello world!</div>,
-  },
+  { path: "/", element: <AllFlags /> }, // 🆕
+  { path: "*", element: <root /> },
 ]);
 
 // ReactDOM.render(
