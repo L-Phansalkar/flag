@@ -13,18 +13,9 @@ import {ApInfo, AllFlags} from './components';
 
 const router = createBrowserRouter([
   { path: "/", element: <AllFlags /> }, // 🆕
+  { path: "/api-info", element: <ApInfo /> },
   { path: "*", element: <root /> },
 ]);
-
-// ReactDOM.render(
-  // <Provider store={store}>
-//     <Router history={history}>
-//       <App />
-//     </Router>
-//   </Provider>,
-//   document.getElementById('app')
-// )
-
 
 
 const container = document.getElementById('app');
