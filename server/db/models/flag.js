@@ -29,6 +29,10 @@ const Flag = db.define('flag', {
     primaryKey: true,
     allowNull: false,
     unique: true
+  },
+  description: {
+    type: Sequelize.STRING,
+    unique: true
   }
 })
 

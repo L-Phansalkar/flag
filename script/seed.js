@@ -12,7 +12,8 @@ async function seed() {
       name: 'Abrosexual',
       year: '2013',
       creator: '@modchad',
-      imageurl: 'flags/abrosexual2013.png'
+      imageurl: 'flags/abrosexual2013.png',
+      description: 'here is a description'
     }),
     Flag.create({
       name: 'Agender',

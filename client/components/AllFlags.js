@@ -79,7 +79,7 @@ export class AllFlags extends React.Component {
                 <div className="img__wrap">
                   <a href={flag.imageurl}>
                     <img id="flagmage" src={flag.imageurl} alt={flag.id} />
-                    <p className="img__description">This image looks super neat.</p>
+                    <p className="img__description">{flag.description}</p>
                   </a>
                   <h6 id="cretor">{flag.creator}</h6>
                   <h6 id="contr">{flag.controversial}</h6>
