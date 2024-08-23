@@ -9,7 +9,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import {ApInfo, AllFlags} from './components';
+import {ApInfo, AllFlags, Navbar} from './components';
 
 const router = createBrowserRouter([
   { path: "/", element: <AllFlags /> }, // 🆕
@@ -23,6 +23,7 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(<
   Provider store={store}>
   <RouterProvider router={router}>
+  <Navbar />
   <App tab="home" />
   </RouterProvider>
   </Provider>);
