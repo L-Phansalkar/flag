@@ -31,7 +31,7 @@ const Flag = db.define('flag', {
     unique: true
   },
   description: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     unique: true
   }
 })

@@ -1,27 +1,42 @@
-import React from 'react'
+import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {getAllFlags, fetchGroupFlag} from '../store/flags'
 import Select from 'react-select'
+import AboutMe from './AboutMe'
 
-const aquaticCreatures = [
-  {label: 'Lesbian'},
-  {label: 'Gay'},
-  {label: 'Bisexual'},
-  {label: 'Transgender'},
-  {label: 'Intersex'},
-  {label: 'All'},
-  {label: 'Agender'},
-  {label: 'Aromantic'},
-  {label: 'Nonbinary'},
-  {label: 'Pride'}
-]
 
-var intro = ''
-const makeUrl = second => {
-  return 'localhost:8080/' + second
-}
 
-export class AllFlags extends React.Component {
+
+
+// const aquaticCreatures = [
+//   {label: 'Lesbian'},
+//   {label: 'Gay'},
+//   {label: 'Bisexual'},
+//   {label: 'Transgender'},
+//   {label: 'Intersex'},
+//   {label: 'All'},
+//   {label: 'Agender'},
+//   {label: 'Aromantic'},
+//   {label: 'Nonbinary'},
+//   {label: 'Pride'}
+// ]
+
+// var intro = ''
+// const makeUrl = second => {
+//   return 'localhost:8080/' + second
+// }
+
+  // if flag.controversial = true, make the opacity less + display "controversial"
+
+
+function isCont(value) { 
+  console.log("vvial",value)
+ if (value){
+  return <div>CONTROVERSIAL</div>
+ }
+} 
+
+class AllFlags extends Component {
   constructor() {
     super()
     this.state = {
@@ -44,22 +59,52 @@ export class AllFlags extends React.Component {
     console.log(newFlag)
   }
 
+
+
   componentDidMount() {
     this.props.getFlags()
-    if (window.location.href === 'localhost:8080') {
-      intro = 'localhost:8080/'
-    } else {
-      intro = 'localhost:8080/'
-    }
+    // if (window.location.href === 'localhost:8080') {
+    //   intro = 'localhost:8080/'
+    // } else {
+    //   intro = 'localhost:8080/'
+    // }
   }
 
   render() {
     const {flags} = this.props
-    console.log('statre', this.state, 'props', this.props, 'url')
+    
+    console.log('statre', this.state, 'props', flags, 'url')
     return (
       <div id="allflags">
         <h1 id="allflagstitle">PRIDE FLAGS TIMELINE</h1>
-        <div id="dropdown">
+       
+
+        <div className="thisHoldsAllCards">
+        <>
+
+    
+          {flags.map(flag => (
+          
+            <div className="IndivFlagCard" key={flag.id}>
+              <div className="TitleCard">
+                <h1 className="yr">{flag.year}</h1>
+                <h1 className="crtr">{flag.creator}</h1>
+              </div>
+              <div className="img__wrap">
+                  <a href={flag.imageurl}>
+                    <img id="flagmage" src={flag.imageurl} alt={flag.id} />
+                    <p className="img_cont">{isCont(flag.controversial)}</p>
+                    <p className="img__description">{flag.description}</p>
+                  </a>
+                  </div>
+              </div>
+           
+          ))}
+          </>
+        </div> 
+
+    
+        {/* <div id="dropdown">
           <Select
             options={aquaticCreatures}
             defaultLabel="All"
@@ -67,8 +112,8 @@ export class AllFlags extends React.Component {
               this.handleChange(opt)
             }}
           />
-        </div>
-        <div className="outer">
+        </div> */}
+        {/* <div className="outer">
           {flags.map(flag => (
             <div className="card" key={flag.id}>
               <div className="info">
@@ -88,11 +133,12 @@ export class AllFlags extends React.Component {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     )
   }
 }
+
 const mapState = state => {
   return {
     flags: state.flags

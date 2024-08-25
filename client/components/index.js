@@ -6,3 +6,4 @@
 export {default as Navbar} from './navbar'
 export {default as ApInfo} from './ApInfo'
 export {default as AllFlags} from './AllFlags'
+export {default as AboutMe} from './AboutMe'

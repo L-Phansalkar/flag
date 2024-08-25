@@ -1,7 +1,9 @@
+
+
 /* backround, font, etc */
 
 * body {
-  background-color: powderblue;
+  background-color: rgb(235, 244, 245);
   font-size: medium;
   font-family: Impact, fantasy;
 }
@@ -12,15 +14,17 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 /* the title of the page/ site, making it block */
 
 #allflagstitle {
   width: 100%;
+  height: 200px;
   justify-content: center;
   text-align: center;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d11fe1e4-d82c-409e-be5e-78dd3c35771f/dcdruhg-943e1086-5bef-438a-ab6c-efe4dee08e06.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QxMWZlMWU0LWQ4MmMtNDA5ZS1iZTVlLTc4ZGQzYzM1NzcxZlwvZGNkcnVoZy05NDNlMTA4Ni01YmVmLTQzOGEtYWI2Yy1lZmU0ZGVlMDhlMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.j8wwrwU_10MZlgbD_ickQn0N8UJDkza7AQ3Pxf4ceHQ");
 }
 
 /* dropdown settings */
@@ -29,24 +33,58 @@
   width: 20%;
 }
 
+
+
 /* the outer box that contains all the flag cards */
 
-.outer {
+.thisHoldsAllCards{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 75%;
+  width: 50%;
 }
 
 /* each individual flag card  */
-/* .card {
-  width: 20%;
-} */
+.IndivFlagCard {
+  border: thick double #32a1ce;  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 5%;
+  margin-top: 5%;
+ 
+}
 
+/* box for year and creator  */
+.TitleCard{
+ width:100%;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+}
+
+.yr{
+width:45%;
+text-align: center;
+vertical-align: middle;
+}
+
+.crtr{
+  width:45%;
+  text-align: center;
+
+}
 /* just the image part of the flag */
 #flagmage {
   width: 80%;
-  align-items: center;
+  margin: 10%;
+}
+
+.info{
+  text-align: right;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 10px 5px 5px red;
 }
 
 * {
@@ -77,11 +115,21 @@
   transition: opacity 0.2s, visibility 0.2s;
 }
 
+.img_cont{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #9e1010;
+  text-align: center;
+}
+
 .img__wrap:hover .img__description {
   visibility: visible;
   opacity: 1;
 }
 
 .img__wrap:hover #flagmage {
-  opacity: 0.65;
+  opacity: 0.4;
 }

@@ -24,7 +24,8 @@ async function seed() {
       name: 'Agender',
       year: '2021',
       creator: 'Salem X',
-      imageurl: 'flags/agender2021.png'
+      imageurl: 'flags/agender2021.png',
+      description:'Agender: People who identify as not having a gender or as being genderless. They can exist outside of the gender binary, be gender non-conforming, and/or identify as trans. Salem X (they/she). The black and white stripes represent a lack of gender. The grey stripes represent being semi-genderless. The green stripe represents non-binary genders.'
     }),
     Flag.create({
       name: 'Agender',
@@ -43,7 +44,8 @@ async function seed() {
       name: 'Aromantic',
       year: '2014',
       creator: '@cameronwhimsy',
-      imageurl: 'flags/aromantic2014.png'
+      imageurl: 'flags/aromantic2014.png',
+      description:'Aromantic: People who have little or no romantic attraction to others. Redesigned by Cameron (@cameronwhimsy on Tumblr) This flag —green to white to black—is the second redesign of the aromantic flag. The dark green represents a lack of romance. The light green represents aromanticism as a spectrum. The white represents platonic, aesthetic, and queerplatonic relationships. The gray represents demiromantic people. The black represents the sexuality spectrum.'
     }),
     Flag.create({
       name: 'Aromantic',
@@ -56,7 +58,8 @@ async function seed() {
       name: 'Asexual',
       year: '2010',
       creator: 'Asexual Visibility and Education Network (AVEN)',
-      imageurl: 'flags/asexual2010.png'
+      imageurl: 'flags/asexual2010.png',
+      description:'Asexual: People who generally do not feel sexual attraction or desire for any group of people, either within or outside of a relationship. Asexuality is not the same as celibacy, which is the decision not to act on sexual feelings. The Asexual Visibility and Education Network (AVEN) hosted a flag-creation contest for the asexual community. AVEN user “standup” created the winning flag. A black-to-white gradient was the historic color representing the asexual spectrum, with black denoting asexuality, grey denoting demisexuality and gray-sexuality, and white denoting sexuality. Purple used to border older symbols to represent “community” — it is now the last color in the flag and still represents the asexual community.'
     }),
     Flag.create({
       name: 'Bigender',
