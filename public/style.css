@@ -1,6 +1,31 @@
+ /* Style the header */
 
 
-/* backround, font, etc */
+
+ #hed {
+/* position: fixed; */
+width:100%;
+top: 0;
+background-color: #d693f6;
+color:#5c0983;
+text-align: center;
+display: flex;
+flex-direction: row;
+justify-content:space-evenly;
+position:sticky;
+ }
+ .title{
+font-size: x-large;
+ }
+i{
+  background-color: #df760c;
+  color:#df0c0c;
+  font-size: 50px;
+  padding:20%;
+  border-radius: 25px;
+  font-size: x-large;
+  align-self: flex-end;
+}
 
 * body {
   background-color: rgb(235, 244, 245);
@@ -12,20 +37,20 @@
 
 #allflags {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 /* the title of the page/ site, making it block */
 
-#allflagstitle {
+/* #allflagstitle {
   width: 100%;
   height: 200px;
   justify-content: center;
   text-align: center;
   background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d11fe1e4-d82c-409e-be5e-78dd3c35771f/dcdruhg-943e1086-5bef-438a-ab6c-efe4dee08e06.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QxMWZlMWU0LWQ4MmMtNDA5ZS1iZTVlLTc4ZGQzYzM1NzcxZlwvZGNkcnVoZy05NDNlMTA4Ni01YmVmLTQzOGEtYWI2Yy1lZmU0ZGVlMDhlMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.j8wwrwU_10MZlgbD_ickQn0N8UJDkza7AQ3Pxf4ceHQ");
-}
+} */
 
 /* dropdown settings */
 
@@ -62,23 +87,30 @@
  display: flex;
  flex-direction: row;
  justify-content: center;
+ margin-top: 1%;
+ font-size: calc(1.5rem+ 1vw);
 }
 
 .yr{
 width:45%;
-text-align: center;
+text-align: right;
 vertical-align: middle;
+margin-right: 3%;
 }
 
 .crtr{
   width:45%;
-  text-align: center;
+  text-align: left;
+  font-size: calc(1.5rem);
 
 }
 /* just the image part of the flag */
 #flagmage {
   width: 80%;
-  margin: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 5%;
+  margin-top: 1%;
 }
 
 .info{
@@ -132,4 +164,16 @@ vertical-align: middle;
 
 .img__wrap:hover #flagmage {
   opacity: 0.4;
+}
+
+.iron {
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+}
+
+.select_input{
+color: #32a1ce;
+background-color: aquamarine;
 }

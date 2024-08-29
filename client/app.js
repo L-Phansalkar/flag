@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {AboutMe, Navbar} from './components'
+import {Header} from './components'
 
 import Routes from './routes'
 
@@ -9,7 +9,6 @@ import Routes from './routes'
 const App = () => {
   return (
     <div>
-      <AboutMe />
       <Routes />
     </div>
   )

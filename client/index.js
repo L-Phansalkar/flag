@@ -7,13 +7,14 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import {ApInfo, AllFlags, Navbar} from './components';
+import {ApInfo, AllFlags, Header} from './components';
+import { Link } from 'react-router-dom'
 
 
 const router = createBrowserRouter([
   { path: "/", element: <AllFlags /> }, // 🆕
   { path: "/api-info", element: <ApInfo /> },
-  { path: "*", element: <root /> , element:<App/>},
+  { path: "*", element: <root /> , element:<App/>, element:<Header/>},
 ]);
 
 
@@ -22,7 +23,8 @@ const root = createRoot(container); // createRoot(container!) if you use TypeScr
 root.render(<
   Provider store={store}>
   <RouterProvider router={router}>
-  <App />
+  <App>
+  </App> 
   </RouterProvider>
   </Provider>);
 

@@ -41,7 +41,10 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@mountainpass/react-pokemon-cards": "^1.0.30",
+    "@mui/material": "^6.0.0",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.4",
     "caniuse-lite": "^1.0.30001651",
@@ -52,6 +55,7 @@
     "history": "^5.3.0",
     "luxon": "^3.5.0",
     "morgan": "^1.10.0",
+    "mui": "^0.0.1",
     "passport": "^0.7.0",
     "passport-google-oauth": "^2.0.0",
     "pg": "^8.12.0",

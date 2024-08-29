@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {getAllFlags, fetchGroupFlag} from '../store/flags'
-import Select from 'react-select'
-import AboutMe from './AboutMe'
+import {Header} from './index'
+import Select from 'react-select';
 
 
 
 
+const flagGroups = [
+  {label: 'Lesbian'},
+  {label: 'Gay'},
+  {label: 'Bisexual'},
+  {label: 'Transgender'},
+  {label: 'Intersex'},
+  {label: 'All'},
+  {label: 'Agender'},
+  {label: 'Aromantic'},
+  {label: 'Nonbinary'},
+  {label: 'Pride'}
+]
 
-// const aquaticCreatures = [
-//   {label: 'Lesbian'},
-//   {label: 'Gay'},
-//   {label: 'Bisexual'},
-//   {label: 'Transgender'},
-//   {label: 'Intersex'},
-//   {label: 'All'},
-//   {label: 'Agender'},
-//   {label: 'Aromantic'},
-//   {label: 'Nonbinary'},
-//   {label: 'Pride'}
-// ]
+
 
 // var intro = ''
 // const makeUrl = second => {
@@ -70,19 +71,48 @@ class AllFlags extends Component {
     // }
   }
 
+
+
+
+
+
+
+
+  
   render() {
+  
     const {flags} = this.props
     
     console.log('statre', this.state, 'props', flags, 'url')
     return (
       <div id="allflags">
-        <h1 id="allflagstitle">PRIDE FLAGS TIMELINE</h1>
-       
-
+        <div>
+        <Header />
+        </div>
         <div className="thisHoldsAllCards">
-        <>
+               <div id="dropdown">
+              <Select
+              className="basic-single"
+              classNamePrefix="select"
+              defaultValue={flagGroups[6]}
+              options={flagGroups}
+              backgroundColor="blue"
+              defaultLabel="All"
+              onChange={opt => {
+              this.handleChange(opt)
+            }}
+          />
+          <div
+        style={{
+          color: 'hsl(0, 0%, 40%)',
+          display: 'inline-block',
+          fontSize: 12,
+          fontStyle: 'italic',
+          marginTop: '1em',
+        }}
+      ></div>
+        </div>
 
-    
           {flags.map(flag => (
           
             <div className="IndivFlagCard" key={flag.id}>
@@ -100,7 +130,7 @@ class AllFlags extends Component {
               </div>
            
           ))}
-          </>
+
         </div> 
 
     

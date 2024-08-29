@@ -15,12 +15,5 @@ const Navbar = () => (
   </div>
 )
 
-/**
- * CONTAINER
- */
-
 export default Navbar
 
-/**
- * PROP TYPES
- */

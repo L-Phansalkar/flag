@@ -1,9 +1,11 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {Header} from './index'
 
 export const ApInfo = () => {
   return (
     <div id="home">
+        <Header />
       <div id="words">
         <h2>
           <u>INTRODUCTION</u>
