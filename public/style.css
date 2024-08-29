@@ -3,20 +3,50 @@
 
 
  #hed {
-/* position: fixed; */
+position: fixed;
 width:100%;
 top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
 background-color: #d693f6;
-color:#5c0983;
+color:#4B0082;
 text-align: center;
 display: flex;
 flex-direction: row;
 justify-content:space-evenly;
-position:sticky;
  }
- .title{
-font-size: x-large;
+
+ /* title  */
+ .tight{
+  font-size: xxx-large;
+  width: 90%
  }
+
+/* menu icon */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v142/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
 i{
   background-color: #df760c;
   color:#df0c0c;
@@ -27,10 +57,12 @@ i{
   align-self: flex-end;
 }
 
+
 * body {
   background-color: rgb(235, 244, 245);
   font-size: medium;
   font-family: Impact, fantasy;
+  justify-content: center;
 }
 
 /* entire page box - making it one big flex box */
@@ -42,23 +74,12 @@ i{
   justify-content: center;
 }
 
-/* the title of the page/ site, making it block */
-
-/* #allflagstitle {
-  width: 100%;
-  height: 200px;
-  justify-content: center;
-  text-align: center;
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d11fe1e4-d82c-409e-be5e-78dd3c35771f/dcdruhg-943e1086-5bef-438a-ab6c-efe4dee08e06.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QxMWZlMWU0LWQ4MmMtNDA5ZS1iZTVlLTc4ZGQzYzM1NzcxZlwvZGNkcnVoZy05NDNlMTA4Ni01YmVmLTQzOGEtYWI2Yy1lZmU0ZGVlMDhlMDYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.j8wwrwU_10MZlgbD_ickQn0N8UJDkza7AQ3Pxf4ceHQ");
-} */
 
 /* dropdown settings */
 
 #dropdown {
   width: 20%;
 }
-
-
 
 /* the outer box that contains all the flag cards */
 
@@ -67,11 +88,13 @@ i{
   flex-direction: row;
   flex-wrap: wrap;
   width: 50%;
+  margin-left: 25%;
+  margin-right: 15%;
 }
 
 /* each individual flag card  */
 .IndivFlagCard {
-  border: thick double #32a1ce;  
+  border: thick solid #fd62d6;  
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -92,16 +115,20 @@ i{
 }
 
 .yr{
-width:45%;
+/* width:45%; */
 text-align: right;
 vertical-align: middle;
 margin-right: 3%;
+background-color: #00FFFF;
+padding:1%;
 }
 
 .crtr{
-  width:45%;
+  /* width:45%; */
   text-align: left;
-  font-size: calc(1.5rem);
+  font-size: xx-large;
+  background-color: #00FFFF;
+  padding:1%;
 
 }
 /* just the image part of the flag */
@@ -176,4 +203,9 @@ margin-right: 3%;
 .select_input{
 color: #32a1ce;
 background-color: aquamarine;
+}
+
+
+#words{
+  margin: 5%;
 }

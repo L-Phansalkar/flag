@@ -25,7 +25,7 @@ export default function PositionedMenu() {
 
   return (
     <div id="hed">
-      <h1 classname='title'>PRIDE FLAG TIMELINE</h1>
+      <div className='tight'>PRIDE FLAG TIMELINE</div>
       <Button
         id="demo-positioned-button"
         aria-controls={open ? 'demo-positioned-menu' : undefined}
