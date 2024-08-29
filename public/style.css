@@ -63,6 +63,7 @@ i{
   font-size: medium;
   font-family: Impact, fantasy;
   justify-content: center;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(222,168,248,1) 0%, rgba(168,222,258,1) 21.9%, rgba(189,250,205,1) 35.6%, rgba(243,250,189,1) 53.9%, rgba(250,227,189,1) 66.8%, rgba(248,172,171,1) 95%, rgba(254,170,212,1) 99.9% );
 }
 
 /* entire page box - making it one big flex box */
@@ -72,6 +73,9 @@ i{
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 7%;
+
+  
 }
 
 
@@ -101,7 +105,7 @@ i{
   align-items: center;
   margin-bottom: 5%;
   margin-top: 5%;
- 
+ background-color: white;
 }
 
 /* box for year and creator  */
@@ -165,8 +169,10 @@ padding:1%;
   bottom: 0;
   left: 0;
   right: 0;
-
-  color: #fff;
+  background-color: black;
+  border: 0.5rem outset pink;
+  margin:10%;
+  color: #20d760;
   visibility: hidden;
   opacity: 0;
 
@@ -207,5 +213,5 @@ background-color: aquamarine;
 
 
 #words{
-  margin: 5%;
+  margin: 7%;
 }

@@ -112,7 +112,9 @@ class AllFlags extends Component {
         }}
       ></div>
         </div>
-
+<div>
+  The first pride flag was created by Gilbert Baker in 1978 as a symbol of hope, resilience, and protest
+</div>
           {flags.map(flag => (
           
             <div className="IndivFlagCard" key={flag.id}>
